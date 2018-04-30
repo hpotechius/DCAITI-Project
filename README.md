@@ -1,6 +1,7 @@
 # DCAITI-Project
-Augmented Reality App for Construction Sites and Historical Place
+## Topic: Augmented Reality App for Construction Sites and Historical Place
 
+### Folder Structure
 1. Documentation
 
 2. Planning
