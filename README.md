@@ -13,5 +13,5 @@
 5. Application
 
 > Eine kinderlose Ehe besteht aus Spaßvögeln.
-> ![alttext](https://en.wikipedia.org/wiki/Buddy_Christ#/media/File:Buddy_christ.jpg "KumpelJesus")  
+> ![alttext](https://upload.wikimedia.org/wikipedia/en/9/93/Buddy_christ.jpg "KumpelJesus")  
 > *Jesus*
