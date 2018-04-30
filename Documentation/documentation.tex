@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+
+%---------------------------------------------------------
+%Präambel
+
+%unterstützt Umlaute
+\usepackage[utf8]{inputenc}
+
+%unterstützt deutsche Bezeichnungen: "Abbildung" statt "Figure"
+\usepackage[ngerman]{babel}
+
+%verändert Randbreite
+\usepackage{geometry}
+\geometry{a4paper,left=3cm,right=3cm, top=2cm, bottom=3cm} 
+
+%unterstützt einbinden von Grafiken
+\usepackage{graphicx} 
+
+%Grafiken mit Textumfluss
+%\usepackage {picins}
+
+%unterstützt farbliche Texte und farbliche Hintergründe
+\usepackage{color}
+
+%erlaubt weitere Farben
+\usepackage[dvipsnames]{xcolor}
+
+%leert Platzhalter für Kopft- und Fußzeilen
+% setzt Linien
+\usepackage[headsepline,footsepline]{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+
+%unterstützt Matrizen
+\usepackage{amsmath}
+
+%setzt Punkte im Inhaltsverzeichnis
+\usepackage{tocstyle}
+\newtocstyle[KOMAlike][leaders]{alldotted}{}
+\usetocstyle{alldotted}
+
+%verhindert Einrücken der Zeile nach neuem Absatz
+\parindent0pt
+
+%setzt Kopf- und Fußzeilen
+\ihead{ }
+\chead{\headmark}
+\automark{section}
+\ohead{ }
+\ifoot{ }
+\cfoot{\pagemark}
+\ofoot{ }
+%---------------------------------------------------------
+
+\begin{document}
+
+%Ttelseite
+\begin{titlepage}
+	\centering
+	\includegraphics[width=0.3\textwidth]{Bilder/tub_logo.png}\par\vspace{1cm}
+	{\scshape\LARGE Technische Universität Berlin \par}
+	\vspace{1cm}
+	{\scshape\Large Sommersemester 2018 \par}
+	\vspace{1.5cm}
+	{\huge\bfseries DCAITI Project\par}
+	\vspace{0.5cm}
+	{\Large Argumented Reality for Construction Sites and Historical Places\par}
+	\vspace{2cm}
+	{\Large\itshape Herbert Potechius - 353420\par}
+	{\Large\itshape Max Mustermann - 000000\par}
+	{\Large\itshape Max Mustermann - 000000\par}
+	\vfill
+	supervised by\par
+	Konstantin \textsc{Klipp}
+	\vfill
+	% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+
+%Inhaltverzeichnis
+\tableofcontents
+
+\newpage
+
+%---------------------------------------------------------
+
+\section{Abstract}
+%TODO
+
+\section{Use Case}
+%TODO
+
+\section{User Manual}
+%TODO
+
+\section{Technical Overview}
+%TODO
+
+\section{Planning Phase}
+%TODO
+
+%einfachen Bildeinfügen
+%---------------------------------------------------------
+%%%%\fbox{\includegraphics[width=0.2\textwidth]{pi.png}}
+%---------------------------------------------------------
+
+
+%Bild im Textfluss
+%---------------------------------------------------------
+%\parpic[xy] Parameter:
+%	l=links, r=rechts, f=Rahmen, d=gestrichelter Rahmen, 
+%	o=abgerundeter Rahmen, x=3D-Kasten, s=Schatten
+%%%%\piccaption{Pikachu} 
+%%%%\parpic[rd]{\includegraphics [width=4cm,height=4cm]{pi.png}}
+%---------------------------------------------------------
+
+
+%zentriertes Bild mit Titel
+%---------------------------------------------------------
+%%%%\begin{figure}[htbp] 
+%%%%  \centering
+%%%%     \includegraphics[width=0.3\textwidth]{pi.png}
+%%%%  \caption{Erstes Bild}
+%%%%  \label{fig:Bild1}
+%%%%\end{figure}
+%---------------------------------------------------------
+
+\newpage
+
+\section{Literatur}
+
+\begin{itemize}
+	\item https://www.youtube.com/watch?v=3kemRzfilzk
+	\item https://de.wikibooks.org/wiki/LaTeX-W
+\end{itemize}
+
+\end{document}
