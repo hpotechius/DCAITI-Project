@@ -4,15 +4,15 @@
 ### Folder Structure
 1. **Documentation**
 
-   Contains Latex files and a for the final submission. The PDF contains ... stuff
+   Contains Latex files and a for the final submission. The PDF contains ... *stuff*
 
-2. Planning
+2. **Planning**
 
-3. Presentation
+3. **Presentation**
 
-4. 3D Models
+4. **3D Models**
 
-5. Application
+5. **Application**
 
 ***
 
