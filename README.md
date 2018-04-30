@@ -13,5 +13,5 @@
 5. Application
 
 > Eine kinderlose Ehe besteht aus Spaßvögeln.
-> ![alttext](https://github.com/hpotechius/DCAITI-Project/master/KumpelJesus.png "KumpelJesus")  
+> ![alttext](https://github.com/hpotechius/DCAITI-Project.git/master/KumpelJesus.png "KumpelJesus")  
 > *Jesus*
