@@ -18,6 +18,8 @@
 
 5. **Application**
 
+   contains the code (Smartphone Application and Server)
+
 ***
 
 ### Important Dates
