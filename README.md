@@ -2,7 +2,7 @@
 ## Topic: Augmented Reality App for Construction Sites and Historical Place
 
 ### Folder Structure
-1. Documentation
+1. **Documentation**
 
    Contains Latex files and a for the final submission. The PDF contains ... stuff
 
