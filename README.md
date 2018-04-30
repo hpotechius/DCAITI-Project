@@ -12,6 +12,10 @@
 
 5. Application
 
+
+
+
+###### Zitat des Tages:
 > Eine kinderlose Ehe besteht aus Spaßvögeln.  
 > *Kumpel Jesus*  
 > <img src="https://upload.wikimedia.org/wikipedia/en/9/93/Buddy_christ.jpg" width="200">  
