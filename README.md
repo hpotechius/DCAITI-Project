@@ -20,13 +20,6 @@
 
 ***
 
-###### Zitat des Tages:
-> Eine kinderlose Ehe besteht aus Spaßvögeln.  
-> *Kumpel Jesus*  
-> <img src="https://upload.wikimedia.org/wikipedia/en/9/93/Buddy_christ.jpg" width="200">  
-
-***
-
 ### Important Dates
 
 | Date          | Content          									       |
@@ -36,4 +29,10 @@
 | 11.07.18      | Abschlussvorstellung der verbesserten Lösung             |
 | 17.08.18      | Fester und letzter Abgabetermin bis spätestens 22:00 Uhr |
 
+***
+
+###### Zitat des Tages:
+> Eine kinderlose Ehe besteht aus Spaßvögeln.  
+> *Kumpel Jesus*  
+> <img src="https://upload.wikimedia.org/wikipedia/en/9/93/Buddy_christ.jpg" width="200">  
 
