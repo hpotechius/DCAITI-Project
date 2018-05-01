@@ -19,6 +19,10 @@
 5. **Application**
 
    contains the code (Smartphone Application and Server)
+   
+6. **Literature**
+
+   papers, documentations, tutorials etc. pp.
 
 ***
 
