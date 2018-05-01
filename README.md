@@ -39,6 +39,7 @@
 
 ### Examination
 
+|------------------------------|-----|
 | Implementation (source code) | 40% |
 | Documentation (7-8 pages)    | 30% |
 | 3 presentations              | 30% |
