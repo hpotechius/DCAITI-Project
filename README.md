@@ -28,7 +28,7 @@
 
 ### Important Dates
 
-| Date          | Content          									       |
+| Date          | Content          									       |:ballot_box_with_check:
 |:-------------:|----------------------------------------------------------|
 | 02.05.18      | Vorstellung der Projektthemen und Lösungsansätze         |
 | 06.06.18      | Vorstellung der Lösung in der ersten Iteration           |          
