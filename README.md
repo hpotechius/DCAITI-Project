@@ -28,12 +28,12 @@
 
 ### Important Dates
 
-| Date          | Content          									       |:ballot_box_with_check:
-|:-------------:|----------------------------------------------------------|
-| 02.05.18      | Vorstellung der Projektthemen und Lösungsansätze         |
-| 06.06.18      | Vorstellung der Lösung in der ersten Iteration           |          
-| 11.07.18      | Abschlussvorstellung der verbesserten Lösung             |
-| 17.08.18      | Fester und letzter Abgabetermin bis spätestens 22:00 Uhr |
+| Date          | Content          									       |				       |
+|:-------------:|----------------------------------------------------------|-----------------------|
+| 02.05.18      | Vorstellung der Projektthemen und Lösungsansätze         |:ballot_box_with_check:|
+| 06.06.18      | Vorstellung der Lösung in der ersten Iteration           |                       |
+| 11.07.18      | Abschlussvorstellung der verbesserten Lösung             |                       |
+| 17.08.18      | Fester und letzter Abgabetermin bis spätestens 22:00 Uhr |                       |
 
 ***
 
