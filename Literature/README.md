@@ -11,7 +11,7 @@
 1. ???
 
 ### Android
-1. ???
+1. https://www.youtube.com/watch?v=Z2vrioEr9OI (Camera Init)
 
 ### iOS
 1. ???
