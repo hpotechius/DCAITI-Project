@@ -10,3 +10,5 @@
 6. Go to *File*->*Project Structure*, choose *app*, go to *Dependencies* and add the openCVLibrary
 7. Add the JAR libraries to *app/libs* and import **commons-collections**, **commons-configuration**, **commons-lang** and **org-apache-commons-logging** (same way as step 6)
 8. create folder *jniLibs* in *app/src/main* and add **armeabi**, **armeabi-v7a** etc from your OpenCvSDK folder
+9. change *minSdkVersion*, *targetSdkVersion* and *compileSdkVersion* in *build.grade (OpenCV)* to the values in *build.grade (app)*
+10. add  *ndk {abiFilters "armeabi-v7a"}* and *sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jniLibs/'] } }* to *build.grade (app)*
