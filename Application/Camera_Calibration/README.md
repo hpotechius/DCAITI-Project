@@ -7,3 +7,6 @@ Don't forget to choose the correct resolution (! you have to calibrate your came
 
 The following intrinsic camera parameters will be calculated:  
 * f_x and f_y (camera focal length)
+* c_x and c_y (optical centers in pixel coordinates)
+* k_1, k_2 and k_3 (radial distortion)
+* p_1 and p_2 (tangential distortion)
