@@ -2,6 +2,7 @@
 
 ### ArUco
 1. https://www.uco.es/investiga/grupos/ava/node/26 (General Information)
+2. https://docs.opencv.org/3.4.0/d5/dae/tutorial_aruco_detection.html (Marker Detection)
 
 ### C++
 1. ???
