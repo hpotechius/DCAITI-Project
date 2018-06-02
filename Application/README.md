@@ -8,4 +8,5 @@
 4. Download **OpenCvSDK**
 5. Go to *File*->*New*->*Import Module* and select OpenCvSDK
 6. Go to *File*->*Project Structure*, choose *app*, go to *Dependencies* and add the openCVLibrary
-7. Add the JAR libraries **commons-collections**, **commons-configuration**, **commons-lang** and **org-apache-commons-logging** (same way as step 6)
+7. Add the JAR libraries to *app/libs* and import **commons-collections**, **commons-configuration**, **commons-lang** and **org-apache-commons-logging** (same way as step 6)
+8. create folder *jniLibs* in *app/src/main* and add **armeabi**, **armeabi-v7a** etc from your OpenCvSDK folder
