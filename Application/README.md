@@ -6,3 +6,4 @@
 2. Start a new project with **include C++ support**
 3. Open Android Studio and go to the **SDK Manager** and install **CMake** and **NDK**
 4. Download **OpenCvSDK**
+5. Go to *File*->*New*->*Import Module* and select OpenCvSDK
