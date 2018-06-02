@@ -7,7 +7,7 @@
 3. Open Android Studio and go to the **SDK Manager** and install **CMake** and **NDK**
 4. Download **OpenCvSDK**
 5. Go to *File*->*New*->*Import Module* and select OpenCvSDK
-6. Go to *File*->*Project Structure*, choose *app*, go to *Dependencies* and add the openCVLibrary
+6. Go to *File*->*Project Structure*, choose *app*, go to *Dependencies* and add the openCVLibrary (manuell über *settings.gradle* mit der Zeile *include ':app', ':your_module_name'*)
 7. Add the JAR libraries to *app/libs* and import **commons-collections**, **commons-configuration**, **commons-lang** and **org-apache-commons-logging** (same way as step 6)
 8. create folder *jniLibs* in *app/src/main* and add **armeabi**, **armeabi-v7a** etc from your OpenCvSDK folder
 9. change *minSdkVersion*, *targetSdkVersion* and *compileSdkVersion* in *build.grade (OpenCV)* to the values in *build.grade (app)*
