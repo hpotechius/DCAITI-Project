@@ -1,0 +1,3 @@
+## Markers
+
+This folder contains 100 Aruco marker. Note that the file name doesn't correspond to the marker ID.
