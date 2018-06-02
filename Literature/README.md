@@ -22,3 +22,5 @@
 
 ### MISC
 1. https://de.wikipedia.org/wiki/Douglas-Peucker-Algorithmus (Marker Detection - Reduction of contour points)
+2. https://de.wikipedia.org/wiki/Wavefront_OBJ (3D Models - content of .obj)
+3. https://www.models-resource.com/nintendo_64/legendofzeldaocarinaoftime/ (3D Models - source for sample models)
