@@ -18,6 +18,7 @@
 
 ### OpenCV
 1. https://docs.opencv.org/3.4.0/d7/d4d/tutorial_py_thresholding.html (Image Processing)
+2. https://docs.opencv.org/2.4/doc/tutorials/imgproc/threshold/threshold.html (Image Processing - Image Thresholding)
 
 ### MISC
 1. https://de.wikipedia.org/wiki/Douglas-Peucker-Algorithmus (Marker Detection - Reduction of contour points)
