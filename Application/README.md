@@ -1,3 +1,3 @@
 ## Application
 
-## Android Studio Initialisation (with Aruco and OpenCV)
+# Android Studio Initialisation (with Aruco and OpenCV)
