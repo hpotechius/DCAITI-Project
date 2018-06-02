@@ -6,4 +6,4 @@ Don't forget to choose the correct resolution (! you have to calibrate your came
 ![alt text](https://github.com/hpotechius/DCAITI-Project/blob/master/Application/Camera_Calibration/pattern_chessboard.png)
 
 The following intrinsic camera parameters will be calculated:  
-* f_x camera focal length
+* f_x and f_y (camera focal length)
