@@ -12,6 +12,8 @@
 
 ### Android
 1. https://www.youtube.com/watch?v=Z2vrioEr9OI (Camera Init)
+2. https://www.youtube.com/watch?v=Vp20EdU5qjU (OpenCV Init with C++ support)
+3. https://developer.android.com/studio/ (Android Studio download page)
 
 ### iOS
 1. ???
@@ -19,6 +21,7 @@
 ### OpenCV
 1. https://docs.opencv.org/3.4.0/d7/d4d/tutorial_py_thresholding.html (Image Processing)
 2. https://docs.opencv.org/2.4/doc/tutorials/imgproc/threshold/threshold.html (Image Processing - Image Thresholding)
+3. https://opencv.org (OpenCV download page)
 
 ### MISC
 1. https://de.wikipedia.org/wiki/Douglas-Peucker-Algorithmus (Marker Detection - Reduction of contour points)
