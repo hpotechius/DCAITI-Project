@@ -15,14 +15,11 @@
  */
 package es.ava.aruco;
 
-import es.ava.aruco.CameraParameters;
-import es.ava.aruco.Marker;
 import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
-import org.opencv.core.MatOfDouble;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.MatOfPoint2f;
 import org.opencv.core.Point;
@@ -30,6 +27,10 @@ import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
 public class MarkerDetector {
+
+    /**************************************************************************
+     * variables
+     **************************************************************************/
     private double thresParam1 = 7.0;
     private double thresParam2 = 7.0;
     private thresSuppMethod thresMethod = thresSuppMethod.ADPT_THRES;
@@ -41,7 +42,10 @@ public class MarkerDetector {
     private static final double MIN_DISTANCE = 10.0;
     private static /* synthetic */ int[] $SWITCH_TABLE$es$ava$aruco$MarkerDetector$thresSuppMethod;
 
-    public void detect(Mat in, Vector<Marker> detectedMarkers, CameraParameters cp, float markerSizeMeters, Mat frameDebug) {
+    /**************************************************************************
+     * detect marker on image
+     **************************************************************************/
+    public Mat detect(Mat in, Vector<Marker> detectedMarkers, CameraParameters cp, float markerSizeMeters, Mat frameDebug) {
         Vector<Marker> candidateMarkers = new Vector<Marker>();
         Vector<Marker> newMarkers = new Vector<Marker>();
         Imgproc.cvtColor((Mat)in, (Mat)this.grey, (int)11);
@@ -192,26 +196,43 @@ public class MarkerDetector {
         }
         detectedMarkers.setSize(newMarkers.size());
         Collections.copy(detectedMarkers, newMarkers);
+
+        return this.thres;
     }
 
+    /**************************************************************************
+     * ...
+     **************************************************************************/
     public void setThresholdParams(double p1, double p2) {
         this.thresParam1 = p1;
         this.thresParam2 = p2;
     }
 
+    /**************************************************************************
+     * ...
+     **************************************************************************/
     public double[] getThresholdParams() {
         double[] ret = new double[]{this.thresParam1, this.thresParam2};
         return ret;
     }
 
+    /**************************************************************************
+     * ...
+     **************************************************************************/
     public void setThresholdMethod(thresSuppMethod method) {
         this.thresMethod = method;
     }
 
+    /**************************************************************************
+     * ...
+     **************************************************************************/
     public thresSuppMethod getThresholdMethod() {
         return this.thresMethod;
     }
 
+    /**************************************************************************
+     * ...
+     **************************************************************************/
     private void thresHold(thresSuppMethod method, Mat src, Mat dst) {
         switch (MarkerDetector.$SWITCH_TABLE$es$ava$aruco$MarkerDetector$thresSuppMethod()[method.ordinal()]) {
             case 1: {
@@ -228,6 +249,9 @@ public class MarkerDetector {
         }
     }
 
+    /**************************************************************************
+     * ...
+     **************************************************************************/
     private void warp(Mat in, Mat out, Size size, List<Point> points) {
         Mat pointsIn = new Mat(4, 1, CvType.CV_32FC2);
         Mat pointsRes = new Mat(4, 1, CvType.CV_32FC2);
@@ -238,6 +262,9 @@ public class MarkerDetector {
         Imgproc.warpPerspective((Mat)in, (Mat)out, (Mat)m, (Size)size);
     }
 
+    /**************************************************************************
+     * ...
+     **************************************************************************/
     static /* synthetic */ int[] $SWITCH_TABLE$es$ava$aruco$MarkerDetector$thresSuppMethod() {
         int[] arrn;
         int[] arrn2 = $SWITCH_TABLE$es$ava$aruco$MarkerDetector$thresSuppMethod;
@@ -261,11 +288,13 @@ public class MarkerDetector {
         return $SWITCH_TABLE$es$ava$aruco$MarkerDetector$thresSuppMethod;
     }
 
+    /**************************************************************************
+     * ...
+     **************************************************************************/
     private static enum thresSuppMethod {
         FIXED_THRES("FIXED_THRES", 0), 
         ADPT_THRES("ADPT_THRES", 1), 
         CANNY("CANNY", 2);
-        
 
         private thresSuppMethod(String string2, int n2) {
         }

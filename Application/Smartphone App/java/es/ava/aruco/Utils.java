@@ -25,14 +25,14 @@ import es.ava.aruco.exceptions.ExtParamException;
  *
  */
 public abstract class Utils {
-	
-	/**
+
+	/**************************************************************************
 	 * Performs the product in 2 matrix with column major-order and stores the result
 	 * in a third one. Used to carry out the rotation in a modelView matrix in OpenGL.
 	 * @param a matrix A
 	 * @param b matrix B
 	 * @param dst resulting matrix
-	 */
+	 **************************************************************************/
 	protected static void matrixProduct(double[] a, double[] b, double dst[]){
         for(int i=0;i<4;i++)
         {
@@ -46,7 +46,10 @@ public abstract class Utils {
             }
         }
 	}
-	    
+
+	/**************************************************************************
+	 * change the orientation of the marker by rotating in x-axis
+	 **************************************************************************/
 	protected static void rotateXAxis(Mat rotation){
 		// get the matrix corresponding to the rotation vector
 		Mat R = new Mat(3,3,CvType.CV_32FC1);
@@ -77,7 +80,10 @@ public abstract class Utils {
         res.put(0, 0, prod);
 		Calib3d.Rodrigues(res, rotation);
 	}
-	
+
+	/**************************************************************************
+	 * caluclate model-view matrix
+	 **************************************************************************/
 	public static void glGetModelViewMatrix(double[] modelview_matrix, Mat Rvec, Mat Tvec)throws ExtParamException{
 	    //check if parameters are valid
 	    boolean invalid=false;
@@ -149,7 +155,10 @@ public abstract class Utils {
 //	    };
 //	    Utils.matrixProduct(modelview_matrix1, auxRotMat, modelview_matrix);
 	}
-	
+
+	/**************************************************************************
+	 * calculates projection matrix
+	 **************************************************************************/
 	public static void myProjectionMatrix(CameraParameters cp, Size size,
 			double proj_matrix[], double gnear, double gfar) throws CPException, ExtParamException{
 		if(cp.isValid() == false)
@@ -176,8 +185,10 @@ public abstract class Utils {
 		proj_matrix[14] = -2*gfar*gnear / (gfar-gnear);
 		proj_matrix[15] = 0;
 	}
-	
-	// for debugging
+
+	/**************************************************************************
+	 * return identity matrix
+	 **************************************************************************/
 	public static void glIdentityMatrix(double[] m){
 		m[0] = 1;
 		m[1] = 0;
@@ -196,13 +207,18 @@ public abstract class Utils {
 		m[14] = -5;
 		m[15] = 1;
 	}
-	
-	// default invert = false
+
+	/**************************************************************************
+	 * caluclate projection matrix
+	 **************************************************************************/
     public static void glGetProjectionMatrix(CameraParameters cp, Size orgImgSize, Size size, double proj_matrix[],
     		double gnear, double gfar) throws CPException, ExtParamException{	
     	glGetProjectionMatrix(cp, orgImgSize, size, proj_matrix, gnear, gfar, false);
     }
-    
+
+	/**************************************************************************
+	 * caluclate projection matrix
+	 **************************************************************************/
     public static void glGetProjectionMatrix(CameraParameters cp, Size orgImgSize, Size size, double proj_matrix[],
     		double gnear, double gfar, boolean invert) throws CPException, ExtParamException{
         if (cp.isValid()==false)
@@ -227,7 +243,10 @@ public abstract class Utils {
 
         argConvGLcpara2( cparam, size.width, size.height, gnear, gfar, proj_matrix, invert );
     }
-    
+
+	/**************************************************************************
+	 * draw x-, y- and z-axis on marker
+	 **************************************************************************/
 	public static void draw3dAxis(Mat frame, CameraParameters cp, Scalar color, double height, Mat Rvec, Mat Tvec){
 //		Mat objectPoints = new Mat(4,3,CvType.CV_32FC1);
 		MatOfPoint3f objectPoints = new MatOfPoint3f();
@@ -237,10 +256,9 @@ public abstract class Utils {
 		points.add(new Point3(0,     height,0));
 		points.add(new Point3(0,     0,     height)); 
 		objectPoints.fromList(points);
-		
+
 		MatOfPoint2f imagePoints = new MatOfPoint2f();
-		Calib3d.projectPoints( objectPoints, Rvec, Tvec,
-				cp.getCameraMatrix(), cp.getDistCoeff(), imagePoints);
+		Calib3d.projectPoints( objectPoints, Rvec, Tvec, cp.getCameraMatrix(), cp.getDistCoeff(), imagePoints);
 		List<Point> pts = new Vector<Point>();
 		Converters.Mat_to_vector_Point(imagePoints, pts);
 
@@ -252,7 +270,10 @@ public abstract class Utils {
 		Core.putText(frame, "Y", pts.get(2), Core.FONT_HERSHEY_SIMPLEX, 0.5,  color,2);
 		Core.putText(frame, "Z", pts.get(3), Core.FONT_HERSHEY_SIMPLEX, 0.5,  color,2);
 	}
-    
+
+	/**************************************************************************
+	 * ...
+	 **************************************************************************/
 	private static void argConvGLcpara2(double[][] cparam, double width, double height, double gnear,
 			double gfar, double[] m, boolean invert) throws ExtParamException{
 		double[][] icpara = new double[3][4];
@@ -311,8 +332,10 @@ public abstract class Utils {
 	        m[9]=-m[9];
 	    }
 	}
-	
-	
+
+	/**************************************************************************
+	 * ...
+	 **************************************************************************/
 	private static int arParamDecompMat(double[][] source, double[][] cpara, double[][] trans){
 	    int        r, c;
 	    double[][] Cpara = new double[3][4];
@@ -375,18 +398,27 @@ public abstract class Utils {
 
 	    return 0;
 	}
-	
+
+	/**************************************************************************
+	 * norm of three doubles
+	 **************************************************************************/
 	private static double norm( double a, double b, double c )
 	{
 	    return( Math.sqrt( a*a + b*b + c*c ) );
 	}
-	
+
+	/**************************************************************************
+	 * dot product of three doubles
+	 **************************************************************************/
 	private static double dot( double a1, double a2, double a3,
             double b1, double b2, double b3 )
 	{
 		return( a1 * b1 + a2 * b2 + a3 * b3 );
 	}
 
+	/**************************************************************************
+	 * correct the orientation of the detected marker
+	 **************************************************************************/
 	public static void alignToId(Mat rotation, int codeRotation) {
 		//get the matrix corresponding to the rotation vector
 		Mat R = new Mat(3, 3, CvType.CV_64FC1);
@@ -415,6 +447,16 @@ public abstract class Utils {
 		// convert the matrix to a vector with rodrigues back
 		res.put(0, 0, prod);
 		Calib3d.Rodrigues(res, rotation);
+	}
+
+	/**************************************************************************
+	 * change contrast with gain and brightness with bias
+	 * newImage = (oldImage * gain) + bias
+	 **************************************************************************/
+	public static Mat changeContrastAndBrightness(Mat src, float gain, int bias){
+		Core.multiply(src,new Scalar(gain),src);
+		Core.add(src, new Scalar(bias),src);
+		return src;
 	}
 
 }

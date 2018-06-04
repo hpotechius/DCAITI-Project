@@ -22,21 +22,25 @@ import es.ava.aruco.exceptions.CPException;
  */
 public class CameraParameters {
 
-	// cameraMatrix will be of the form
-	// | Fx 0  Cx |
-	// | 0  Fy Cy |
-	// | 0  0   1 |
+	/**************************************************************************
+	 * variables
+	 **************************************************************************/
 	private Mat cameraMatrix;
 	private MatOfDouble distorsionMatrix;
 	private Size camSize;
-	
+
+	/**************************************************************************
+	 * constructor
+	 **************************************************************************/
 	public CameraParameters(){
+		camSize = new Size(1280,720);
 		cameraMatrix = new Mat(3,3,CvType.CV_32FC1);
 		distorsionMatrix = new MatOfDouble();
 	}
-	
-    /**Indicates whether this object is valid
-     */
+
+	/**************************************************************************
+	 * indicates whether this object is valid
+	 **************************************************************************/
     public boolean isValid(){
     	if(cameraMatrix != null)
     		return cameraMatrix.rows()!=0 && cameraMatrix.cols()!=0  && 
@@ -44,33 +48,10 @@ public class CameraParameters {
     	else
     		return false;
     }
-	
-	public Mat getCameraMatrix(){
-		return cameraMatrix;
-	}
 
-	public void setCameraMatrix(){
-		this.cameraMatrix = new Mat( 3, 3, CvType.CV_32FC1 );
-        int row = 0, col = 0;
-        this.cameraMatrix.put(row ,col, 1.2519588293098975e+03, 0., 6.6684948780852471e+02, 0., 1.2519588293098975e+03 ,3.6298123112613683e+02 ,0., 0., 1.);
-		//this.cameraMatrix.put(row ,col, 1.01e+03, 0., 994., 0., 573. ,370. ,0., 0., 1.);
-		/*this.cameraMatrix.put(row ,col, 687.3947280788832 , 0.0 , 660.0309353676239 ,
-				0.0 , 2787.2100498863965 , 360.99900846632625 ,
-				0.0 , 0.0 , 1.0);*/
-	}
-
-    public void setDistCoeff(){
-        //double[] coeffArray = {1.3569117181595716e-01 ,-8.2513063822554633e-01, 0. ,0.,1.6412101575010554e+00};
-		double[] coeffArray = { 0. , 0., 0. ,0., 0.};
-		//double[] coeffArray = { -0.53 , 2.95, 0.0257 ,-0.0795, -4.4};
-		//double[] coeffArray = {-1.9763657253595714 , 5.228824955085057 , -0.051838638813433376 , 0.28558541853493635 , 93.07489571832211};
-        distorsionMatrix.fromArray(coeffArray);
-    }
-	
-	public MatOfDouble getDistCoeff(){
-		return distorsionMatrix;
-	}
-	
+	/**************************************************************************
+	 * change camera matrix relative to new resolution
+	 **************************************************************************/
 	public void resize(Size size) throws CPException{
 	    if (!isValid()) 
 	    	throw new CPException("invalid object CameraParameters::resize");
@@ -87,7 +68,10 @@ public class CameraParameters {
 				        current[6],          current[7],          current[8]};
 		cameraMatrix.put(0, 0, buff);
 	}
-	
+
+	/**************************************************************************
+	 * read intrinsic parameters from XML-file
+	 **************************************************************************/
 	public void readFromXML(String filepath){		
 		File file = new File(filepath);
 
@@ -123,5 +107,33 @@ public class CameraParameters {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	/**************************************************************************
+	 * getter & setter
+	 **************************************************************************/
+	public Mat getCameraMatrix(){
+		return cameraMatrix;
+	}
+
+    // | Fx 0  Cx |
+    // | 0  Fy Cy |
+    // | 0  0   1 |
+	public void setCameraMatrix(){
+		this.cameraMatrix = new Mat( 3, 3, CvType.CV_32FC1 );
+		int row = 0, col = 0;
+		// for 1270 x 720
+		//this.cameraMatrix.put(row ,col, 1.2519588293098975e+03, 0., 6.6684948780852471e+02, 0., 1.2519588293098975e+03 ,3.6298123112613683e+02 ,0., 0., 1.);
+		// for 320 x 240
+		this.cameraMatrix.put(row ,col, 285.0, 0., 152.0, 0., 282.0 ,131.0 ,0., 0., 1.);
+	}
+
+	public void setDistCoeff(){
+		double[] coeffArray = { 0. , 0., 0. ,0., 0.};
+		distorsionMatrix.fromArray(coeffArray);
+	}
+
+	public MatOfDouble getDistCoeff(){
+		return distorsionMatrix;
 	}
 }

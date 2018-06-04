@@ -8,6 +8,7 @@ import android.opengl.GLU;
 import android.content.Context;
 import android.util.Log;
 
+import org.opencv.core.Mat;
 import org.opencv.core.Size;
 
 import javax.microedition.khronos.egl.EGLConfig;
@@ -26,14 +27,25 @@ public class MyGLRenderer implements GLSurfaceView.Renderer{
      * Variables
      **************************************************************************/
     private static final String TAG="MainActivity";
-    private ObjectModel model;
-    private String fileName = "chest";
+    private static String[] fileNames = {"anju","chest"};
+    public static Integer[] markerIDs = {256, 560};
+    public static String[] info = {"INFOTEXT1", "Der „schlechteste Regisseur der Welt“ hat verkündet, mit „Rampage: President Down“ sei seine Filmkarriere beendet. Viele werden das nicht bedauern. Aber ein paar Tränen kann man ihm schon nachweinen."};
+    public static Float[] scales = {10.0f,500.0f};
+    public static Boolean[] visible = {false, false};
+    private ObjectModel[] models;
+    public static Mat[] rotationMatrices;
+    public static Mat[] translationMatrices;
 
     /**************************************************************************
      * Contructor
      **************************************************************************/
     public MyGLRenderer(Context context) {
-        model = new ObjectModel(context, fileName);
+        models = new ObjectModel[fileNames.length];
+        rotationMatrices = new Mat[fileNames.length];
+        translationMatrices = new Mat[fileNames.length];
+
+        for(int i = 0; i < fileNames.length; i++)
+            models[i] = new ObjectModel(context, fileNames[i]);
     }
 
     /**************************************************************************
@@ -42,16 +54,20 @@ public class MyGLRenderer implements GLSurfaceView.Renderer{
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);        // set colors clear-value to black
+
         gl.glEnable(GL10.GL_CULL_FACE);                 // ???
         gl.glClearDepthf(1.0f);                         // set depths clear-value to farthest
         gl.glEnable(GL10.GL_DEPTH_TEST);                // Enables depth-buffer for hidden surface removal
         gl.glDepthFunc(GL10.GL_LEQUAL);                 //The type of depth testing to do
+        gl.glDepthMask( true );
         gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST); // nice perspective view
         gl.glShadeModel(GL10.GL_SMOOTH);                // Enable smooth shading of color
         gl.glDisable(GL10.GL_DITHER);                   // Disable dithering for better performance
 
         // Setup Texture, each time the surface is created
-        model.loadTexture(gl);              // load images into textures
+        for(int i = 0; i < models.length; i++)
+            models[i].loadTexture(gl);
+
         gl.glEnable(GL10.GL_TEXTURE_2D);                // Enable texture
     }
 
@@ -60,7 +76,8 @@ public class MyGLRenderer implements GLSurfaceView.Renderer{
      **************************************************************************/
     @Override
     public void onSurfaceChanged(GL10 gl, int width, int height) {
-        if (height == 0) height = 1;    // to prevent divide by zero
+        if (height == 0)
+            height = 1;    // to prevent divide by zero
 
         float aspect = (float) width / height;
         Log.d(TAG, String.valueOf(width));
@@ -76,8 +93,10 @@ public class MyGLRenderer implements GLSurfaceView.Renderer{
         CameraParameters cp = new CameraParameters();
         cp.setCameraMatrix();
         cp.setDistCoeff();
-        double gnear = 0.1;
-        double gfar = 100000.0;
+
+        // gnear should be greater than 0.1 -> otherwise texture edges begin to flicker
+        double gnear = 10.0;
+        double gfar = 10000.0;
         // get the cameraMatrix
         double[] proj_matrix = new double[16];
         float[] proj_matrixF = new float[16];
@@ -85,7 +104,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer{
         //GLU.gluPerspective(gl,45,aspect,0.1f,100000.f);
 
         try {
-            Utils.glGetProjectionMatrix(cp,new Size(480,320),new Size(480,320),proj_matrix,gnear,gfar);
+            Utils.glGetProjectionMatrix(cp,new Size(320  ,240),new Size(320  ,240),proj_matrix,gnear,gfar);
         } catch (CPException e) {
             e.printStackTrace();
         } catch (ExtParamException e) {
@@ -103,11 +122,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer{
 
         gl.glMatrixMode(GL10.GL_MODELVIEW);         // select model-view matrix
         gl.glLoadIdentity();                        // reset
-
-        // You OpenGL/ES display re-sizing code here
     }
-
-    private final float[] mViewMatrix = new float[16];
 
     /**************************************************************************
      * call back to draw the current frame
@@ -121,62 +136,25 @@ public class MyGLRenderer implements GLSurfaceView.Renderer{
         gl.glMatrixMode(GL_MODELVIEW);
         //gl.glLoadIdentity();            // Reset the model-view matrix
 
-        //gl.glRotatef(angleCube, 0.0f, 1.0f, 0.0f); // rotate
+        for(int i = 0; i < markerIDs.length; i++){
+            if(visible[i] == true && rotationMatrices[i] != null && translationMatrices[i] != null){
+                double[] proj_matrix = new double[16];
+                float[] proj_matrixF = new float[16];
+                try {
+                    Utils.glGetModelViewMatrix(proj_matrix, rotationMatrices[i], translationMatrices[i]);
+                } catch (ExtParamException e) {
+                    e.printStackTrace();
+                }
+                for(int j=0;j<16;j++){
+                    Double n = Double.valueOf(proj_matrix[j]);
+                    proj_matrixF[j] = n.floatValue();
+                }
+                gl.glLoadMatrixf(proj_matrixF,0);
+                gl.glRotatef( 90.0f , 1.0f, 0.0f, 0.0f); // rotate
+                gl.glScalef(scales[i],scales[i],scales[i]);
 
-        //gl.glRotatef((float)Math.toDegrees(MainActivity.rotX), 0.0f, 0.0f, 1.0f); // rotate
-
-        //float roZ = (float)(Math.toDegrees(MainActivity.rotZ) / 80.0f * 180.0f);
-        //gl.glRotatef(roZ, 0.0f, 0.0f, 1.0f); // rotate
-
-        //float ro = -(float)(Math.toDegrees(MainActivity.rotY) / 163.0f * 180.0f);
-        //gl.glRotatef( ro , 0.0f, 1.0f, 0.0f); // rotate
-
-        //gl.glRotatef((float)Math.toDegrees(MainActivity.rotZ), 0.0f, 0.0f, 1.0f); // rotate
-
-        /*gl.glRotatef((float)Math.toDegrees(MainActivity.rotX), 0.0f, 0.0f, 1.0f); // rotate
-        gl.glRotatef((float)Math.toDegrees(MainActivity.rotY), 0.0f, 1.0f, 0.0f); // rotate
-        gl.glRotatef((float)Math.toDegrees(MainActivity.rotZ), 1.0f, 0.0f, 0.0f); // rotate*/
-
-        //gl.glRotatef( -90.0f , 1.0f, 0.0f, 0.0f); // rotate
-
-        /*float cz = (float) Math.cos(MainActivity.rotX);
-        float cy = (float) Math.cos(MainActivity.rotY);
-        float cx = (float) Math.cos(MainActivity.rotZ);
-        float sz = (float) Math.sin(MainActivity.rotX);
-        float sy = (float) Math.sin(MainActivity.rotY);
-        float sx = (float) Math.sin(MainActivity.rotZ);*/
-
-        /*float rotationMatrix[] =
-                {cy*cz , sx*sy*cz+cx*sz , -sy*cx*cz+sx*sz , 0.0f,
-                -cy*sz , -sx*sy*sz+cx*cz  , sy*cx*sz+sx*cz  , 0.0f,
-                sy     , -sx*cy          , cx*cy          , 0.0f,
-                 MainActivity.transX   , MainActivity.transY            ,  -MainActivity.transZ       , 1.0f};*/
-
-        /*float rotationMatrix[] =
-                {cy*cz , sx*sy*cz-cx*sz , sy*cx*cz+sx*sz , 0.0f,
-                cy*sz , sx*sy*sz+cx*cz  , sy*cx*sz-sx*cz  , 0.0f,
-                -sy     , sx*cy          , cx*cy          , 0.0f,
-                 MainActivity.transX   , MainActivity.transY            ,  -MainActivity.transZ       , 1.0f};*/
-
-
-        if(MainActivity.rot != null && MainActivity.trans != null){
-            double[] proj_matrix = new double[16];
-            float[] proj_matrixF = new float[16];
-            try {
-                Utils.glGetModelViewMatrix(proj_matrix, MainActivity.rot, MainActivity.trans);
-            } catch (ExtParamException e) {
-                e.printStackTrace();
+                models[i].draw(gl);
             }
-            for(int i=0;i<16;i++){
-                Double n = Double.valueOf(proj_matrix[i]);
-                proj_matrixF[i] = n.floatValue();
-            }
-            gl.glLoadMatrixf(proj_matrixF,0);
         }
-
-        gl.glRotatef( 90.0f , 1.0f, 0.0f, 0.0f); // rotate
-        gl.glScalef(600.0f,600.0f,600.0f);
-
-        model.draw(gl);
     }
 }

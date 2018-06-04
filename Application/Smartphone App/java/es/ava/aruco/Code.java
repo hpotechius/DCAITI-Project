@@ -8,12 +8,22 @@ package es.ava.aruco;
  *
  */
 public class Code {// TODO check if the parameters are in range
+
+	/**************************************************************************
+	 * variables
+	 **************************************************************************/
 	protected int[][] code;
-	
+
+	/**************************************************************************
+	 * constructor
+	 **************************************************************************/
 	protected Code(){
 		code = new int[7][7];
 	}
-	
+
+	/**************************************************************************
+	 * getter & setter
+	 **************************************************************************/
 	protected void set(int x, int y, int value){
 		code[x][y] = value;
 	}
@@ -21,7 +31,10 @@ public class Code {// TODO check if the parameters are in range
 	protected int get(int x, int y){
 		return code[x][y];
 	}
-	
+
+	/**************************************************************************
+	 * change orientation of marker
+	 **************************************************************************/
 	static protected Code rotate(Code in){
 		Code out = new Code();
 		for(int i=0;i<7;i++)

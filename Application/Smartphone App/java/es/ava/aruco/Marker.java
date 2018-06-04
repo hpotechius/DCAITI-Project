@@ -29,7 +29,10 @@ import es.ava.aruco.exceptions.ExtParamException;
  *
  */
 public class Marker extends MatOfPoint2f implements Comparable<Marker>{
-	
+
+	/**************************************************************************
+	 * variables
+	 **************************************************************************/
 	private static final long serialVersionUID = 1L;
 	protected int id;
 	protected float ssize;
@@ -43,7 +46,10 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 	private Mat Tvec;
 	
 	private Vector<Point> points;
-	
+
+	/**************************************************************************
+	 * contructor
+	 **************************************************************************/
 	public Marker(float size, Vector<Point> p){
 		id = -1;
 		ssize = size;
@@ -59,27 +65,17 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 		this.fromList(points);
 	}
 
-	public Mat getRotation(){
-		return this.Rvec;
-	}
-
-
-	public Mat getTranslation(){
-		return this.Tvec;
-	}
-
-	public Vector<Point> getPoints(){
-		return this.points;
-	}
-	
+	/**************************************************************************
+	 * draw the edges of the marker
+	 **************************************************************************/
 	public void draw(Mat in, Scalar color, int lineWidth, boolean writeId){
 	    if (total()!=4)
 	    	return;
 
-		Core.circle(in, points.get(0), 10, new Scalar(255.0f,0.0f,0.0f));
+		/*Core.circle(in, points.get(0), 10, new Scalar(255.0f,0.0f,0.0f));
 		Core.circle(in, points.get(1), 10, new Scalar(255.0f,255.0f,0.0f));
 		Core.circle(in, points.get(2), 10, new Scalar(0.0f,255.0f,255.0f));
-		Core.circle(in, points.get(3), 10, new Scalar(255.0f,255.0f,0.0f));
+		Core.circle(in, points.get(3), 10, new Scalar(255.0f,255.0f,0.0f));*/
 	    // TODO loop¿?
 	    for(int i=0;i<4;i++){
 
@@ -100,12 +96,12 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 			Core.putText(in,cad, cent,Core.FONT_HERSHEY_SIMPLEX, 0.5,  color,2);
 	    }
 	}
-	
-	/**
+
+	/**************************************************************************
 	 * returns the perimeter of the marker, the addition of the distances between
 	 * consecutive points.
 	 * @return the perimeter.
-	 */
+	 **************************************************************************/
 	public double perimeter(){
 		double sum=0;
 		for(int i=0;i<total();i++){
@@ -116,15 +112,10 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 		}
 		return sum;
 	}
-	
-	/**
-	 * method to access the id, this only returns the id. Doesn't calculate it.
-	 * @return the marker id.
-	 */
-	public int getMarkerId(){
-		return id;
-	}
-	
+
+	/**************************************************************************
+	 * ???
+	 **************************************************************************/
 	public static Mat createMarkerImage(int id,int size) throws CvException	{
 	    if (id>=1024)
 	    	throw new CvException("id out of range");
@@ -145,7 +136,10 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 	    }
 	    return marker;
 	}
-		
+
+	/**************************************************************************
+	 * draw 3D cube on the marker
+	 **************************************************************************/
 	public void draw3dCube(Mat frame, CameraParameters cp, Scalar color){
 		MatOfPoint3f objectPoints = new MatOfPoint3f();
 		double halfSize = ssize/2.0;
@@ -172,6 +166,9 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 	    }
 	}
 
+	/**************************************************************************
+	 * draw the pointcloud of a 3D-model
+	 **************************************************************************/
 	public void draw3dObject(Mat frame, CameraParameters cp, Scalar color, ObjectModel model){
 		Vector<Float> vert = model.getVerts();
 		float[] pos = model.getPositions();
@@ -199,6 +196,9 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 			Core.circle(frame, pts.get(j),1, color);
 	}
 
+	/**************************************************************************
+	 * draw the wireframe of a 3D-model
+	 **************************************************************************/
 	public void draw3dWireframe(Mat frame, CameraParameters cp, Scalar color, ObjectModel model){
 		float[] pos = model.getPositions();
 
@@ -206,9 +206,9 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 		Vector<Point3> points = new Vector<Point3>();
 
 		for(int i = 0; i < pos.length; i+=3)
-			points.add(new Point3(pos[i]*600.0f,
-					(Math.cos(Math.PI/2.0)*pos[i+1]-Math.sin(Math.PI/2.0)*pos[i+2])*600.0f,
-					(Math.sin(Math.PI/2.0)*pos[i+1]+Math.cos(Math.PI/2.0)*pos[i+2])*600.0f));
+			points.add(new Point3(pos[i]*10.0f,
+					(Math.cos(Math.PI/2.0)*pos[i+1]-Math.sin(Math.PI/2.0)*pos[i+2])*10.0f,
+					(Math.sin(Math.PI/2.0)*pos[i+1]+Math.cos(Math.PI/2.0)*pos[i+2])*10.0f));
 
 		objectPoints.fromList(points);
 		MatOfPoint2f imagePoints = new MatOfPoint2f();
@@ -223,14 +223,17 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 			Core.line(frame, pts.get(j+1),pts.get(j+2),color);
 		}
 	}
-	
+
+	/**************************************************************************
+	 * getter & setter
+	 **************************************************************************/
 	protected void setMat(Mat in){
 		in.copyTo(mat);
 	}
-	
-	/**
+
+	/**************************************************************************
 	 * construct the matrix of integers from the mat stored.
-	 */
+	 **************************************************************************/
 	protected void extractCode(){
 		int rows = mat.rows();
 		int cols = mat.cols();
@@ -259,13 +262,13 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 			}
 		}
 	}
-	
-	/**
+
+	/**************************************************************************
 	 * Return the id read in the code inside a marker. Each marker is divided into 7x7 regions
 	 * of which the inner 5x5 contain info, the border should always be black. This function
 	 * assumes that the code has been extracted previously.
 	 * @return the id of the marker
-	 */
+	 **************************************************************************/
 	protected int calculateMarkerId(){
 		// check all the rotations of code
 		Code[] rotations = new Code[4];
@@ -291,11 +294,11 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 		}
 		return id;
 	}
-	
-	/**
+
+	/**************************************************************************
 	 * this functions checks if the whole border of the marker is black
 	 * @return true if the border is black, false otherwise
-	 */
+	 **************************************************************************/
 	protected boolean checkBorder(){
 		for(int i=0;i<7;i++){
 			// normally we'll only check first and last square
@@ -308,13 +311,13 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 		}
 		return true;
 	}
-	
-	/**
+
+	/**************************************************************************
 	 * Calculate 3D position of the marker based on its translation and rotation matrix.
 	 * This method fills in these matrix properly.
 	 * @param camMatrix
 	 * @param distCoeffs
-	 */
+	 **************************************************************************/
 	public void calculateExtrinsics(Mat camMatrix, MatOfDouble distCoeffs, float sizeMeters){
 		// TODO check params
 		
@@ -332,11 +335,10 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 
 		Utils.alignToId(Rvec, this.getRotations());
 	}
-	
-	protected void setPoints(List<Point> p){
-		this.fromList(p);
-	}
 
+	/**************************************************************************
+	 * ...
+	 **************************************************************************/
 	private int hammDist(Code code){
 		int ids[][] = {
 				{1,0,0,0,0},
@@ -359,6 +361,9 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 		return dist;
 	}
 
+	/**************************************************************************
+	 * ...
+	 **************************************************************************/
 	private int mat2id(Code code){
 		int val=0;
 		for(int y=1;y<6;y++){
@@ -371,11 +376,10 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 		}
 		return val;
 	}
-	
-	public int getRotations(){
-		return this.rotations;
-	}
 
+	/**************************************************************************
+	 * ...
+	 **************************************************************************/
 	@Override
 	public int compareTo(Marker other) {
 		if(id < other.id)
@@ -385,11 +389,42 @@ public class Marker extends MatOfPoint2f implements Comparable<Marker>{
 		return 0;
 	}
 
+	/**************************************************************************
+	 * ...
+	 **************************************************************************/
 	public void draw3dAxis(Mat frame, CameraParameters cp, Scalar color){
 		Utils.draw3dAxis(frame, cp, color, 2*ssize, Rvec, Tvec);
 	}
-	
-	public float getSize(){
-		return ssize;
-	}
+
+    /**************************************************************************
+     * getter & setter
+     **************************************************************************/
+    public Mat getRotation(){
+        return this.Rvec;
+    }
+
+    public Mat getTranslation(){
+        return this.Tvec;
+    }
+
+    public Vector<Point> getPoints(){
+        return this.points;
+    }
+
+    public int getMarkerId(){
+        return id;
+    }
+
+    public float getSize(){
+        return ssize;
+    }
+
+    public int getRotations(){
+        return this.rotations;
+    }
+
+    protected void setPoints(List<Point> p){
+        this.fromList(p);
+    }
+
 }
