@@ -31,7 +31,7 @@
 | Date          | Content          									       |				       |
 |:-------------:|----------------------------------------------------------|-----------------------|
 | 02.05.18      | Vorstellung der Projektthemen und Lösungsansätze         |:ballot_box_with_check:|
-| 06.06.18      | Vorstellung der Lösung in der ersten Iteration           |                       |
+| 06.06.18      | Vorstellung der Lösung in der ersten Iteration           |:ballot_box_with_check:|
 | 11.07.18      | Abschlussvorstellung der verbesserten Lösung             |                       |
 | 17.08.18      | Fester und letzter Abgabetermin bis spätestens 22:00 Uhr |                       |
 
