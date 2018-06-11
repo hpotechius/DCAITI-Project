@@ -52,6 +52,6 @@
 > *Kumpel Jesus*  
 > <img src="https://upload.wikimedia.org/wikipedia/en/9/93/Buddy_christ.jpg" width="200"> -->  
 > 頭隠して、尻隠さず (Atama kakushite, shiri kakusazu).  
-> *Kumpel Jesus*  
+> *Pai Mei*  
 > <img src="https://uproxx.files.wordpress.com/2014/04/master-pai-mei.jpg?quality=95" width="200">  
 
