@@ -48,9 +48,9 @@
 ***
 
 ###### Zitat des Tages:
-<!--> Eine kinderlose Ehe besteht aus Spaßvögeln.  
+<!-- > Eine kinderlose Ehe besteht aus Spaßvögeln.  
 > *Kumpel Jesus*  
-> <img src="https://upload.wikimedia.org/wikipedia/en/9/93/Buddy_christ.jpg" width="200">-->  
+> <img src="https://upload.wikimedia.org/wikipedia/en/9/93/Buddy_christ.jpg" width="200"> -->  
 > Atama kakushite, shiri kakusazu.  
 > *Kumpel Jesus*  
 > <img src="https://uproxx.files.wordpress.com/2014/04/master-pai-mei.jpg?quality=95" width="200">  
