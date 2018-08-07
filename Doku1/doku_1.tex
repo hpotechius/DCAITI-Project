@@ -1,0 +1,568 @@
+\documentclass[
+12pt,								% Schriftgröße
+DIV10,
+a4paper,         		% Papierformat
+oneside,						% einseitiges Dokument
+%	titlepage,					% es wird eine Titelseite verwendet
+parskip=half,				% Abstand zwischen Absätzen (halbe Zeile)
+headings=normal,			% Größe der Überschriften verkleinern
+listof=totoc,					% Verzeichnisse im Inhaltsverzeichnis aufführen
+bibliography=totoc,						% Literaturverzeichnis im Inhaltsverzeichnis aufführen
+index=totoc,						% Index im Inhaltsverzeichnis aufführen
+%	caption=tableheading,	% Beschriftung von Tabellen unterhalb ausgeben
+final								% Status des Dokuments (final/draft)
+]{book}
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        %\huge\bfseries \@chapapp\space \thechapter
+        \Huge\bfseries \thechapter.\space%
+        %\par\nobreak
+        %\vskip 20\p@
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+%--------------------------------------------------------------------------------
+% Ab hier werden Packages geladen
+\usepackage{blindtext}
+\usepackage{lmodern}
+\usepackage{caption}
+\usepackage[ngerman]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}  
+\usepackage{amsmath}
+\usepackage{blindtext}
+\usepackage{ulem} 
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{{./Bilder/}}
+\usepackage{subfigure}
+\usepackage{cite}
+\usepackage{float}
+\usepackage{amsmath,amsfonts}
+\usepackage{amssymb}
+\usepackage{exscale}
+\usepackage{subfig} 					
+\usepackage{booktabs}
+\usepackage{ulem}
+\usepackage{setspace}
+
+%für code
+\usepackage{listings}
+\usepackage{color}
+\usepackage{pythonhighlight}
+
+\usepackage[a4paper,lmargin={25mm},rmargin={25mm},tmargin={25mm},bmargin= {25mm}]{geometry}
+\addtolength{\footskip}{-0.8cm}		%Fussbereich 0.8cm höher, sodass die Seitennummierung höher ist
+\usepackage{tabularx}
+\usepackage{tabulary}
+\newcolumntype{w}[1]{>{\raggedleft\hspace{0pt}}p{#1}}
+\usepackage{eurosym}
+\usepackage{siunitx}
+\sisetup{exponent-product= \cdot ,output-decimal-marker = {,},detect-family,detect-display-math = true,per-mode = symbol-or-fraction}
+
+
+\usepackage{lmodern}
+\usepackage{fancyhdr} %Paket laden
+\usepackage[format=hang]{caption}
+%\setcapindent{0pt}
+
+
+
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+
+\lstset{numbers=left, numberstyle=\small, numbersep=8pt, frame = single, language=Python, framexleftmargin=1pt, style=mystyle}
+%--------------------------------------------------------------------------------
+% Hier wird die Titelseite bearbeitet. Im folgenden kommen die zu ändernden Daten
+\newcommand{\nameOfTitel}{Projektdokumentation}
+\newcommand{\untertitel}{DCAITI Projekt}	% wird nicht verwendet
+\newcommand{\art}{Konzeption und Implementierung einer Augmented Reality basierten Applikation für historische Gebäude und Baustellen}
+\newcommand{\autor}{Herbert Potechius und Linh Kästner}
+\newcommand{\betreuer}{Konstantin Klipp}
+\newcommand{\datum}{\today}				% hier Abgabedatum einfügen
+
+
+%-----------------------------------------------------------------------------
+\begin{document}
+	
+	% Ab hier wird die Titelseite zusammengesetzt. Es ist keine Änderung mehr notwendig!
+	\thispagestyle{plain}
+	\begin{titlepage}
+		
+		~\vspace{0.5cm} 
+		\begin{center}
+			\includegraphics[width = 0.24\textwidth]{tu-logo_rot}\hspace{2cm} 
+			\includegraphics[width=0.5\textwidth]{fokus_Logo_930}\hspace{1cm}\\[1cm]
+			\Large{TECHNISCHE UNIVERSITÄT BERLIN}\\
+			Fakultät IV - Elektrotechnik und Informatik\\
+			Fachgebiet DCAITI
+		\end{center}
+		
+		\vspace{1.2cm}
+		\begin{center}
+			\LARGE{\textbf{\textsc{\nameOfTitel}}}\\
+			\LARGE{\textbf{\untertitel}}\\[2ex]
+			\Large{\textbf{\art}}\\[8ex]
+			
+			\normalsize
+			\begin{tabular}{w{5.4cm}p{8cm}}\\
+				vorgelegt von:	 & \quad \autor\\[1.2ex]
+				Betreuer: & \quad \betreuer\\[1.2ex]
+				%Labortermin: & \quad \labortermin\\[1.2ex]
+				eingereicht am: &  \quad \datum\\[3ex]
+			\end{tabular}
+		\end{center}
+		
+	\end{titlepage}
+	\newpage
+	
+	%-----------------------------------------------------------------------------
+	\pagenumbering{roman}
+	
+	%-----------------------------------------------------------------------------
+	% Eidesstattliche Versicherung der selbstständigen Arbeit
+	\section*{Eidesstattliche Erklärung}
+	Wir, \autor, versichern hiermit an Eides statt, dass wir unsere \textsc{\nameOfTitel} - \textit{\untertitel} mit dem Thema
+	\begin{quote}
+		\textit{\art}  
+	\end{quote}
+	selbständig und eigenhändig angefertigt und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt haben.
+	
+	\bigskip
+	\bigskip
+	\bigskip
+	
+	Berlin, den \datum
+	
+	
+	\rule[-0.2cm]{5cm}{0.5pt}
+	
+	\textsc{\autor} 
+	
+	\newpage
+	%-----------------------------------------------------------------------------
+	\pagestyle{fancy}
+	\fancyhf{}
+	\fancyhead[L]{\leftmark}
+	\fancyhead[R]{Herbert Potechius, Linh Kästner} %Kopfzeile rechts
+	\fancyfoot[LE,RO]{\thepage}
+	\setlength{\headheight}{8pt}
+	
+	\renewcommand{\headrulewidth}{0.4pt}
+	
+	
+	\renewcommand{\lstlistingname}{Code-Ausschnitt}% Listing -> Algorithm
+	
+	\tableofcontents % Inhaltsverzeichnis
+	\newpage
+	\pagenumbering{arabic}
+	
+	%---------------------------------------------------------------------
+	% Ab hier fängt der eigenständige Teil an!
+	
+	\chapter{Einleitung und Motivation}
+	\section{Einleitung}
+	Der stetige Fortschritt im Bereich der Informationstechnik setze in den vergangenen Jahren in nahezu allen Bereichen der Gesellschaft innovative Möglichkeiten in Gang. 
+	Das Konzept einer erweiterten Realität (Augmented Reality - AR) in der die reale Umgebung mittels virtuellen Instanzen erweitert wird, erlangt dabei, aufgrund seiner vielfältigen Einsatzmöglichkeiten, zunehmende Wichtigkeit. AR kann die Nutzerinteraktion erheblich verbessern und Aufgaben wie Wartung, Steuerung oder Kontrolle effizienter und einfacher gestalten. Durch die Visualisierung innerhalb der realen Umgebung trägt AR ferner zur Unterstützung des räumlichen Verständnisses bei und hat damit einhergehend positive Auswirkungen auf das Nutzererlebniss. Wesentliche Probleme beziehungsweise Herausforderung beim Einsatz von AR ist der Koordinatenabgleich zwischen Weltkoordinaten und dem verwendeten Darstellungsgerät - meist das Smartphone oder sogenannte Head Mounted Devices wie die Microsoft Hololens um die Illusion zu schaffen, dass Daten und Hologramme sich innerhalb der echten Welt befinden. Dazu wurden in den vergangenen Jahren vielfältige Forschung und Methoden entwickelt auf welche im späteren Verlauf noch eingegangen wird. Weitere Herausforderungen siedeln sich im Bereich der Computervision zur intelligenten Erkennung und Auswertung der Pixeldaten Computergrafik und der Bildverarbeitung, beispielsweise das Rendern von Objekten in die Szene oder die korrekte Darstellung der Objekte an. 
+	
+	\section{Zielstellung}
+	Ziel dieses Projektes war es eine AR basierte Applikation zu implementieren, welche es dem Nutzer erlaubt innerhalb der realen Umgebung, virtuelle Instanzen zu platzieren. Konkret soll es sich dabei um Gebäude und Gegenstände handeln, um somit eine Erweiterung von Baustellen oder Ruinen durch jene virtuellen Instanzen zu erreichen und dabei unterstützend bei der Konstruktion, Planung und Design von neuen Gebäuden zu dienen. Außerdem kann, beispielsweise durch die Erweiterung von Ruinen und der Platzierung von historischen Objekten ein interessantes Nutzererlebniss ermöglicht werden. 
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	\newpage
+	\chapter{Theorie}
+	
+	Um ein optimales AR Erlebnis bieten zu können, müssen, wie bereits eingangs erwähnt, Aspekte aus verschiedenen Teildisziplinen miteinander verknüpft werden. Wichtige Disziplinen sind die Computervision sowie die Computergrafik. Außerdem ist der Abgleich er Koordinatensysteme von essentieller Bedeutung. Im folgenden wird auf die Theorie und Ansatzpunkte dieser Problemstellungen eingegangen. 
+	
+	\section{Augmented Reality}
+	kurze Erklärung was das ist hauptprobleme und aspekte bildverarbeitung rendering usw
+	auch ein paar bilder zu anwendungsgebieten usw reinmachen
+	
+	übergang koordinatenabgleich wichtigste 
+	
+	\section{Die Detektion der Kamerapose im Raum}
+	Wie bereits vorher erwähnt ist ein Kernaspekt um ein angemessenes AR Erlebnis zu ermöglichen, der sogenannte Koordinatenabgleich der Weltkoordinaten mit denen der Kamera. Grundsätzlich geht es darum die Position des Nutzers und dessen Sichtfeld und Blickrichtung innerhalb der Weltkoordinaten zu lokalisieren. Praktisch entspricht dies der Orientierung und Position der Kamera des AR Geräts (Smartphone, HMD, etc.). Wichtig hierbei ist, dass die Kamera individuell kalbibriert werden muss. Forschungen, welche z.T noch hochaktuell sind haben zahlreiche Algorithmen und Lösungsansätze hervorgebracht, wobei die wichtigsten Paradigmen im folgenden aufgelistet sind: 
+	
+	\begin{itemize}
+		
+	
+	\item \textbf{Visuelle Erkennungsmethoden}. Hier wird die Position der Kamera anhand von visuellen Informationen geschätzt. Das System tätigt Rückschlüsse auf Position der Kamera anhand von Informationen, welche es visuell mitbekommt.
+	 Nachteile dieser Methoden ergeben sich bei unbekannten Umgebungen, womit vorher erst genügend Daten gesammelt werden müssen um eine korrekte Poseschätzung zu erreichen. Der Markerbasierte Ansatz gehört zu dieser Art von Erkennung, welcher es durch vordefinierte Muster, jenes Problem löst. Dies wird im weiteren Verlauf detailliert erläutert. 
+	 Weitere Methoden der visuellen Erkennung sind beispielsweise die Modellbasierten Erkennungsmethoden, welche einen Abgleich zwischen visuellen Daten mit vordefinierten Modellen (bspw. CAD Modellen) bewerkstelligen. 
+	 
+		\item \textbf{Sensorbasierte Erkennungsmethoden}
+		Hier werden verschiedene, dem System verfügbare Sensordaten wie beispielsweise, Tiefendaten oder Lokalisierungsdaten bei der Positionsbestimmung verwendet. Dafür werden spezielle Geräte verwendet, welche diese zusätzlichen Informationen bereitstellen können, beispielsweise Gyroskope, GPS oder Tiefenkameras. Sensordaten können entweder die Position oder Orientierung des Nutzers wiedergeben. Die Kombination aus Position und Orientierung wird auch \textbf{Pose} genannt. 
+		\item \textbf{hybride Ansätze} Hybride Ansätze vereinen oben genannte Methoden um eine optimierte/genauere Schätzung zu erreichen
+		 Ein Ansatz beispielsweise die Kombination zwischen
+		einem GPS Signal, welches die Position der Kamera vermitteln kann und visuellen Informationen, welche dann die Orientierung der Kamera festlegen. 
+
+
+	\end{itemize}
+	
+	In der Praxis hat sich unter den oben vorgestellen Methoden der Markerbasierte Ansätz als Kompromiss zwischen Genauigkeit und Einfachheit in der Implementierung als weit verbreitet herausgestellt. Durch die vordefinierten Markerinformationen wird erheblich Zeit und Rechenleistung bei der Erkennung eingespart. Viele der führenden AR Frameworks nutzen die Markerbasierte Erkennung (ARToolkit, ARTag, Aruco). Die vordefinierten Informationen beispielsweise eine MarkerID zu welchem bestimmte Objekte eingeblendet werden sollen sind weitere Vorteile des Ansatzes. Nachteile sind, dass Marker für einige Anwendungsfälle nicht geeignet sind, beispielsweise bei Anwendungen in gefährlichen Gebieten in welchem dann auf die Sensorbasierten bzw der Kombination aus visuellen Informationen mit zusätzlichen Senrdaten gesetzt wird.
+	
+	Im Rahmen des Projektes wurde aufgrund obiger Erkenntnisse und der Empfehlung durch den Betreuer, der Markerbasierte Abgleich mittels Aruco genutzt, welche Teil der OpenCV Bibliothek ist. Auf diesen wird im folgenden detailliert eingegangen.
+	
+	
+		
+
+	\section{Die markerbasierten Erkennung mit Aruco}
+	Trotz der erwähnten Vorteile der Marker gibt es einige Aspekte zu beachten. Beispielsweise können ungünstige Lichtverhältnisse oder schlechter Kontrast dazu führen dass der Marker nicht erkannt wird. Aufgrund von Farbveränderungen, welche durch ungünstiges Licht auftreten können werden grundsätzlich nur schwarz-weiss Marker benutzt. Optimalerweise reichen 4 bekannte Punkte aus um die Pose des Markers zu erkennen. Daher eignen sich Quadratische Formen als Marker am besten. Es gibt zahlreiche bekannte Bibliotheken, welche diese Art von Markern verwendet. Eine davon ist die Aruco Bibliothek, welche teil des OpenCV Frameworks ist, welches im späteren Verlauf noch erläutert wird. Aruco benutzt Schachbrettmuster um individuelle Marker zu erzeugen. Diese Marker sind durch Ihre individuelen Muster mit einer ID versehen. Dies ist nützlich um beispielsweise bestimmte Objekte mit einem bestimmten Marker zu versehen. 
+
+
+
+	Das Aruco Modul ist Teil der Aruco Bibliothek und wurde von Rafael Munoz und Sergio Garrido entwickelt. Für die Markererkennung und idendifikation nutzt es spezielle Muster, welche dekodiert werden. Der Marker besteht aus einem schwarzen Rand sowie einem Muster im inneren, welches einer binären Matrix gleichkommt. Dabei bestimmt die Größe des Markers auch die Bitzahl der Innenmatrix. Entsprechend hat ein 4cm x 4 cm großer Marker eine 16 Bit Matrix. Auf diese Matrix wird im späteren Verlauf noch eingegangen. In Abbildung \ref{aruco} sind Beispiele dieser Marker zu sehen.
+\begin{figure}[H]
+		\centering
+		\includegraphics[width= 0.7\textwidth]{aruco}
+		\caption{Koordinatensysteme mit Freiheitsgraden \cite{schale1} (aus opencv.com)}
+		\label{aruco}
+	\end{figure}
+	
+	
+		
+Im folgenden werden die einzelnen Schritte bei der Markererkennung besprochen.
+
+
+\begin{itemize}
+		
+	
+	\item Umwandlung des Bildes in ein Greyscale Bild, welches die Intensitätswerte beinhaltet. 
+	 
+		
+		\item Erkennung der Kanten und Ecken im Bild und Bestimmung potentieller Markerkandidaten 
+		\item Herausfilterung und Verbesserung 
+		\item Dekodierung der Marker durch das Auswerten des Innenmusters des Markes. 
+		\item Berechnung der Position und Orientierung des Markers (Posebestimmung)
+
+	\end{itemize}	
+	
+	Im folgenden wird auf die wichtigsten Punkte genauer eingegangen.
+	
+	\newpage
+	\subsubsection{Greyscaling und Tresholding}
+	Aus dem aktuellen Bild der Kamera muss als erstes ein Grayscale Bild, also ein Bild aus Intensitätswerten bestimmt werden, da weitere Operationen auf diese Werte aufbauen. Um aus diesem Bild die Konturen zu erkennen, wird es 'getresholdet'.
+	Ein für einen Bespielmarker generiertes Treshold Bild ist in Abb. zu sehen.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width= 0.9\textwidth]{treshold}
+		\caption{links: Originalbild, rechts: Treshold Bild \cite{schale1} (aus grundquelle)}
+		\label{treshold}
+	\end{figure}
+	
+	Der Treshold Ansatz erweisst sich als stabil gegen mögliche Helligkeitsschwankungen. Nachdem 'getresholdet' wurde liegt ein binäres Bild, bestehend aus Hintergrund und Objekten vor, aus denen dann die Konturen erkannt werden können. Dafür werden die Kanten aller potentiellen Marker im Bild markiert und geprüft ob genau 4 gerade Linien erkannt wurden.
+	Sind diese Vorraussetzungen erfüllt, werden die Ecken des potentiellen Markers analysiert. Wichtig ist, dass davor die Verzerrung durch die inverse Verzerrungsfunktion, welche beim Kalibrieren der Kamera gewonnen wird, vorgenommen wird. 
+	
+	\subsubsection{Filterung und Verbesserung}
+Nachdem Tresholding wurden Konturen, welche auf einen potentiellen Marker hindeuten erkannt. Jedoch sind nicht alle erkannten Konturen tatsächlich Marker. Daher ist der Filterungschritt ein essentieller Schritt um nur tatsächliche Marker zu berücksichtigen. Dabei werden alle jene Konturen herausgefiltert, welche offentsichtlich keine Marker sind oder zu nah beieinander liegen. Dafür existieren in Aruco diverse Funktionen und Parameter um die Filterung individuell strikt zu gestalten. Wichtig ist es dabei die Markerparameter, wie Markergröße oder Maximale Distanz, welche zwei Marker zueinander besitzen dürfen vorher zu definieren um die Filterung effizient zu gestalten. 
+
+	
+	\subsubsection{Markerdekodierung und Identifikation}
+	Nachdem die Markerkandidaten detektiert wurden kann die Detektierung des Markers beginnen um zu prüfen ob es sich tatsächlich um einen Aruco basierten Marker handelt.
+	Dazu wird das Bitmuster im Inneren des Markers mittels dem sogenannten Otsu Algortihmus extrahiert um schwarze und weisse Bildpunkte zu differenzieren. Anschließend wird das Bild mittels eines Gitters aufgeteilt, welches erlaubt jene einzelnen schwarz-weiss Punkte exakt auszumachen. Dies ist in Abb. \ref{aruco5} zu erkennen. 
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width= 0.4\textwidth]{aruco5}
+		\caption{Bitmuster im Gitter \cite{schale1} (OpenCV.org)}
+		\label{aruco5}
+	\end{figure}
+	
+	Anschließend werden weisse und schwarze Bits gezählt. Dabei wird für jede Zelle nur die Mitte beachtet, um somit Störungen zu vermeiden, da es auch Zellen gibt in denen beide Farbein existieren und somit nicht eindeutig ist um was für eine Zelle es sich handelt.
+	Dies wird in Abbildung \ref{aruco3} deutlich.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width= 0.7\textwidth]{aruco3}
+		\caption{verbessertes Bitmuster im Gitter \cite{schale1} (OpenCV.org)}
+		\label{aruco3}
+	\end{figure}
+	
+	Nachdem die Bits extrahiert und gezählt wurden, können diese mit dem Dictionary verglichen werden, in welchem sich alle vordefinierten Marker befinden.  
+	
+\newpage
+
+
+\section{Der Koordinatenabgleich}
+Ist der Marker erkannt, kann der eigentliche Koordinatenabgleich zwischen der Kamera, welche den Marker detektiert hat und dem Marker selbst stattfinden. Dies wird ist im Fachjargon auch unter dem Perspective-n-Point Problem bekannt.
+Zuvor muss jedoch erst eine Kamerakalibrierung stattfinden, in welchem die Kameramatrix, bestehend aus intrinsischen Parametern, wie Brennweite,... und Verzerrungselemente der Kamera gefunden werden. OpenCV und Aruco bieten dazu einige Funktionen an mit denen die Kamera kalibriert werden kann.
+Hauptziel des Koordinatenabgleiches ist die Bestimmung der Position der Kamera im Raum basierend auf der Markerposition. 
+In Abbildung \ref{koord1} ist eine Übersicht der beiden Koordinatensysteme veranschaulicht. 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width= 0.8\textwidth]{koord}
+		\caption{Koordinatensysteme mit Freiheitsgraden \cite{schale1} (aus grundquelle)}
+		\label{koord1}
+	\end{figure}
+	
+
+	Position und Orientierung der Kamera erzeugen somit 6 Freiheitsgrade. Die Koordinaten (x,y,z) beshreiben dabei die Translation und die Winkel ($\alpha , \beta , \gamma$) die Rotation. Um diese 6 Freiheitsgrade zu finden, werden die zuvor detektierten Punkte des Markers verwendet, welche eine Transformationsmatrix T liefern, welche den  Koordinatenabgleich ermöglicht. Diese ist definiert als 
+	
+	
+	\begin{align*}
+	x = T \cdot X
+	\end{align*}
+	Oder umgeschrieben
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width= 0.3\textwidth]{eq}
+		
+		\label{eq}
+	\end{figure}
+	
+	Diese Matrix beinhaltet die Translation und Rotation der Kamera in Relation zum Marker basierend auf den gefundenen Punkten des zuvor detektierten Markers und wird daher auch als Posematrix bezeichnet. 
+Durch Anwenden dieser Transformation geschieht der Abgleich zwischen Welt und Kamera und es wird eine virtuelle Kamera auf den Marker gesetzt. Dies ermöglicht das positionsgenaue Rendern der Objekte auf oder in Relation zur Markerpose. 	
+	Dafür muss eine weitere Transformation mit der Kameramatrix getätigt werden, welche dann dann die 2D Szene im sichtbaren Bild (Image Plane) liefert. Dies ist in Abbildung  \ref{koord3} veranschaulicht. 
+
+	
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width= 0.65\textwidth]{koord3}
+		\caption{Koordinatensysteme mit Freiheitsgraden \cite{schale1} (aus grundquelle)}
+		\label{koord3}
+	\end{figure}
+	Soll das Objekt in Relation zum Marker platziert werden, muss eine weitere Transformationsmatrix $T_object$ angegeben werden in welcher Translation und Rotation definiert sind (Abbildung \ref{koord4}) .
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width= 0.65\textwidth]{koord4}
+		\caption{Koordinatensysteme mit Freiheitsgraden \cite{schale1} (aus grundquelle)}
+		\label{koord4}
+	\end{figure}
+	
+		Im Aruco wird eine erfolgreiche Detektion meist mit einem gerenderten Koordinatensystem in die Szene gezeigt wie dies in Abbildung \ref{aruco2} zu sehen ist.
+	
+	
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width= 0.5\textwidth]{aruco2}
+		\caption{Erfolgreiche Markererkennung und Objektplatzierung mit Aruco \cite{schale1} (aus aus opencv.com)}
+		\label{aruco2}
+	\end{figure}
+	
+	\chapter{Setup}
+	\section{Verwendete Software und Frameworks}
+
+	Im folgenden soll auf die benutze Software zur Realisierung obig genanter Aspekte eingegangen werden.
+	
+	\subsection{OpenCV und Aruco}
+ 
+	
+Für die Markererkennung im Raum wurde die Aruco Bibliothek benutzt, welche auf der markerbasierten Erkennung basiert, wie diese bereits in der Theorie besprochen wurde. Die Kernfunktionalitäten der Bibliothek sind im folgenden aufgelistet:
+
+	
+	
+	
+		\subsection{OpenGL}
+	OpenGL ist eine von .. bereitgestellt Bibliothek, welche Funktionen für das Rendern von 3D Objekten bereitstellt. Sie ist gut mit OpenCV integrierbar.
+\subsection{Android Studio}
+Zur Entwicklung der Applikation wurde Android Studio benutzt und somit als Zielgruppe ausschließlich Android Geräte. Dies hat den Grund einer offeneren Plattform und der leichteren Einbindung von externen Bibliotheken wie OpenCV oder OpenGl.
+	
+	
+	\subsection{Integration von OpenCV und OpenGL in Android Studio}
+	
+	....
+	\newpage
+	
+	
+
+	
+	
+	\chapter{Implementierung}
+	
+	\subsection{Markererkennung}
+	Hier tabelle mit wichtigsten Funktionen und kurzer grober beschreibung
+	
+	\begin{table}[H]
+\centering
+\label{omtctab}
+\begin{tabular}{|l|l|}
+\hline
+Funktion                                                                                                                     & Beschreibung                                                                                                                                                                                                                                                                                                                                                \\ \hline
+\textbf{create\_application}(application, path)                                                                                       & \begin{tabular}[c]{@{}l@{}}Erstellt eine Applikation innerhalb der \\ OpenMTC Umgebung. Unter application \\ muss der Name der App angegeben wer-\\ den. Die Angabe des gewünschten Pfades\\ ist optional.\end{tabular}                                                                                                                                     \\ \hline
+\textbf{discover}(path, filter\_criteria)                                                                                             & \begin{tabular}[c]{@{}l@{}}Erkennt zu einem angegeben Elternpfad\\ (path) die zugehörigen Unterpfade und\\ gibt diese innerhalb einer Liste von Adres-\\ sen zurück. Unter filter\_criteria kann zu-\\ dem das Filterkriterium angegeben werden, \\ um spezifische Containeradressen zu \\ erhalten (bspw. alle Container mit \\ Typ 14, etc.)\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}\textbf{create\_container}(target, container,\\ labels)\end{tabular}                                       & \begin{tabular}[c]{@{}l@{}}Erzeugt einen Container innerhalb der \\ Ressourcen Struktur. Nach Wunsch können\\ diese mit Label versehen werden und ange-\\ geben werden wieviele Container maximal\\ angezeigt werden sollen.\end{tabular}                                                                                                                   \\ \hline
+\textbf{push\_content}(container, content)                                                                                            & \begin{tabular}[c]{@{}l@{}}Sendet Daten (content) an einen Container\\ (container). Dabei können als Daten Python \\ Strings, Listen oder Dictionaries gesendet\\ werden.\end{tabular}                                                                                                                                                                      \\ \hline
+\textbf{get\_content}(container)                                                                                                      & Ruft Daten aus einem Container ab.                                                                                                                                                                                                                                                                                                                          \\ \hline
+\begin{tabular}[c]{@{}l@{}}\textbf{add\_container\_subscription}(container, \\ handler, data\_handler, filter\_criteria)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Subskription auf einen container, um auto-\\ matisch die aktuellsten Daten dieses Con-\\ tainers zu erhalten. Mit filter\_criteria kann \\ auf spezifische Container innerhalb der\\ Containerstruktur subskribiert werden.\end{tabular}                                                                                         \\ \hline
+\textbf{emit}(message, event)                                                                                                         & \begin{tabular}[c]{@{}l@{}}Sendet Daten(message) via Websockets an\\ das Frontend. Event ist dabei der "Kanal" \\ auf welchem gesendet wird. Von Frontend \\ Seite kann durch Angabe diesen Kanals, \\ darauf gelauscht werden, um Daten\\ automatisch zu bekommen\end{tabular}                                                                             \\ \hline
+\end{tabular}
+\caption{wichtige OpenMTC Funktionen}
+\end{table} 
+Obige Funktionen wurden im Projekt verwendet, um Daten in Container zu lagern 
+\begin{itemize}
+\item \textbf{push\_data()}
+\end{itemize} 
+und aus Containern zu erhalten
+\begin{itemize}
+\item \textbf{get\_content(), add\_container\_subscription()}
+\end{itemize} 
+Weiterhin sind Funktionen von Relevanz, welche die Adressen spezifischer Container zurückgeben
+\begin{itemize}
+\item \textbf{discover()}.
+\end{itemize} 
+	\subsubsection{Preprocessing}
+	Auf Frontend Seite wird eine Webapplikation implementiert, welche die Daten in angemessener Art und Weise darstellt. Dazu müssen die schon formatierten Maschinennachrichten mittels Javascript ausgelesen und auf in den jeweiligen Bereichen dargestellt werden. Dies wird im Detail im Kapitel 'Implementierung - Frontend' erläutert. Die Webapplikation wird dabei so implementiert, dass sie skalierbar ist und somit auch auf kleineren Geräten wie Handys oder Tablets benutzt werden kann.
+	Damit wird, wie üblich, HTML für das Grundgerüst, Javascript für die Funktionalität und CSS zur ansprechenden Gestaltung der Website benutzt. 
+
+\subsubsection{Erkennungsalgorithmus}
+	Hier tabelle mit wichtigsten Funktionen und kurzer grober beschreibung
+	
+	\begin{table}[H]
+\centering
+\label{omtctab}
+\begin{tabular}{|l|l|}
+\hline
+Funktion                                                                                                                     & Beschreibung                                                                                                                                                                                                                                                                                                                                                \\ \hline
+\textbf{create\_application}(application, path)                                                                                       & \begin{tabular}[c]{@{}l@{}}Erstellt eine Applikation innerhalb der \\ OpenMTC Umgebung. Unter application \\ muss der Name der App angegeben wer-\\ den. Die Angabe des gewünschten Pfades\\ ist optional.\end{tabular}                                                                                                                                     \\ \hline
+\textbf{discover}(path, filter\_criteria)                                                                                             & \begin{tabular}[c]{@{}l@{}}Erkennt zu einem angegeben Elternpfad\\ (path) die zugehörigen Unterpfade und\\ gibt diese innerhalb einer Liste von Adres-\\ sen zurück. Unter filter\_criteria kann zu-\\ dem das Filterkriterium angegeben werden, \\ um spezifische Containeradressen zu \\ erhalten (bspw. alle Container mit \\ Typ 14, etc.)\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}\textbf{create\_container}(target, container,\\ labels)\end{tabular}                                       & \begin{tabular}[c]{@{}l@{}}Erzeugt einen Container innerhalb der \\ Ressourcen Struktur. Nach Wunsch können\\ diese mit Label versehen werden und ange-\\ geben werden wieviele Container maximal\\ angezeigt werden sollen.\end{tabular}                                                                                                                   \\ \hline
+\textbf{push\_content}(container, content)                                                                                            & \begin{tabular}[c]{@{}l@{}}Sendet Daten (content) an einen Container\\ (container). Dabei können als Daten Python \\ Strings, Listen oder Dictionaries gesendet\\ werden.\end{tabular}                                                                                                                                                                      \\ \hline
+\textbf{get\_content}(container)                                                                                                      & Ruft Daten aus einem Container ab.                                                                                                                                                                                                                                                                                                                          \\ \hline
+\begin{tabular}[c]{@{}l@{}}\textbf{add\_container\_subscription}(container, \\ handler, data\_handler, filter\_criteria)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Subskription auf einen container, um auto-\\ matisch die aktuellsten Daten dieses Con-\\ tainers zu erhalten. Mit filter\_criteria kann \\ auf spezifische Container innerhalb der\\ Containerstruktur subskribiert werden.\end{tabular}                                                                                         \\ \hline
+\textbf{emit}(message, event)                                                                                                         & \begin{tabular}[c]{@{}l@{}}Sendet Daten(message) via Websockets an\\ das Frontend. Event ist dabei der "Kanal" \\ auf welchem gesendet wird. Von Frontend \\ Seite kann durch Angabe diesen Kanals, \\ darauf gelauscht werden, um Daten\\ automatisch zu bekommen\end{tabular}                                                                             \\ \hline
+\end{tabular}
+\caption{wichtige OpenMTC Funktionen}
+\end{table} 
+Obige Funktionen wurden im Projekt verwendet, um Daten in Container zu lagern 
+\begin{itemize}
+\item \textbf{push\_data()}
+\end{itemize} 
+und aus Containern zu erhalten
+\begin{itemize}
+\item \textbf{get\_content(), add\_container\_subscription()}
+\end{itemize} 
+Weiterhin sind Funktionen von Relevanz, welche die Adressen spezifischer Container zurückgeben
+\begin{itemize}
+\item \textbf{discover()}.
+\end{itemize} 
+	\subsection{Rendern der Objekte}
+	evtl die schritte aufzeigen mit screenshots, erst quadtat dann kanten dann dummy objekt, translation rotation angewendet und beliebig in relation dazu objekt platziert.
+	\subsubsection*{Rendern eines Quadrates oder Rändern}
+	\subsubsection*{Einfügen von Dummy Objekten}
+	\subsubsection*{Einfügen der Relevanten Objekte}
+
+\newpage
+\chapter{Zusammenfassung}
+Insgesamt wurden die Konzepte der Theorie verstanden und im Projekt erfolgreich angewandt.
+Damit konnten die anfangs definierten Ziele für das Projekt alle erreicht werden. Es konnte eine Web basierte Applikation zur Visualisierung der Kommunikation des betrachteten Prozesses implementiert werden, welche auch die Möglichkeit bietet, alle Netzwerkkomponenten zu sehen. Zusätzlich dazu wurde eine Filter-Funktion implementiert, um die Kommunikation aus Sicht einer Komponente anzuzeigen. Entsprechend wurde für diesen Fall auch das Design des Chat Raums angepasst. Die Funktionalität der Applikation konnte im Labor erfolgreich getestet werden. Weiterhin konnte für Testzwecke eine emulierte Maschinenumgebung mithilfe der verfügbaren Demo Applikationen geschaffen werden, welche es erlaubt auch außerhalb des Labors, die Funktionalität zu überprüfen, womit gleichzeitig die Grundlage für weitere Projekte und Implementierungen geschaffen wurde. 
+\newpage
+\chapter{Ausblick}
+Die existierende App bietet viel Freiraum für zukünfitge Erweiterungen. Eine wichtige Erweiterung ist das Füllen der internen Datenbank mit neuen 3D Modellen. Dazu können verschiedene MarkerIds verschiedenen Objekten zugeordnet werden. 
+Ein weiterer Punkt ist eine erweiterte Benutzerinteraktion durch Buttons. Beispielsweise lass sich eine Map in die App integrieren mit der alle in der Stadt verfügbaren Marker sichtbar sind. Dafür ist die Google Maps API zu empfehlen welche sichproblemlos in Android Studio einbetten lässt. Von seiten des Preprocessings der Bilder könnten weitere Algorithmen probiert werden ,welche eine noch robustere Markererkennung bei schlechten Verhältnissen bietet. Hier wären beispielsweise der ... oder  .. auszuprobieren. 
+
+
+....
+
+%-----------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%literatur
+% Abschließend sind die Quellen von Bildern und Zitaten nicht zu vergessen.
+
+\newpage
+\newpage
+\bibliographystyle{plain}
+\begin{thebibliography}{}   
+	
+		\bibitem{schale1} 
+	ZVEI SG Modelle und Standards
+	
+	\bibitem{omtc} 
+	openmtc.org
+	
+	\bibitem{graph1}
+	w3.org/TR/jsonld
+	
+	\bibitem{socket}
+	devcentral.f5.com
+	
+	\bibitem{setup}
+	Bildquellen Setup und Konzeption
+	\newblock{the-mtc.org}
+	\newblock{iot.do}
+	\newblock{fotolia.com}
+	
+	\bibitem{pp}          % Hier beginnt das Literaturverzeichnis
+	Microsoft Office 365\\
+	\newblock{https://www.microsoft.com/de-de/store/d/office-365-home}
+	
+	
+	\bibitem{bsp}          
+	Flat Chat Widget UI\\
+	\newblock{https://designshack.net/design/flat-chat-widget-ui/}
+	
+	\bibitem{dock}          
+	Dock\\
+	\newblock{https://zurb.com/playground/osx-dock}
+	
+	\bibitem{wallp}          
+	Wallpaper$/$Icons\\
+	\newblock{Wood:}
+	\newblock{http://www.kinyu-z.net/data/wallpapers/147/1219741.jpg}\\
+	\newblock{Wood2:}
+	\newblock{http://getwallpapers.com/wallpaper/full/0/9/9/404732.jpg}\\
+	\newblock{Up:}
+	\newblock{https://images2.alphacoders.com/437/thumb-350-437561.jpg}\\
+	\newblock{Farbverläufe: }
+	\newblock{https://uigradients.com}\\
+	\newblock{Icons:}
+	\newblock{https://www.shareicon.net/}
+	
+	
+	\bibitem{jq}          
+	jQuery\\
+	\newblock{http://jquery.com/}
+	
+	\bibitem{io}          
+	Ablaufpläne\\
+	\newblock{https://www.draw.}
+	io/
+	%\bibitem{Informationen}
+	%Claire Grube, Rainer Wahnsinn und Kurt Zschluß 
+	%\newblock {\it Praktikumsbeschreibung Kurbelwelleninnenrandbeleuchtung,}
+	%\newblock TU Berlin, 2014.
+\end{thebibliography}
+
+\end{document}
