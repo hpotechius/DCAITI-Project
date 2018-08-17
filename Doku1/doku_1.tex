@@ -522,7 +522,7 @@ Für die virtuelle Erweiterung von Baustellen ung Ruinen, müssen entsprechende Mo
 		\label{3d}
 	\end{figure}
 	
-	Die Objekte sind im .obj-Format, welches eine ... Kurz erklären mit obj und mesh usw.
+	Zur Generierung eines 3D-Modells eines realen Objektes wird das Photogrammetrie-Programm \textit{Agisoft Photoscan} verwendet. Dieses verlangt als Input mehrere Fotos des zu rekonstruierenden Objektes aus verschiedenen Perspektiven. Durch den Perspektivenunterschied zwischen den Bildern, kann ihre relative Position untereinander berechnet werden und somit pro Bildpunkt ein Raumpunkt bestimmt werden. Die Gesamtheit dieser Raumpunkte ergibt eine \textit{Point Cloud}. Diese wird im nächsten Schritt zur \textit{Dense Point Cloud} verdichtet und über Triangulationsverfahren in ein \textit{Mesh} transformiert.  Die nun orientierten Kameras liefern die Textur für das Mesh. Das \textit{Textured Mesh} wird in Form einer OBJ-Datei gespeichert, sodass es von der App gelesen werden kann. \\
 	Als Objekt wurde exemplarische eine Statue erstellt, wie sie beispielsweise als altes Artefakt in Ruinen dargestellt werden kann.
 	Da das Ziel der App eine Erweiterung von Baustellen und alten Ruinen durch Einblendung von virtuellen Objekten ist, wurden ausserdem Gebäude benutzt. In Abbildung \ref{objects} sind die verwendeten 3D Objekte gezeigt. Für komplexe Gebäude wurden frei vergügbare 3D Objekte aus dem Internet verwendet. 
 
