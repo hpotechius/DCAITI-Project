@@ -454,7 +454,7 @@ Durch Instanziierung der von Android bereitgestellten Klasse \textit{JavaCameraV
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
 \subsection{Preprocessing}
-Das als \textit{CvCameraViewFrame} vorliegende Bild wird zur weiteren Bearbeitung in eine Matrix gespeichert. Aus performancetechnischen Gründen wird das Preprocessing in C++ ausgeführt. Dieser Schritt sorgt dafür, dass der Marker unter verschiedensten Lichtverhältnissen erkannt wird. 
+Das als \textit{CvCameraViewFrame} vorliegende Bild wird zur weiteren Bearbeitung in eine Matrix gespeichert. Aus performancetechnischen Gründen wird das Preprocessing in C++ ausgeführt. Dieser Schritt sorgt dafür, dass der Marker unter verschiedensten Lichtverhältnissen erkannt wird. Einer der Ansätze beinhaltete die Idee den Kontrast und die Helligkeit iterativ zu erhöhen bis der Marker gefunden wird. Aufgrund der Anzahl der Werte, die pro Frame ausprobiert werden müssen, sinkt die performance rapide. Letztendlich wurde ein Ansatz gewählt, der die Frames in ein Lichtveränderunginvariantes Format bringt (siehe Theorie 2.4).
 
 \begin{table}[H]
 	\centering
@@ -469,6 +469,8 @@ Das als \textit{CvCameraViewFrame} vorliegende Bild wird zur weiteren Bearbeitun
 \end{tabularx}
 \caption{Funktionen zum Preprocessing}
 \end{table} 
+
+\newpage
 
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
