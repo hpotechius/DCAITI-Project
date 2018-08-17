@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.4)  17 AUG 2018 13:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.4)  17 AUG 2018 14:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1058,20 +1058,21 @@ File: Objekts.png Graphic file (type png)
  <use Objekts.png>
 Package pdftex.def Info: Objekts.png used on input line 527.
 (pdftex.def)             Requested size: 455.24411pt x 142.6404pt.
- [13 <./Objekts.png>] <app2.png, id=96, 347.49825pt x 193.9245pt>
-File: app2.png Graphic file (type png)
- <use app2.png>
-Package pdftex.def Info: app2.png used on input line 539.
-(pdftex.def)             Requested size: 273.14923pt x 152.4441pt.
-File: app2.png Graphic file (type png)
+ [13 <./Objekts.png>] <app_debug.jpg, id=96, 1284.8pt x 722.7pt>
+File: app_debug.jpg Graphic file (type jpg)
+ <use app_debug.jpg>
+Package pdftex.def Info: app_debug.jpg used on input line 539.
+(pdftex.def)             Requested size: 273.14923pt x 153.64615pt.
 
-<use app2.png>
-Package pdftex.def Info: app2.png used on input line 546.
-(pdftex.def)             Requested size: 273.14923pt x 152.4441pt.
- [14 <./app2.png>] <test1.png, id=101, 445.665pt x 210.7875pt>
+<app_reduced.png, id=97, 1284.8pt x 722.7pt>
+File: app_reduced.png Graphic file (type png)
+ <use app_reduced.png>
+Package pdftex.def Info: app_reduced.png used on input line 546.
+(pdftex.def)             Requested size: 273.14923pt x 153.64615pt.
+ [14 <./app_debug.jpg> <./app_reduced.png (PNG copy)>]
+<test1.png, id=101, 445.665pt x 210.7875pt>
 File: test1.png Graphic file (type png)
-
-<use test1.png>
+ <use test1.png>
 Package pdftex.def Info: test1.png used on input line 559.
 (pdftex.def)             Requested size: 455.24411pt x 215.31882pt.
  [15 <./test1.png>]
@@ -1101,10 +1102,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16681 strings out of 493014
- 318582 string characters out of 6133352
+ 16686 strings out of 493014
+ 318701 string characters out of 6133352
  352215 words of memory out of 5000000
- 19972 multiletter control sequences out of 15000+600000
+ 19976 multiletter control sequences out of 15000+600000
  66746 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,12n,43p,10490b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1120,10 +1121,10 @@ e/2016/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2016/texm
 f-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts
 /type1/public/lm/lmri12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pub
 lic/lm/lmsy10.pfb>
-Output written on doku_1.pdf (20 pages, 4428757 bytes).
+Output written on doku_1.pdf (20 pages, 5101881 bytes).
 PDF statistics:
  148 PDF objects out of 1000 (max. 8388607)
  83 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 86 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
