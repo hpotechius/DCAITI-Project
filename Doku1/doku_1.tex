@@ -245,7 +245,7 @@ final								% Status des Dokuments (final/draft)
 		
 
 	\section{Die marker-basierte Detektion mit Aruco}
-	Trotz der erwähnten Vorteile der Marker gibt es einige Aspekte zu beachten. Beispielsweise können ungünstige Lichtverhältnisse oder schlechter Kontrast dazu führen dass der Marker nicht erkannt wird. Aufgrund von Farbveränderungen, welche durch ungünstiges Licht auftreten können werden grundsätzlich nur schwarz-weiss Marker benutzt. Optimalerweise reichen 4 bekannte Punkte aus um die Pose des Markers zu erkennen. Daher eignen sich Quadratische Formen als Marker am besten. Es gibt zahlreiche bekannte Bibliotheken, welche diese Art von Markern verwendet. Eine davon ist die Aruco Bibliothek, welche teil des OpenCV Frameworks ist und in diesem Projekt verwendet wird. Aruco benutzt Schachbrettmuster um individuelle Marker zu erzeugen. Diese sind durch Ihre individuelen Muster mit einer ID versehen, was bspw. nützlich ist um bestimmte Objekte mit einem bestimmten Marker zu versehen. 
+	Trotz der erwähnten Vorteile der Marker gibt es einige Aspekte zu beachten. Beispielsweise können ungünstige Lichtverhältnisse oder schlechter Kontrast dazu führen dass der Marker nicht erkannt wird. Aufgrund von Farbveränderungen, welche durch ungünstiges Licht auftreten können werden grundsätzlich nur schwarz-weiß Marker benutzt. Optimalerweise reichen 4 bekannte Punkte aus um die Pose des Markers zu erkennen. Daher eignen sich Quadratische Formen als Marker am besten. Es gibt zahlreiche bekannte Bibliotheken, welche diese Art von Markern verwendet. Eine davon ist die Aruco Bibliothek, welche teil des OpenCV Frameworks ist und in diesem Projekt verwendet wird. Aruco benutzt Schachbrettmuster um individuelle Marker zu erzeugen. Diese sind durch Ihre individuellen Muster mit einer ID versehen, was bspw. nützlich ist um bestimmte Objekte mit einem bestimmten Marker zu versehen. 
 Für die Markererkennung und Identifikation nutzt Aruco spezielle Muster, welche dekodiert werden. Der Marker besteht aus einem schwarzen Rand sowie einem Muster im inneren, welches einer binären Matrix gleichkommt. Dabei bestimmt die Größe des Markers auch die Bitzahl der Innenmatrix. Entsprechend hat ein 4cm x 4 cm großer Marker eine 16 Bit Matrix. Auf diese Matrix wird im späteren Verlauf noch eingegangen. In Abbildung \ref{aruco} sind Beispiele dieser Marker zu sehen.
 \begin{figure}[H]
 		\centering
@@ -275,7 +275,7 @@ Im folgenden werden die einzelnen Schritte bei der Markererkennung besprochen \c
 	
 	\subsubsection{Greyscaling und Tresholding}
 	Aus dem aktuellen Bild der Kamera muss als erstes ein Grayscale Bild, also ein Bild aus Intensitätswerten bestimmt werden, da weitere Operationen auf diese Werte aufbauen. Um aus diesem Bild die Konturen zu erkennen, wird es 'getresholdet'.
-	Ein für einen Bespielmarker generiertes Treshold Bild ist in Abb. zu sehen.
+	Ein für einen Beispielmarker generiertes Treshold Bild ist in Abb. zu sehen.
 	
 	\begin{figure}[H]
 		\centering
@@ -285,16 +285,16 @@ Im folgenden werden die einzelnen Schritte bei der Markererkennung besprochen \c
 	\end{figure}
 	
 	Der Treshold Ansatz erweisst sich als stabil gegen mögliche Helligkeitsschwankungen. Nachdem 'getresholdet' wurde liegt ein binäres Bild, bestehend aus Hintergrund und Objekten vor, aus denen dann die Konturen erkannt werden können. Dafür werden die Kanten aller potentiellen Marker im Bild markiert und geprüft ob genau 4 gerade Linien erkannt wurden \cite{theory}.
-	Sind diese Vorraussetzungen erfüllt, werden die Ecken des potentiellen Markers analysiert. 
+	Sind diese Voraussetzungen erfüllt, werden die Ecken des potentiellen Markers analysiert. 
 	
 	\subsubsection{Filterung und Verbesserung}
-Nachdem Tresholding wurden Konturen, welche auf einen potentiellen Marker hindeuten erkannt. Jedoch sind nicht alle erkannten Konturen tatsächlich Marker. Daher ist der Filterungschritt ein essentieller Schritt um nur tatsächliche Marker zu berücksichtigen. Dabei werden alle jene Konturen herausgefiltert, welche offentsichtlich keine Marker sind oder zu nah beieinander liegen. Dafür existieren in Aruco diverse Funktionen und Parameter um die Filterung individuell strikt zu gestalten. Wichtig ist es dabei die Markerparameter, wie Markergröße oder Maximale Distanz, welche zwei Marker zueinander besitzen dürfen vorher zu definieren um die Filterung effizient zu gestalten. 
+Nachdem Tresholding wurden Konturen, welche auf einen potentiellen Marker hindeuten erkannt. Jedoch sind nicht alle erkannten Konturen tatsächlich Marker. Daher ist der Filterungschritt ein essentieller Schritt um nur tatsächliche Marker zu berücksichtigen. Dabei werden alle jene Konturen herausgefiltert, welche offensichtlich keine Marker sind oder zu nah beieinander liegen. Dafür existieren in Aruco diverse Funktionen und Parameter um die Filterung individuell strikt zu gestalten. Wichtig ist es dabei die Markerparameter, wie Markergröße oder Maximale Distanz, welche zwei Marker zueinander besitzen dürfen vorher zu definieren um die Filterung effizient zu gestalten. 
 
 	
 	\subsubsection{Markerdekodierung und Identifikation}
 	Nachdem die Markerkandidaten detektiert wurden kann die Detektierung des Markers beginnen um zu prüfen ob es sich tatsächlich um einen Aruco basierten Marker handelt.
-	Dazu wird das Bitmuster im Inneren des Markers mittels dem sogenannten Otsu Algortihmus extrahiert um schwarze und weisse Bildpunkte zu differenzieren. Anschließend wird das Bild mittels eines Gitters aufgeteilt, welches erlaubt jene einzelnen schwarz-weiss Punkte exakt auszumachen. 
-	Anschließend werden weisse und schwarze Bits gezählt. Dabei wird für jede Zelle nur die Mitte beachtet, um somit Störungen zu vermeiden, da es auch Zellen gibt in denen beide Farbein existieren und somit nicht eindeutig ist um was für eine Zelle es sich handelt.
+	Dazu wird das Bitmuster im Inneren des Markers mittels dem sogenannten Otsu Algorithmus extrahiert um schwarze und weiße Bildpunkte zu differenzieren. Anschließend wird das Bild mittels eines Gitters aufgeteilt, welches erlaubt jene einzelnen schwarz-weiß Punkte exakt auszumachen. 
+	Anschließend werden weiße und schwarze Bits gezählt. Dabei wird für jede Zelle nur die Mitte beachtet, um somit Störungen zu vermeiden, da es auch Zellen gibt in denen beide Farben existieren und somit nicht eindeutig ist um was für eine Zelle es sich handelt.
 	Dies wird in Abbildung \ref{aruco3} deutlich.
 	\begin{figure}[H]
 		\centering
@@ -310,7 +310,7 @@ Nachdem Tresholding wurden Konturen, welche auf einen potentiellen Marker hindeu
 
 \section{Der Koordinatenabgleich}
 Ist der Marker erkannt, kann der eigentliche Koordinatenabgleich zwischen der Kamera, welche den Marker detektiert hat und dem Marker selbst stattfinden. Dies wird ist im Fachjargon auch unter dem Perspective-n-Point Problem bekannt.
-Zuvor muss jedoch erst eine Kamerakalibrierung stattfinden, in welchem die Kameramatrix, bestehend aus intrinsischen Parametern der Kamera, wie Brennweite und Verzerrungselemente gefunden werden. OpenCV und Aruco bieten dazu einige Funktionen an mit denen die Kamera kalibriert werden kann.
+Zuvor muss jedoch erst eine Kamerakalibrierung stattfinden, in welchem die Kameramatrix, bestehend aus intrinsischen Parametern der Kamera, wie Brennweite und Verzerrungselemente gefunden werden, welche in einer Kameramatrix resultiert. OpenCV und Aruco bieten dazu einige Funktionen an mit denen die Kamera kalibriert werden kann.
 Hauptziel des Koordinatenabgleiches ist die Bestimmung der Position der Kamera im Raum basierend auf der Markerposition. 
 In Abbildung \ref{koord1} ist eine Übersicht der beiden Koordinatensysteme veranschaulicht. 
 	\begin{figure}[H]
@@ -523,7 +523,7 @@ Für die virtuelle Erweiterung von Baustellen ung Ruinen, müssen entsprechende Mo
 	
 	Zur Generierung eines 3D-Modells eines realen Objektes wird das Photogrammetrie-Programm \textit{Agisoft Photoscan} verwendet. Dieses verlangt als Input mehrere Fotos des zu rekonstruierenden Objektes aus verschiedenen Perspektiven. Durch den Perspektivenunterschied zwischen den Bildern, kann ihre relative Position untereinander berechnet werden und somit pro Bildpunkt ein Raumpunkt bestimmt werden. Die Gesamtheit dieser Raumpunkte ergibt eine \textit{Point Cloud}. Diese wird im nächsten Schritt zur \textit{Dense Point Cloud} verdichtet und über Triangulationsverfahren in ein \textit{Mesh} transformiert.  Die nun orientierten Kameras liefern die Textur für das Mesh. Das \textit{Textured Mesh} wird in Form einer OBJ-Datei gespeichert, sodass es von der App gelesen werden kann. \\
 	Als Objekt wurde exemplarisch eine Statue erstellt, wie sie beispielsweise als altes Artefakt in Ruinen dargestellt werden kann.
-	Da das Ziel der Applikation eine Erweiterung von Baustellen und alten Ruinen durch Einblendung von virtuellen Objekten ist, wurden außerdem 3D Objekte von Gebäuden benutzt. In Abbildung \ref{objects} sind die verwendeten 3D Objekte gezeigt. Für komplexe Gebäude wurden frei vergügbare 3D Objekte aus dem Internet verwendet. Grundsätzlich kann somit jedes beliebige 3D Objekt in der Applikation dargestellt werden.
+	Da das Ziel der Applikation eine Erweiterung von Baustellen und alten Ruinen durch Einblendung von virtuellen Objekten ist, wurden außerdem 3D Objekte von Gebäuden benutzt. In Abbildung \ref{objects} sind die verwendeten 3D Objekte gezeigt. Für komplexe Gebäude wurden frei verfügbare 3D Objekte aus dem Internet verwendet. Grundsätzlich kann somit jedes beliebige 3D Objekt in der Applikation dargestellt werden.
 
 \begin{figure}[H]
 		\centering
@@ -543,7 +543,7 @@ Mit den Balken Contrast und Brightness auf der rechen Seiten der Applikation kön
 		\caption{Applikation ohne Debugging Buttons}
 		\label{app2}
 	\end{figure}
-Als zusätzliche Option ein Button zum Einblenden von Objektspezifischen Informationen implementiert. Dieser blendet einen selbst definierten Text in die Szene ein. Dies kann beispielsweise bei zukünftigen Bauprojekten oder Ruinen von Bedeutung sein um Informationen zum Objekt wie Baujahr, Kosten oder Bedeutung wiederzugeben. Um die Applikation übersichtlicher zu gestalten werden die Testbuttons entfernt, was in der Applikation in Abbildung \ref{app2} resultiert. 
+Als zusätzliche Option ein Button zum Einblenden von objektspezifischen Informationen implementiert. Dieser blendet einen selbst definierten Text in die Szene ein. Dies kann beispielsweise bei zukünftigen Bauprojekten oder Ruinen von Bedeutung sein um Informationen zum Objekt wie Baujahr, Kosten oder Bedeutung wiederzugeben. Um die Applikation übersichtlicher zu gestalten werden die Testbuttons entfernt, was in der Applikation in Abbildung \ref{app2} resultiert. 
 \begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.6\textwidth]{app_reduced}
@@ -576,7 +576,7 @@ Im folgenden sind wichtige Performance Werte aufgeführt.
 \end{tabularx}
 \caption{App Performance}
 \end{table} 
-Durch die Afulösung von 320x240 px kann eine angemessene Darstellung des Objektes ohne wesentliche Störeffekte erzielt werden. Die Frame Rate liegt dabei im Schnitt bei 13 FPS, was bedingt ist durch die geringe Leistungsfähigkeit des Smartphones. Eine wesentlich bessere Framerate ließ sich mit einem Samsung Galaxy S5 erzielen. Zum Vergleich sind im Folgenden wichtige Eigenschaften der Smartphone Hardware aufgelistet. Ein Test der Applikation mit aktuelleren Smartphones wird entsprechend noch bessere Ergebnisse liefern. 
+Durch die Auflösung von 320x240 px kann eine angemessene Darstellung des Objektes ohne wesentliche Störeffekte erzielt werden. Die Frame Rate liegt dabei im Schnitt bei 13 FPS, was bedingt ist durch die geringe Leistungsfähigkeit des Smartphones. Eine wesentlich bessere Framerate ließ sich mit einem Samsung Galaxy S5 erzielen. Zum Vergleich sind im Folgenden wichtige Eigenschaften der Smartphone Hardware aufgelistet. Ein Test der Applikation mit aktuelleren Smartphones wird entsprechend noch bessere Ergebnisse liefern. 
 \begin{table}[H]
 	\centering
 	\begin{tabularx}{\textwidth}{|p{0.47\textwidth}|p{0.475\textwidth}|}
@@ -606,11 +606,11 @@ Zusammenfassend lässt sich sagen, dass die Platzierung von beliebigen 3D Objekte
 Insgesamt wurden die Konzepte der Theorie verstanden und im Projekt erfolgreich angewandt.
 Damit konnten die anfangs definierten Ziele für das Projekt alle erreicht werden.
 Dies umfasst die erfolgreiche Implementierung einer Markerbasierten Schätzung der Pose der Kamera innerhalb der Weltkoordinaten durch die Markerdetektion. Damit verbunden wurden verschiedene Ansätze des Preprocessings ausprobiert um den Marker auch bei schlechten Lichtverhältnissen zu erkennen. Da diese Ansätze nicht immer optimale Ergebnisse liefern, ist eine Optimierung dieser Ansätze ein wichtiger nächster Schritt. 
-Basierend auf den Informationen der Markerdetektion, gelang weiterhin die Kombination mit OpenGL zur positionsgenauen Platzierung von 3D Objekten innerhalb der Welt. Somit konnte das Grundgerüst für eine AR basierte Applikation zur virtuellen Erweiterungen von vorher bekannten Szenerien wie Gebäuden, Baustellen oder Ruinen implementiert werden. Die verwendeten 3D Modelle sind dabei mit lebensechten Abmessungen versehen und bieten so dem Nutzer eine erhebliche Verbesserung der Vorstellung über die Gesamtszene, was vor allem in der Konstruktion oder Planung von neuen Gebäuden essentiell ist. Weiterhin wurden zusätzliche Funktionen wie das Einblenden von Objektspezifischen Informationen oder Bildstufen in Form von Buttons integriert, um dem Nutzer eine Interaktionsmöglichkeit mit der Applikation zu schaffen und dem Entwickler bei der Entwicklung von neuen Funktionen oder der Optimierung beispielsweise des Preprocessings zu unterstützen.
+Basierend auf den Informationen der Markerdetektion, gelang weiterhin die Kombination mit OpenGL zur positionsgenauen Platzierung von 3D Objekten innerhalb der Welt. Somit konnte das Grundgerüst für eine AR basierte Applikation zur virtuellen Erweiterungen von vorher bekannten Szenerien wie Gebäuden, Baustellen oder Ruinen implementiert werden. Die verwendeten 3D Modelle sind dabei mit lebensechten Abmessungen versehen und bieten so dem Nutzer eine erhebliche Verbesserung der Vorstellung über die Gesamtszene, was vor allem in der Konstruktion oder Planung von neuen Gebäuden essentiell ist. Weiterhin wurden zusätzliche Funktionen wie das Einblenden von objektspezifischen Informationen oder Bildstufen in Form von Buttons integriert, um dem Nutzer eine Interaktionsmöglichkeit mit der Applikation zu schaffen und dem Entwickler bei der Entwicklung von neuen Funktionen oder der Optimierung beispielsweise des Preprocessings zu unterstützen.
 Ferner wurde auch ein Ansatz zur Erstellung von 3D Objekten mittels Pointclouds vorgestellt. Damit ist es möglich aus Bildern bekannter realer Objekte, 3D Objekte zu erzeugen, welche dann beispielsweise in  einer anderen Umgebung visualisiert werden können. 
 
 \subsection{Ausblick}
-Die existierende App bietet viel Freiraum für zukünfitge Erweiterungen. Eine wichtige Erweiterung ist das Füllen der internen Datenbank mit neuen 3D Modellen. Dazu können verschiedene MarkerIds verschiedenen Objekten zugeordnet und der vorgestellte Prozess zur Erstellung von 3D Objekten genutzt werden.
+Die existierende App bietet viel Freiraum für zukünftige Erweiterungen. Eine wichtige Erweiterung ist das Füllen der internen Datenbank mit neuen 3D Modellen. Dazu können verschiedene MarkerIds verschiedenen Objekten zugeordnet und der vorgestellte Prozess zur Erstellung von 3D Objekten genutzt werden.
 Ein weiterer Punkt ist eine erweiterte Benutzerinteraktion durch Buttons. Eine Möglichkeit ist die Einblendung von Informationen über verfügbare Marker in der Stadt. Dafür kann die Integration einer Map, beispielsweise mittels der Google Maps API für Android, in die App integrieren. 
 Ein weiterer wichtiger Aspekt ist die Optimierung der Preprocessing Algorithmen. Diese liefern teilweise nicht immer optimale Ergebnisse. Auch weitere Algorithmen können probiert werden ,welche eine noch robustere Markererkennung bei schlechten Verhältnissen bieten. 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.15)  17 AUG 2018 18:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.15)  17 AUG 2018 18:30
 entering extended mode
 **./doku_1.tex
 (doku_1.tex
@@ -969,13 +969,13 @@ File: eq.png Graphic file (type png)
  <use eq.png>
 Package pdftex.def Info: eq.png used on input line 333.
 (pdftex.def)             Requested size: 136.57462pt x 68.52559pt.
-
-<koord3.png, id=48, 451.6875pt x 249.93375pt>
+ [6 <./koord.png> <./eq.png>] <koord3.png, id=57, 451.6875pt x 249.93375pt>
 File: koord3.png Graphic file (type png)
- <use koord3.png>
+
+<use koord3.png>
 Package pdftex.def Info: koord3.png used on input line 346.
 (pdftex.def)             Requested size: 295.90588pt x 163.74403pt.
- [6 <./koord.png> <./eq.png>] <koord4.png, id=58, 453.49425pt x 214.401pt>
+ <koord4.png, id=58, 453.49425pt x 214.401pt>
 File: koord4.png Graphic file (type png)
  <use koord4.png>
 Package pdftex.def Info: koord4.png used on input line 353.
@@ -986,31 +986,30 @@ File: aruco2.png Graphic file (type png)
  <use aruco2.png>
 Package pdftex.def Info: aruco2.png used on input line 363.
 (pdftex.def)             Requested size: 182.09486pt x 136.12067pt.
- [7 <./koord3.png> <./koord4.png> <./aruco2.png>] <chroma1.png, id=66, 639.5895
-pt x 401.0985pt>
+ [7 <./koord3.png> <./koord4.png>] <chroma1.png, id=65, 639.5895pt x 401.0985pt
+>
 File: chroma1.png Graphic file (type png)
-
-<use chroma1.png>
+ <use chroma1.png>
 Package pdftex.def Info: chroma1.png used on input line 381.
 (pdftex.def)             Requested size: 341.43307pt x 214.12349pt.
- <chroma2.png, id=67, 525.162pt x 239.6955pt>
-File: chroma2.png Graphic file (type png)
 
-<use chroma2.png>
+<chroma2.png, id=66, 525.162pt x 239.6955pt>
+File: chroma2.png Graphic file (type png)
+ <use chroma2.png>
 Package pdftex.def Info: chroma2.png used on input line 392.
 (pdftex.def)             Requested size: 295.90588pt x 135.05879pt.
- [8 <./chroma1.png> <./chroma2.png>]
+ [8 <./aruco2.png> <./chroma1.png>] [9 <./chroma2.png>]
 Kapitel 3.
-[9
+[10
 
 ]
 Kapitel 4.
-<flow_chart.png, id=76, 728.7225pt x 216.81pt>
+<flow_chart.png, id=80, 728.7225pt x 216.81pt>
 File: flow_chart.png Graphic file (type png)
  <use flow_chart.png>
 Package pdftex.def Info: flow_chart.png used on input line 426.
 (pdftex.def)             Requested size: 455.24411pt x 135.44305pt.
- [10
+ [11
 
  <./flow_chart.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 449--449
@@ -1037,38 +1036,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 470--470
 \T1/lmr/m/n/12 Chromaticity-Bild trans-for-miert und
  []
 
-[11] <3d.png, id=85, 1001.54175pt x 436.63126pt>
+[12] <3d.png, id=88, 1001.54175pt x 436.63126pt>
 File: 3d.png Graphic file (type png)
  <use 3d.png>
 Package pdftex.def Info: 3d.png used on input line 519.
 (pdftex.def)             Requested size: 455.24411pt x 198.46765pt.
- [12]
-<Objekts.png, id=89, 592.01175pt x 185.493pt>
+ [13]
+<Objekts.png, id=92, 592.01175pt x 185.493pt>
 File: Objekts.png Graphic file (type png)
  <use Objekts.png>
 Package pdftex.def Info: Objekts.png used on input line 530.
 (pdftex.def)             Requested size: 455.24411pt x 142.6404pt.
- [13 <./3d.png> <./Objekts.png>] <app_debug.png, id=95, 1284.8pt x 722.7pt>
+ [14 <./3d.png> <./Objekts.png>] <app_debug.png, id=98, 1284.8pt x 722.7pt>
 File: app_debug.png Graphic file (type png)
 
 <use app_debug.png>
 Package pdftex.def Info: app_debug.png used on input line 542.
 (pdftex.def)             Requested size: 273.14923pt x 153.64615pt.
- <app_reduced.png, id=96, 1284.8pt x 722.7pt>
+ <app_reduced.png, id=99, 1284.8pt x 722.7pt>
 File: app_reduced.png Graphic file (type png)
 
 <use app_reduced.png>
 Package pdftex.def Info: app_reduced.png used on input line 549.
 (pdftex.def)             Requested size: 273.14923pt x 153.64615pt.
- [14 <./app_debug.png (PNG copy)>]
-<test1.png, id=100, 445.665pt x 210.7875pt>
+ [15 <./app_debug.png (PNG copy)>]
+<test1.png, id=103, 445.665pt x 210.7875pt>
 File: test1.png Graphic file (type png)
  <use test1.png>
 Package pdftex.def Info: test1.png used on input line 560.
 (pdftex.def)             Requested size: 455.24411pt x 215.31882pt.
- [15 <./app_reduced.png (PNG copy)> <./test1.png>] [16]
+ [16 <./app_reduced.png (PNG copy)> <./test1.png>] [17]
 Kapitel 5.
-[17
+[18
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 642--643
@@ -1082,7 +1081,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 645--646
 ling-opencv-
  []
 
-[18
+[19
 
 ] (doku_1.aux)
 
@@ -1111,9 +1110,9 @@ ic/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C
 KTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy1
 0.pfb>
-Output written on doku_1.pdf (21 pages, 5338566 bytes).
+Output written on doku_1.pdf (22 pages, 5339252 bytes).
 PDF statistics:
- 149 PDF objects out of 1000 (max. 8388607)
+ 152 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

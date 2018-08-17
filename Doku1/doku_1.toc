@@ -10,15 +10,15 @@
 \contentsline {subsubsection}{Markerdekodierung und Identifikation}{5}
 \contentsline {section}{\numberline {2.3}Der Koordinatenabgleich}{6}
 \contentsline {section}{\numberline {2.4}Chromaticity-Bild}{8}
-\contentsline {chapter}{\numberline {3}Setup}{9}
-\contentsline {section}{\numberline {3.1}Verwendete Frameworks und Software}{9}
-\contentsline {chapter}{\numberline {4}Implementierung}{10}
-\contentsline {section}{\numberline {4.1}Bilderfassung}{11}
-\contentsline {section}{\numberline {4.2}Preprocessing}{11}
-\contentsline {section}{\numberline {4.3}Markeranalyse}{12}
-\contentsline {section}{\numberline {4.4}Rendering}{12}
-\contentsline {section}{\numberline {4.5}Generierung von 3D Objekten}{12}
-\contentsline {section}{\numberline {4.6}Aufbau der Applikation}{14}
-\contentsline {section}{\numberline {4.7}Performance}{15}
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Ausblick}{17}
-\contentsline {subsection}{\numberline {5.0.1}Ausblick}{17}
+\contentsline {chapter}{\numberline {3}Setup}{10}
+\contentsline {section}{\numberline {3.1}Verwendete Frameworks und Software}{10}
+\contentsline {chapter}{\numberline {4}Implementierung}{11}
+\contentsline {section}{\numberline {4.1}Bilderfassung}{12}
+\contentsline {section}{\numberline {4.2}Preprocessing}{12}
+\contentsline {section}{\numberline {4.3}Markeranalyse}{13}
+\contentsline {section}{\numberline {4.4}Rendering}{13}
+\contentsline {section}{\numberline {4.5}Generierung von 3D Objekten}{13}
+\contentsline {section}{\numberline {4.6}Aufbau der Applikation}{15}
+\contentsline {section}{\numberline {4.7}Performance}{16}
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Ausblick}{18}
+\contentsline {subsection}{\numberline {5.0.1}Ausblick}{18}
