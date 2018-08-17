@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.15)  17 AUG 2018 16:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.15)  17 AUG 2018 18:23
 entering extended mode
 **./doku_1.tex
 (doku_1.tex
@@ -1071,13 +1071,13 @@ Kapitel 5.
 [17
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 646--647
+Underfull \hbox (badness 10000) in paragraph at lines 642--643
 []\T1/lmr/m/n/12 https://blog.codeonion.com/2015/11/25/creating-a-new-opencv-pr
 oject-in-android-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--650
+Underfull \hbox (badness 10000) in paragraph at lines 645--646
 []\T1/lmr/m/n/12 https://medium.com/@sukritipaul005/a-beginners-guide-to-instal
 ling-opencv-
  []
@@ -1095,7 +1095,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  16929 strings out of 493328
  320512 string characters out of 3139127
- 363614 words of memory out of 3000000
+ 362614 words of memory out of 3000000
  20207 multiletter control sequences out of 15000+200000
  66746 words of font info for 54 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1111,7 +1111,7 @@ ic/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C
 KTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy1
 0.pfb>
-Output written on doku_1.pdf (21 pages, 5339500 bytes).
+Output written on doku_1.pdf (21 pages, 5338566 bytes).
 PDF statistics:
  149 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
