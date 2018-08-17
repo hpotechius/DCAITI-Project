@@ -394,19 +394,39 @@ Die Farbe des Pixels definiert sich nicht mehr durch die Intensität der einzelne
 
 \begin{figure}[H]
 \centering
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.4\textwidth}
   \centering
   \includegraphics[width=.9\textwidth]{img_orig}
   \caption{RGB-Farbraum}
   \label{fig:sub1}
 \end{subfigure}%
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{.4\textwidth}
   \centering
   \includegraphics[width=.9\textwidth]{img_chrom}
   \caption{rgb-Farbraum}
   \label{fig:sub2}
 \end{subfigure}
 \caption{Vergleich: Originalaufnahme mit Chromaticity-Bild}
+\label{fig:test}
+\end{figure}
+
+Damit dieses Verfahren zur Markererkennung verwendet werden kann, müssen die Marker farblich angepasst werden, sodass Unterschiede in der Farbart erkennbar sind.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.9\textwidth]{marker_orig}
+  \caption{schwarz-weiß Marker}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.9\textwidth]{marker_chrom}
+  \caption{rot-grün Marker}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Anpassung der Markerfarben}
 \label{fig:test}
 \end{figure}
 
