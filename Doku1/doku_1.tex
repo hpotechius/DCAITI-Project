@@ -558,7 +558,7 @@ Im Folgenden sind die Ergebnisse der resultierenden Applikation aufgezeigt. Die 
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width= \textwidth]{test1}
-		\caption{links: Erweiterung einer Ruine/Baustelle, rechts: Einblendung einer Statue}
+		\caption{links: Erweiterung einer Ruine/Baustelle, rechts: Einblendung einer Statuet }
 		\label{objects}
 	\end{figure}
 Zu erkennen ist die Erweiterung der Umgebung mit den 3D Objekten mit realen Abmessungen. Abbildung \ref{objects} links zeigt die relative Positionierung des Objektes. Dafür muss, wie bereits in der Theorie besprochen, eine entsprechende Transformationsmatrix erstellt werden, welche Werte für Translation und Rotation vom Marker beinhaltet. Somit können die Objekte in beliebiger Relation zum Marker platziert werden. Wird keine zusätzliche Transformationsmatrix angegeben, wird das Objekt direkt auf den Marker platziert, wie in Abbildung \ref{objects} rechts zu erkennen ist.\\
@@ -576,7 +576,7 @@ Im folgenden sind wichtige Performance Werte aufgeführt.
 \end{tabularx}
 \caption{App Performance}
 \end{table} 
-Durch die Afulösung von 320x240 px kann eine angemessene Darstellung des Objektes ohne wesentliche Störeffekte erzielt werden. Die Frame Rate liegt dabei im Schnitt bei 13 FPS, was bedingt ist durch die geringe Leistungsfähigkeit des Smartphones. Eine wesentlich bessere Framerate ließ sich mit einem Samsung Galaxy S5 erzielen. Zum Vergleich sind im Folgenden wichtige Eigenschaften der Smartphone Hardware aufgelistet.
+Durch die Afulösung von 320x240 px kann eine angemessene Darstellung des Objektes ohne wesentliche Störeffekte erzielt werden. Die Frame Rate liegt dabei im Schnitt bei 13 FPS, was bedingt ist durch die geringe Leistungsfähigkeit des Smartphones. Eine wesentlich bessere Framerate ließ sich mit einem Samsung Galaxy S5 erzielen. Zum Vergleich sind im Folgenden wichtige Eigenschaften der Smartphone Hardware aufgelistet. Ein Test der Applikation mit aktuelleren Smartphones wird entsprechend noch bessere Ergebnisse liefern. 
 \begin{table}[H]
 	\centering
 	\begin{tabularx}{\textwidth}{|p{0.47\textwidth}|p{0.475\textwidth}|}
@@ -596,9 +596,9 @@ Durch die Afulösung von 320x240 px kann eine angemessene Darstellung des Objekte
 \end{tabularx}
 \caption{Smartphone Hardware}
 \end{table} 
-Ein Test der Applikation mit aktuelleren Smartphones wird entsprechend noch bessere Ergebnisse liefern. 
-Der größte Teil der verbrauchten Rechenleistung wird dem Preprocessing und dem Objekt rendering zugeschrieben. Entsprechend können an dieser Stelle noch Optimierungen vorgenommen werden, um eine flüssigere Objektdarstellung zu ermöglichen.
-Zusammenfassend lässt sich sagen, dass die Platzierung von beliebigen 3D Objekten im Raum ohne größere Störungen funktioniert und das erwähnte Ruckeln mit einem leistungsfähigerem Smartphone ausgeglichen werden kann. 
+
+Der größte Teil der verbrauchten Rechenleistung wird der Markererkennung und dem Objekt rendering zugeschrieben. Beides wurde anfangs mittels Java implementiert. Nach der Umstellung auf C++ konnte eine verbesserte Performance erreicht werden. Auch das Preprocessing in C++ trägt zu einer verbesserten Performance bei. Eine gezielte Verbesserung der Performance lässt sich in der Optimierung der genannten Aspekte bewerkstelligen.
+Zusammenfassend lässt sich sagen, dass die Platzierung von beliebigen 3D Objekten im Raum jedoch weitestgehend ohne größere Störungen funktioniert und das noch vorhandene leichte Ruckeln mit einem leistungsfähigerem Smartphone ausgeglichen werden kann. 
 \newpage
 \chapter{Zusammenfassung und Ausblick}
 Insgesamt wurden die Konzepte der Theorie verstanden und im Projekt erfolgreich angewandt.
