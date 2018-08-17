@@ -538,22 +538,22 @@ Für die virtuelle Erweiterung von Baustellen ung Ruinen, müssen entsprechende Mo
 	\newpage
 	
 \subsection{Aufbau der Applikation}
-Das Design der Applikation wurde, im Sinne einer einfachen Bedienung, so übersichtlich wie möglich gehalten. Beim Starten der Applikation werden die Schritte aus dem Flussdiagramm in Abbildung \ref{flow1} gestartet. Wird der Marker erkannt werden entsprechend seiner ID dann die Objekte in der Welt angezeigt. Sowohl zu Testzwecken als auch für eine verbesserte Nutzerinteraktion, wurden diverse Buttons integriert. Die Buttons Greyscale, Threshhold, .. dienen dazu dem Entwickler die einzelnen Bildstufen aufzuzeigen um Verbesserungen beispielsweise im Preprocessing vorzunehmen. Weiter ist es dem Nutzer möglich das Objekt durch einen Button auszublenden um die Originalszene zu bekommen. 
-Mit den Balken Contrast und Brightness können Kontrast und Helligkeit des Bildes manuell eingestellt werden. Diese Schritte übernimmt in der endgültigen Applikation das Preprocessing. 
+Das Design der Applikation wurde, im Sinne einer einfachen Bedienung, so übersichtlich wie möglich gehalten. Um die Applikation auf Funktionalitäten zu testen und das Debugging einfacher zu gestalten wird eine Version der App benutzt wie sie in Abbildung \ref{app2} zu erkennen ist. Beim Starten der Applikation werden die Schritte aus dem Flussdiagramm in Abbildung \ref{flow1} gestartet. Wird der Marker erkannt werden entsprechend seiner ID dann die Objekte in der Welt angezeigt. Sowohl zu Testzwecken als auch für eine verbesserte Nutzerinteraktion, wurden diverse Buttons integriert. Die Buttons Greyscale (GREY), Threshhold (THR)dienen dazu dem Entwickler die einzelnen Bildstufen aufzuzeigen um Verbesserungen beispielsweise im Preprocessing vorzunehmen. Der Button ORIG zeigt das Original Bild, das von der Kamera aufgenommen wird, ohne jegliche Bearbeitung. Mit EDG, AXIS werden die Kanten des Markers und ein Koordinatensystem des Markers angezeigt. Dies kann zur Verifizierung einer erfolgreichen Detektion genutzt werden. Weiter ist es dem Nutzer möglich das Objekt durch den Button OBJ auszublenden um die Originalszene zu bekommen. 
+Mit den Balken Contrast und Brightness auf der rechen Seiten der Applikation können Kontrast und Helligkeit des Bildes manuell eingestellt werden. Diese Schritte übernimmt in der endgültigen Applikation das Preprocessing. 
 \begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.6\textwidth]{app_debug}
 		\caption{Applikation ohne Debugging Buttons}
 		\label{app2}
 	\end{figure}
-Als zusätzliche Option ein Button zum Einblenden von Objektspezifischen Informationen implementiert. Dieser blendet einen selbst definierten Text in die Szene ein. Dies kann beispielsweise bei zukünftigen Bauprojekten oder Ruinen von Bedeutung sein um Informationen zum Objekt wie Baujahr, Kosten oder Bedeutung wiederzugeben. Um die Applikation übersichtlicher zu gestalten können die Testbuttons entfernt werden was in der Applikation in Abbildung \ref{app2} resultiert. 
+Als zusätzliche Option ein Button zum Einblenden von Objektspezifischen Informationen implementiert. Dieser blendet einen selbst definierten Text in die Szene ein. Dies kann beispielsweise bei zukünftigen Bauprojekten oder Ruinen von Bedeutung sein um Informationen zum Objekt wie Baujahr, Kosten oder Bedeutung wiederzugeben. Um die Applikation übersichtlicher zu gestalten werden die Testbuttons entfernt, was in der Applikation in Abbildung \ref{app2} resultiert. 
 \begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.6\textwidth]{app_reduced}
 		\caption{Applikation ohne Debugging Buttons}
 		\label{app2}
 	\end{figure}
-\newpage
+	Hier ist nun nur noch die Kameraszene zu erkennen sowie ein Button zur Einblendung Objektspezifischer Informationen. 
 
 \subsection{Performance} 
 Im Folgenden sind die Ergebnisse der resultierenden Applikation aufgezeigt. 
@@ -568,7 +568,7 @@ Im Folgenden sind die Ergebnisse der resultierenden Applikation aufgezeigt.
 	\end{figure}
 	
 	Die Framerate liegt im Schnitt bei 13 FPS und es ist noch leichtes ruckeln zu vermerken. Dies kann jedoch mit leistungsfähigeren Geräten verhindert werden.
-	Im folgenden die wichtigsten Werte der Applikation und der Hardware des verwendeten Smartphonesq:
+	Im folgenden die wichtigsten Werte der Applikation und der Hardware des verwendeten Smartphones:
 	
 	\begin{table}[H]
 	\centering
@@ -583,8 +583,8 @@ Im Folgenden sind die Ergebnisse der resultierenden Applikation aufgezeigt.
 \end{tabularx}
 \caption{App Performance}
 \end{table} 
-
-	\begin{table}[H]
+Durch die Afulösung von 320x240 px kann eine angemessene Darstellung des Objektes ohne wesentliche Störeffekte erzielt werden. Die Frame Rate liegt dabei im Schnitt bei 13 FPS, was bedingt ist durch die geringe Leistungsfähigkeit des Smartphones. Eine wesentlich bessere Framerate ließ sich mit einem Samsung Galaxy S5 erzielen. Ein Test der Applikation mit aktuelleren Smartphones wird entsprechend noch bessere Ergebnisse liefern. Zum Vergleich sind im Folgenden wichtige Eigenschaften der Smartphone Hardware aufgelistet.
+\begin{table}[H]
 	\centering
 	\begin{tabularx}{\textwidth}{|p{0.47\textwidth}|p{0.475\textwidth}|}
 		\hline
@@ -603,7 +603,6 @@ Im Folgenden sind die Ergebnisse der resultierenden Applikation aufgezeigt.
 \end{tabularx}
 \caption{Smartphone Hardware}
 \end{table} 
-
 \newpage
 \chapter{Zusammenfassung und Ausblick}
 Insgesamt wurden die Konzepte der Theorie verstanden und im Projekt erfolgreich angewandt.
