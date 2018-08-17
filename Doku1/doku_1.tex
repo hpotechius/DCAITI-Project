@@ -44,7 +44,7 @@ final								% Status des Dokuments (final/draft)
 \usepackage{color}
 \usepackage{graphicx}
 \graphicspath{{./Bilder/}}
-\usepackage{subcaption}
+%\usepackage{subcaption}
 \usepackage{cite}
 \usepackage{float}
 \usepackage{amsmath,amsfonts}
@@ -198,10 +198,10 @@ final								% Status des Dokuments (final/draft)
 	\chapter{Einleitung und Motivation}
 	\section{Einleitung}
 	Der stetige Fortschritt im Bereich der Informationstechnik setze in den vergangenen Jahren in nahezu allen Bereichen der Gesellschaft innovative Möglichkeiten in Gang. 
-	Das Konzept einer erweiterten Realität (Augmented Reality - AR) in der die reale Umgebung mittels virtuellen Instanzen erweitert wird, erlangt dabei, aufgrund seiner vielfältigen Einsatzmöglichkeiten, zunehmende Wichtigkeit. AR kann die Nutzerinteraktion erheblich verbessern und Aufgaben wie Wartung, Steuerung oder Kontrolle effizienter und einfacher gestalten. Durch die Visualisierung innerhalb der realen Umgebung trägt AR ferner zur Unterstützung des räumlichen Verständnisses bei und hat damit einhergehend positive Auswirkungen auf das Nutzererlebniss. Wesentliche Probleme beziehungsweise Herausforderung beim Einsatz von AR ist der Koordinatenabgleich zwischen Weltkoordinaten und dem verwendeten Darstellungsgerät - meist das Smartphone oder sogenannte Head Mounted Devices wie die Microsoft Hololens um die Illusion zu schaffen, dass Daten und Hologramme sich innerhalb der echten Welt befinden. Dazu wurden in den vergangenen Jahren vielfältige Forschung und Methoden entwickelt auf welche im späteren Verlauf noch eingegangen wird. Weitere Herausforderungen siedeln sich im Bereich der Computervision zur intelligenten Erkennung und Auswertung der Pixeldaten Computergrafik und der Bildverarbeitung, beispielsweise das Rendern von Objekten in die Szene oder die korrekte Darstellung der Objekte an. 
+	Das Konzept einer erweiterten Realität (Augmented Reality - AR) in der die reale Umgebung mittels virtuellen Instanzen erweitert wird, erlangt dabei, aufgrund seiner vielfältigen Einsatzmöglichkeiten, zunehmende Wichtigkeit. AR kann die Nutzerinteraktion erheblich verbessern und Aufgaben wie Wartung, Steuerung oder Kontrolle effizienter und einfacher gestalten. Durch die Visualisierung innerhalb der realen Umgebung trägt AR ferner zur Unterstützung des räumlichen Verständnisses bei und hat damit einhergehend positive Auswirkungen auf das Nutzererlebnis. Wesentliche Probleme beziehungsweise Herausforderung beim Einsatz von AR ist der Koordinatenabgleich zwischen Weltkoordinaten und dem verwendeten Darstellungsgerät - meist das Smartphone oder sogenannte Head Mounted Devices (HMD) wie die Microsoft Hololens um die Illusion zu schaffen, dass Daten und Hologramme sich innerhalb der echten Welt befinden. Dazu wurden in den vergangenen Jahren durch intensivierte Forschung eine Vielzahl an Methoden entwickelt auf welche im späteren Verlauf noch eingegangen wird. Weitere Herausforderungen siedeln sich im Bereich der Computervision zur intelligenten Erkennung und Auswertung der Pixeldaten, der Computergrafik sowie der Bildverarbeitung, beispielsweise das Rendering von Objekten in die Szene oder die korrekte Darstellung der Objekte, an. 
 	
 	\section{Zielstellung}
-	Ziel dieses Projektes war es eine AR basierte Applikation zu implementieren, welche es dem Nutzer erlaubt innerhalb der realen Umgebung, virtuelle Instanzen zu platzieren. Konkret soll es sich dabei um Gebäude und Gegenstände handeln, um somit eine Erweiterung von Baustellen oder Ruinen durch jene virtuellen Instanzen zu erreichen und dabei unterstützend bei der Konstruktion, Planung und Design von neuen Gebäuden zu dienen. Außerdem kann, beispielsweise durch die Erweiterung von Ruinen und der Platzierung von historischen Objekten ein interessantes Nutzererlebniss ermöglicht werden. 
+	Ziel dieses Projektes war es eine AR basierte Applikation zu implementieren, welche dem Nutzer erlaubt, innerhalb der realen Umgebung, virtuelle Instanzen zu platzieren. Konkret soll es sich dabei um Gebäude und Gegenstände handeln, um somit eine Erweiterung von Baustellen oder Ruinen durch jene virtuellen Instanzen zu erreichen und dabei unterstützend bei der Konstruktion, Planung und Design von neuen Gebäuden zu dienen. Außerdem kann, beispielsweise durch die Erweiterung von Ruinen und der Platzierung von historischen Objekten ein interessantes Nutzererlebnis ermöglicht werden. 
 	
 
 
@@ -215,16 +215,11 @@ final								% Status des Dokuments (final/draft)
 	\newpage
 	\chapter{Theorie}
 	
-	Um ein optimales AR Erlebnis bieten zu können, müssen, wie bereits eingangs erwähnt, Aspekte aus verschiedenen Teildisziplinen miteinander verknüpft werden. Wichtige Disziplinen sind die Computervision sowie die Computergrafik. Außerdem ist der Abgleich er Koordinatensysteme von essentieller Bedeutung. Im folgenden wird auf die Theorie und Ansatzpunkte dieser Problemstellungen eingegangen. 
+	Um ein optimales AR Erlebnis bieten zu können, müssen, wie bereits eingangs erwähnt, Aspekte aus verschiedenen Teildisziplinen miteinander verknüpft werden. Wichtige Disziplinen sind dabei die Computervision sowie die Computergrafik. Außerdem ist der Abgleich er Koordinatensysteme von essentieller Bedeutung. Um ein besseres Verständnis über die verwendete Theorie zu schaffen, wird im Folgenden auf die wichtigsten Aspekte und Ansatzpunkte dieser Problemstellungen eingegangen.
 	
-	\section{Augmented Reality}
-	kurze Erklärung was das ist hauptprobleme und aspekte bildverarbeitung rendering usw
-	auch ein paar bilder zu anwendungsgebieten usw reinmachen
-	
-	übergang koordinatenabgleich wichtigste 
-	
-	\section{Die Detektion der Kamerapose im Raum}
-	Wie bereits vorher erwähnt ist ein Kernaspekt um ein angemessenes AR Erlebnis zu ermöglichen, der sogenannte Koordinatenabgleich der Weltkoordinaten mit denen der Kamera. Grundsätzlich geht es darum die Position des Nutzers und dessen Sichtfeld und Blickrichtung innerhalb der Weltkoordinaten zu lokalisieren. Praktisch entspricht dies der Orientierung und Position der Kamera des AR Geräts (Smartphone, HMD, etc.). Wichtig hierbei ist, dass die Kamera individuell kalbibriert werden muss. Forschungen, welche z.T noch hochaktuell sind haben zahlreiche Algorithmen und Lösungsansätze hervorgebracht, wobei die wichtigsten Paradigmen im folgenden aufgelistet sind: 
+
+	\section{Paradigmen zur Detektion der Kamerapose im Raum}
+	Ein Kernaspekt zur Ermöglichung eines angemessenen AR Erlebnisses ist der sogenannte Koordinatenabgleich der Weltkoordinaten mit denen der Kamera. Grundsätzlich geht es darum die Position des Nutzers und dessen Sichtfeld und Blickrichtung innerhalb der Weltkoordinaten zu lokalisieren. Praktisch entspricht dies der Orientierung und Position der Kamera des AR Geräts (Smartphone, HMD, o.ä.). Forschungen, welche z.T noch hochaktuell sind haben zahlreiche Algorithmen und Lösungsansätze hervorgebracht, wobei die wichtigsten Paradigmen im folgenden aufgelistet sind: 
 	
 	\begin{itemize}
 		
@@ -249,12 +244,10 @@ final								% Status des Dokuments (final/draft)
 	
 		
 
-	\section{Die markerbasierten Erkennung mit Aruco}
-	Trotz der erwähnten Vorteile der Marker gibt es einige Aspekte zu beachten. Beispielsweise können ungünstige Lichtverhältnisse oder schlechter Kontrast dazu führen dass der Marker nicht erkannt wird. Aufgrund von Farbveränderungen, welche durch ungünstiges Licht auftreten können werden grundsätzlich nur schwarz-weiss Marker benutzt. Optimalerweise reichen 4 bekannte Punkte aus um die Pose des Markers zu erkennen. Daher eignen sich Quadratische Formen als Marker am besten. Es gibt zahlreiche bekannte Bibliotheken, welche diese Art von Markern verwendet. Eine davon ist die Aruco Bibliothek, welche teil des OpenCV Frameworks ist, welches im späteren Verlauf noch erläutert wird. Aruco benutzt Schachbrettmuster um individuelle Marker zu erzeugen. Diese Marker sind durch Ihre individuelen Muster mit einer ID versehen. Dies ist nützlich um beispielsweise bestimmte Objekte mit einem bestimmten Marker zu versehen. 
+	\section{Die marker-basierte Detektion mit Aruco}
+	Trotz der erwähnten Vorteile der Marker gibt es einige Aspekte zu beachten. Beispielsweise können ungünstige Lichtverhältnisse oder schlechter Kontrast dazu führen dass der Marker nicht erkannt wird. Aufgrund von Farbveränderungen, welche durch ungünstiges Licht auftreten können werden grundsätzlich nur schwarz-weiss Marker benutzt. Optimalerweise reichen 4 bekannte Punkte aus um die Pose des Markers zu erkennen. Daher eignen sich Quadratische Formen als Marker am besten. Es gibt zahlreiche bekannte Bibliotheken, welche diese Art von Markern verwendet. Eine davon ist die Aruco Bibliothek, welche teil des OpenCV Frameworks ist und in diesem Projekt verwendet wird. Aruco benutzt Schachbrettmuster um individuelle Marker zu erzeugen. Diese sind durch Ihre individuelen Muster mit einer ID versehen, was bspw. nützlich ist um bestimmte Objekte mit einem bestimmten Marker zu versehen. 
 
-
-
-	Das Aruco Modul ist Teil der Aruco Bibliothek und wurde von Rafael Munoz und Sergio Garrido entwickelt. Für die Markererkennung und idendifikation nutzt es spezielle Muster, welche dekodiert werden. Der Marker besteht aus einem schwarzen Rand sowie einem Muster im inneren, welches einer binären Matrix gleichkommt. Dabei bestimmt die Größe des Markers auch die Bitzahl der Innenmatrix. Entsprechend hat ein 4cm x 4 cm großer Marker eine 16 Bit Matrix. Auf diese Matrix wird im späteren Verlauf noch eingegangen. In Abbildung \ref{aruco} sind Beispiele dieser Marker zu sehen.
+Das Aruco Modul ist Teil der Aruco Bibliothek und wurde von Rafael Munoz und Sergio Garrido entwickelt. Für die Markererkennung und idendifikation nutzt es spezielle Muster, welche dekodiert werden. Der Marker besteht aus einem schwarzen Rand sowie einem Muster im inneren, welches einer binären Matrix gleichkommt. Dabei bestimmt die Größe des Markers auch die Bitzahl der Innenmatrix. Entsprechend hat ein 4cm x 4 cm großer Marker eine 16 Bit Matrix. Auf diese Matrix wird im späteren Verlauf noch eingegangen. In Abbildung \ref{aruco} sind Beispiele dieser Marker zu sehen.
 \begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.7\textwidth]{aruco}
@@ -280,9 +273,7 @@ Im folgenden werden die einzelnen Schritte bei der Markererkennung besprochen.
 
 	\end{itemize}	
 	
-	Im folgenden wird auf die wichtigsten Punkte genauer eingegangen.
 	
-	\newpage
 	\subsubsection{Greyscaling und Tresholding}
 	Aus dem aktuellen Bild der Kamera muss als erstes ein Grayscale Bild, also ein Bild aus Intensitätswerten bestimmt werden, da weitere Operationen auf diese Werte aufbauen. Um aus diesem Bild die Konturen zu erkennen, wird es 'getresholdet'.
 	Ein für einen Bespielmarker generiertes Treshold Bild ist in Abb. zu sehen.
@@ -303,14 +294,7 @@ Nachdem Tresholding wurden Konturen, welche auf einen potentiellen Marker hindeu
 	
 	\subsubsection{Markerdekodierung und Identifikation}
 	Nachdem die Markerkandidaten detektiert wurden kann die Detektierung des Markers beginnen um zu prüfen ob es sich tatsächlich um einen Aruco basierten Marker handelt.
-	Dazu wird das Bitmuster im Inneren des Markers mittels dem sogenannten Otsu Algortihmus extrahiert um schwarze und weisse Bildpunkte zu differenzieren. Anschließend wird das Bild mittels eines Gitters aufgeteilt, welches erlaubt jene einzelnen schwarz-weiss Punkte exakt auszumachen. Dies ist in Abb. \ref{aruco5} zu erkennen. 
-		\begin{figure}[H]
-		\centering
-		\includegraphics[width= 0.4\textwidth]{aruco5}
-		\caption{Bitmuster im Gitter \cite{schale1} (OpenCV.org)}
-		\label{aruco5}
-	\end{figure}
-	
+	Dazu wird das Bitmuster im Inneren des Markers mittels dem sogenannten Otsu Algortihmus extrahiert um schwarze und weisse Bildpunkte zu differenzieren. Anschließend wird das Bild mittels eines Gitters aufgeteilt, welches erlaubt jene einzelnen schwarz-weiss Punkte exakt auszumachen. 
 	Anschließend werden weisse und schwarze Bits gezählt. Dabei wird für jede Zelle nur die Mitte beachtet, um somit Störungen zu vermeiden, da es auch Zellen gibt in denen beide Farbein existieren und somit nicht eindeutig ist um was für eine Zelle es sich handelt.
 	Dies wird in Abbildung \ref{aruco3} deutlich.
 	\begin{figure}[H]
@@ -327,7 +311,7 @@ Nachdem Tresholding wurden Konturen, welche auf einen potentiellen Marker hindeu
 
 \section{Der Koordinatenabgleich}
 Ist der Marker erkannt, kann der eigentliche Koordinatenabgleich zwischen der Kamera, welche den Marker detektiert hat und dem Marker selbst stattfinden. Dies wird ist im Fachjargon auch unter dem Perspective-n-Point Problem bekannt.
-Zuvor muss jedoch erst eine Kamerakalibrierung stattfinden, in welchem die Kameramatrix, bestehend aus intrinsischen Parametern, wie Brennweite,... und Verzerrungselemente der Kamera gefunden werden. OpenCV und Aruco bieten dazu einige Funktionen an mit denen die Kamera kalibriert werden kann.
+Zuvor muss jedoch erst eine Kamerakalibrierung stattfinden, in welchem die Kameramatrix, bestehend aus intrinsischen Parametern der Kamera, wie Brennweite und Verzerrungselemente gefunden werden. OpenCV und Aruco bieten dazu einige Funktionen an mit denen die Kamera kalibriert werden kann.
 Hauptziel des Koordinatenabgleiches ist die Bestimmung der Position der Kamera im Raum basierend auf der Markerposition. 
 In Abbildung \ref{koord1} ist eine Übersicht der beiden Koordinatensysteme veranschaulicht. 
 	\begin{figure}[H]
@@ -338,7 +322,7 @@ In Abbildung \ref{koord1} ist eine Übersicht der beiden Koordinatensysteme veran
 	\end{figure}
 	
 
-	Position und Orientierung der Kamera erzeugen somit 6 Freiheitsgrade. Die Koordinaten (x,y,z) beshreiben dabei die Translation und die Winkel ($\alpha , \beta , \gamma$) die Rotation. Um diese 6 Freiheitsgrade zu finden, werden die zuvor detektierten Punkte des Markers verwendet, welche eine Transformationsmatrix T liefern, welche den  Koordinatenabgleich ermöglicht. Diese ist definiert als 
+	Position und Orientierung der Kamera erzeugen somit 6 Freiheitsgrade. Die Koordinaten (x,y,z) beschreiben dabei die Translation und die Winkel ($\alpha , \beta , \gamma$) die Rotation. Um diese 6 Freiheitsgrade zu finden, werden die zuvor detektierten Punkte des Markers verwendet. Durch die Kenntnis über die Entfernung des Markers zur Kamera (durch die vorherige Markerdetektierung), wird eine Transformationsmatrix $T_{cam}$ zur, die einen Koordinatenabgleich zwischen Kamera und Marker ermöglicht. Diese ist definiert als 
 	
 	
 	\begin{align*}
@@ -351,10 +335,10 @@ In Abbildung \ref{koord1} ist eine Übersicht der beiden Koordinatensysteme veran
 		
 		\label{eq}
 	\end{figure}
-	
-	Diese Matrix beinhaltet die Translation und Rotation der Kamera in Relation zum Marker basierend auf den gefundenen Punkten des zuvor detektierten Markers und wird daher auch als Posematrix bezeichnet. 
-Durch Anwenden dieser Transformation geschieht der Abgleich zwischen Welt und Kamera und es wird eine virtuelle Kamera auf den Marker gesetzt. Dies ermöglicht das positionsgenaue Rendern der Objekte auf oder in Relation zur Markerpose. 	
-	Dafür muss eine weitere Transformation mit der Kameramatrix getätigt werden, welche dann dann die 2D Szene im sichtbaren Bild (Image Plane) liefert. Dies ist in Abbildung  \ref{koord3} veranschaulicht. 
+	Wobei X für einen Punkt in Weltkoordinaten, x für dessen Projektion in Kamerakoordinaten und T die Transformationsmatrix ist.
+	Diese Matrix beinhaltet die Translation $(t_x,t_y,t_z)$ und Rotation $(r_1,..,r_9)$ der Kamera in Relation zum Marker basierend auf den gefundenen Punkten des detektierten Markers und wird daher auch als Posematrix bezeichnet. 
+Durch Anwenden dieser Transformation geschieht der Abgleich zwischen Welt und Kamera. Verbildlicht bedeutet das, dass eine virtuelle Kamera auf den Marker gesetzt wird, was nun ein positionsgenaues Rendern der Objekte auf oder in Relation zur Markerpose ermöglicht. 	
+	Dafür muss eine weitere Transformation mit der Kameramatrix getätigt werden, welche dann die 3-dimensionalen Bildpunkte in die 2D Szene des sichtbaren Bildes der Kamera (Image Plane) liefert. Der Prozess ist in Abbildung  \ref{koord3} veranschaulicht. 
 
 	
 	
@@ -364,7 +348,7 @@ Durch Anwenden dieser Transformation geschieht der Abgleich zwischen Welt und Ka
 		\caption{Koordinatensysteme mit Freiheitsgraden \cite{schale1} (aus grundquelle)}
 		\label{koord3}
 	\end{figure}
-	Soll das Objekt in Relation zum Marker platziert werden, muss eine weitere Transformationsmatrix $T_object$ angegeben werden in welcher Translation und Rotation definiert sind (Abbildung \ref{koord4}) .
+	Soll das Objekt in Relation zum Marker platziert werden, muss eine weitere Transformationsmatrix $T_{object}$ angegeben werden in welcher Translation und Rotation definiert sind (Abbildung \ref{koord4}) .
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.65\textwidth]{koord4}
@@ -372,12 +356,12 @@ Durch Anwenden dieser Transformation geschieht der Abgleich zwischen Welt und Ka
 		\label{koord4}
 	\end{figure}
 	
-		Im Aruco wird eine erfolgreiche Detektion meist mit einem gerenderten Koordinatensystem in die Szene gezeigt wie dies in Abbildung \ref{aruco2} zu sehen ist.
+		Um eine erfolgreiche Detektion von Markern zu verifizieren, wird in Aruco nach erfolgreicher Detektion meist ein gerendertes Koordinatensystem auf den Marker gezeigt,wie dies in Abbildung \ref{aruco2} zu sehen ist. 
 	
 	
 		\begin{figure}[H]
 		\centering
-		\includegraphics[width= 0.5\textwidth]{aruco2}
+		\includegraphics[width= 0.4\textwidth]{aruco2}
 		\caption{Erfolgreiche Markererkennung und Objektplatzierung mit Aruco \cite{schale1} (aus aus opencv.com)}
 		\label{aruco2}
 	\end{figure}
@@ -392,72 +376,42 @@ Sind Bilder invariant gegenüber Helligkeitsveränderungen, kann ein und das selbe
 \end{align*}
 Die Farbe des Pixels definiert sich nicht mehr durch die Intensität der einzelnen Farbkanäle, sondern durch das Verhältnis der Farbkanäle untereinander. Somit bilden z.B. die beiden Farbwerte (255,0,0) und (150,0,0) aus dem RGB-Farbraum auf den selben Farbwert (1,0,0) im rgb-Farbraum ab.
 
+
 \begin{figure}[H]
-\centering
-\begin{subfigure}{.4\textwidth}
-  \centering
-  \includegraphics[width=.9\textwidth]{img_orig}
-  \caption{RGB-Farbraum}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}{.4\textwidth}
-  \centering
-  \includegraphics[width=.9\textwidth]{img_chrom}
-  \caption{rgb-Farbraum}
-  \label{fig:sub2}
-\end{subfigure}
-\caption{Vergleich: Originalaufnahme mit Chromaticity-Bild}
-\label{fig:test}
-\end{figure}
+		\centering
+		\includegraphics[width= 0.75\textwidth]{chroma1}
+		\caption{Vergleich: Originalaufnahme mit Chromaticity-Bild}
+		\label{chroma}
+	\end{figure}
+
 
 Damit dieses Verfahren zur Markererkennung verwendet werden kann, müssen die Marker farblich angepasst werden, sodass Unterschiede in der Farbart erkennbar sind.
 
+
 \begin{figure}[H]
-\centering
-\begin{subfigure}{.3\textwidth}
-  \centering
-  \includegraphics[width=.9\textwidth]{marker_orig}
-  \caption{schwarz-weiß Marker}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}{.3\textwidth}
-  \centering
-  \includegraphics[width=.9\textwidth]{marker_chrom}
-  \caption{rot-grün Marker}
-  \label{fig:sub2}
-\end{subfigure}
-\caption{Anpassung der Markerfarben}
-\label{fig:test}
-\end{figure}
+		\centering
+		\includegraphics[width= 0.65\textwidth]{chroma2}
+		\caption{Anpassung der Markerfarben}
+		\label{anpassung}
+	\end{figure}
+
 
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
 	\chapter{Setup}
-	\section{Verwendete Software und Frameworks}
+	
+	Zur Realisierung der Applikation müssen zuvor besprochene Aspekte umgesetzt werden. Dafür gibt es eine Vielzahl an vorhandenen Frameworks und Bibliotheken, welche in der Realisierung der spezifischen Teilaspekte verwendet werden. Im Folgenden werden diese zusammen mit dem Gesamtsetup vorgestellt.
+	
+	
+	\section{Verwendete Frameworks und Software}
+	\textbf{OpenCV}
+ OpenCV ist eine Bibliothek welche sich mit einer Vielzahl an Aspekten rund um die Bilderkennung und der maschinellen Verarbeitung beschäftigt. Anwendungen reichen von der Gesichtserkennung über Tracking bis hin zu neuronalen Netzen. In dem Projekt wird OpenCV zur Markererkennung genutzt.\\ 
+\textbf{OpenGL} OpenGL ist ebenfalls eine frei verfügbare Bibliothek, welche Funktionen zur Verwendung mit 3D Objekten bereitstellt. Funktionen umfassen beispielsweise die Darstellung der Objekte in Echtzeit [wiki], dem Einsatz von Spezialeffekten und vielen weiteren Funktionen zur grafischen Bearbeitung. Für das Projekt von Bedeutung ist das Darstellen der 3D Objekte. Dazu werden Funktionen für das Rendern dieser Objekte genutzt. OpenCV und OpenGL lassen sich durch Schnittstellen problemlos miteinander verwenden. \\
+\textbf{Android Studio}
+Zur Entwicklung der Applikation wurde Android Studio benutzt. Somit kommen als Zielgruppe ausschließlich Android Geräte in Frage. Dies hat den Grund einer offeneren Plattform und der leichteren Einbindung von externen Bibliotheken wie OpenCV oder OpenGl. Android Studio ist eine Entwicklungsumgebung für die Entwicklung von Applikationen für das Android Betriebssystem. Es beinhaltet diverse Möglichkeiten zur Einbindung von externen Bibliotheken und Paketen. Um obige Bibliotheken innerhalb der Entwicklungsumgebung nutzen zu können müssen diese zuvor in das Projekt geladen werden. Dazu wurden die Schritte aus [] und [] befolgt. Für eine detaillierte Beschreibung der Einbindung sei auf diese Quellen verwiesen.
 
-	Im folgenden soll auf die benutze Software zur Realisierung obig genanter Aspekte eingegangen werden.
-	
-	\subsection{OpenCV und Aruco}
- 
-	
-Für die Markererkennung im Raum wurde die Aruco Bibliothek benutzt, welche auf der markerbasierten Erkennung basiert, wie diese bereits in der Theorie besprochen wurde. Die Kernfunktionalitäten der Bibliothek sind im folgenden aufgelistet:
-
-	
-	
-	
-		\subsection{OpenGL}
-	OpenGL ist eine von .. bereitgestellt Bibliothek, welche Funktionen für das Rendern von 3D Objekten bereitstellt. Sie ist gut mit OpenCV integrierbar.
-\subsection{Android Studio}
-Zur Entwicklung der Applikation wurde Android Studio benutzt und somit als Zielgruppe ausschließlich Android Geräte. Dies hat den Grund einer offeneren Plattform und der leichteren Einbindung von externen Bibliotheken wie OpenCV oder OpenGl.
-	
-	
-	\subsection{Integration von OpenCV und OpenGL in Android Studio}
-	
-	....
-	\newpage
-	
 	
 
 %-----------------------------------------------------------------------------
@@ -465,15 +419,21 @@ Zur Entwicklung der Applikation wurde Android Studio benutzt und somit als Zielg
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------	
 	\chapter{Implementierung}
+	Im folgenden Kapitel wird die Implementierung der Applikation erklärt. Dies soll dazu dienen, den Aufbau der App sowie die Funktionsweise der einzelnen Funktionen nachzuvollziehen. Die Implementierung richtet sich hauptsächlich an der vorher besprochenen Theorie der Bildverarbeitung, Markererkennung und Objektpositionierung. Geschrieben wurde die Applikation in anfangs in Java. Aus performancetechnischen Gründen wurden später wichtige Funktionen in C++ umgeschrieben. 
+Der komplette Quellcode mit Erläuterungen ist Open Source und auf Github [x] zu finden. In Abbildung \ref{flow1} ist das Flussdiagramm verbildlicht. 
 	
 			\begin{figure}[H]
 		\centering
 		\includegraphics[width= 1.0\textwidth]{flow_chart}
-		\caption{Grobe Darstellung der Arbeitsschritte}
+		\caption{Flussdiagramm der Arbeitsschritte}
+		\label{flow1}
 	\end{figure}
 	
+	Beim Start der Applikation wird nach der Bilderfassung ein Preprocessing durchgeführt, da, wie bereits in der Theorie erwähnt bei ungünstigen Lichtverhältnissen oder Farben, eine fehlerfreie Detektion verhindern. Wurde der Marker dann erkannt, wird die in ihm definierte ID extrahiert und die Markerposition berechnet um entsprechend das 3D Modell auf den Marker zu rendern. Außerdem wurden auch Objekte in Relation zum Marker dargestellt, wobei hier die eine zusätzliche Transformationsmatrix $T_{object}$ angewandt wurde. Die Matrix muss, abhängig der gewünschten Position des Objektes zum Marker, mit entsprechenden Werten für Translation und Rotation versehen werden. Die genaue Anwendung wird im Kapitel Ergebnisse und Performance beschrieben.
+	Im folgenden sollen die wichtigsten Funktionen der einzelnen Teilblöcke erläutert werden.
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
+\newpage
 \subsection{Bilderfassung}
 Durch Instanziierung der von Android bereitgestellten Klasse \textit{JavaCameraView} kann auf die Aufnahmen der Kameras zugegriffen werden. Diese werden für eine spätere Analyse gespeichert.
 	
@@ -491,7 +451,7 @@ Durch Instanziierung der von Android bereitgestellten Klasse \textit{JavaCameraV
 \caption{Funktionen zur Bilderfassung}
 \end{table} 
 
-\newpage
+
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
 \subsection{Preprocessing}
@@ -546,6 +506,80 @@ Durch die Initialisierung des Renderers wird pro Frame die Orientierung des Mark
 			\hline
 \end{tabularx}
 \caption{Funktionen zum Rendern des 3D-Modells}
+\end{table} 
+
+\subsection{Die Matrizen}
+Hier evtl. matrizen aufführen die verwendet wurden 
+
+\subsection{Generierung von 3D Objekten}
+Für die virtuelle Erweiterung von Baustellen ung Ruinen, müssen entsprechende Modelle entweder schon vorhanden sein oder generiert werden. Im Projekt wurde ein Teil der verwendeten 3D Objekte selbst generiert. Der Prozess zur Erstellung dieser Objekte wird im folgenden näher erläutert um auch in Zukunft selbst beliebige Objekte erzeugen zu können. 
+
+
+\begin{figure}[H]
+		\centering
+		\includegraphics[width= \textwidth]{3d}
+		\caption{Schritte zur Generierung des 3D Objektes}
+		\label{3d}
+	\end{figure}
+	
+	Die Objekte sind im .obj-Format, welches eine ... Kurz erklären mit obj und mesh usw.
+	Als Objekt wurde exemplarische eine Statue erstellt, wie sie beispielsweise als altes Artefakt in Ruinen dargestellt werden kann.
+	Da das Ziel der App eine Erweiterung von Baustellen und alten Ruinen durch Einblendung von virtuellen Objekten ist, wurden ausserdem Gebäude benutzt. In Abbildung \ref{objects} sind die verwendeten 3D Objekte gezeigt. Für komplexe Gebäude wurden frei vergügbare 3D Objekte aus dem Internet verwendet. 
+
+\begin{figure}[H]
+		\centering
+		\includegraphics[width= \textwidth]{Objekts}
+		\caption{Verwendete Objekte}
+		\label{objects}
+	\end{figure}
+	
+	\newpage
+	
+\subsection{Aufbau der Applikation}
+Das Design der Applikation wurde, im Sinne einer einfachen Bedienung, so übersichtlich wie möglich gehalten. Beim Starten der Applikation werden die Schritte aus dem Flussdiagramm in Abbildung \ref{flow1} gestartet. Wird der Marker erkannt werden entsprechend seiner ID dann die Objekte in der Welt angezeigt. Sowohl zu Testzwecken als auch für eine verbesserte Nutzerinteraktion, wurden diverse Buttons integriert. Die Buttons Greyscale, Threshhold, .. dienen dazu dem Entwickler die einzelnen Bildstufen aufzuzeigen um Verbesserungen beispielsweise im Preprocessing vorzunehmen. Weiter ist es dem Nutzer möglich das Objekt durch einen Button auszublenden um die Originalszene zu bekommen. 
+Mit den Balken Contrast und Brightness können Kontrast und Helligkeit des Bildes manuell eingestellt werden. Diese Schritte übernimmt in der endgültigen Applikation das Preprocessing. 
+\begin{figure}[H]
+		\centering
+		\includegraphics[width= 0.6\textwidth]{app2}
+		\caption{Applikation ohne Debugging Buttons}
+		\label{app2}
+	\end{figure}
+Als zusätzliche Option ein Button zum Einblenden von Objektspezifischen Informationen implementiert. Dieser blendet einen selbst definierten Text in die Szene ein. Dies kann beispielsweise bei zukünftigen Bauprojekten oder Ruinen von Bedeutung sein um Informationen zum Objekt wie Baujahr, Kosten oder Bedeutung wiederzugeben. Um die Applikation übersichtlicher zu gestalten können die Testbuttons entfernt werden was in der Applikation in Abbildung \ref{app2} resultiert. 
+\begin{figure}[H]
+		\centering
+		\includegraphics[width= 0.6\textwidth]{app2}
+		\caption{Applikation ohne Debugging Buttons}
+		\label{app2}
+	\end{figure}
+\newpage
+
+\subsection{Performance} 
+Im Folgenden sind die Ergebnisse der resultierenden Applikation aufgezeigt. 
+	
+	Die App zeigt beim Scannen des Markers die Objekte entweder genau auf dem Marker platziert oder in einer bestimmten Relation zu ihm. Entsprechend werden somit unterschiedliche Anwendungsfälle berücksichtigt.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width= \textwidth]{test1}
+		\caption{Verwendete Objekte}
+		\label{objects}
+	\end{figure}
+	
+	Die Framerate liegt bei .... und es noch leichtes ruckeln zu vermerken. Dies kann jedoch mit leistungsfähigeren Geräten verhindert werden.
+	Im folgenden die wichtigsten Werte der Applikation:
+	
+	\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|p{0.47\textwidth}|p{0.475\textwidth}|}
+		\hline
+			Eigenschaft & Wert \\ 
+			\hline
+			\textbf{Frame Rate}& Ruft die C++-Funktion auf, die die eigentliche Preprocessing-Funktionalität beinhaltet\\
+			\hline
+			\textbf{Auflösung}(Mat mRgb, Mat mChrom) & Die Matrix \textit{mRgb} wird in ein Chromaticity-Bild transformiert und in \textit{mChrom} gespeichert. \\
+			\hline
+\end{tabularx}
+\caption{Funktionen zum Preprocessing}
 \end{table} 
 
 \newpage

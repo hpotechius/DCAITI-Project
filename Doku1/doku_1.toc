@@ -3,24 +3,23 @@
 \contentsline {section}{\numberline {1.1}Einleitung}{1}
 \contentsline {section}{\numberline {1.2}Zielstellung}{1}
 \contentsline {chapter}{\numberline {2}Theorie}{2}
-\contentsline {section}{\numberline {2.1}Augmented Reality}{2}
-\contentsline {section}{\numberline {2.2}Die Detektion der Kamerapose im Raum}{2}
-\contentsline {section}{\numberline {2.3}Die markerbasierten Erkennung mit Aruco}{3}
-\contentsline {subsubsection}{Greyscaling und Tresholding}{5}
+\contentsline {section}{\numberline {2.1}Paradigmen zur Detektion der Kamerapose im Raum}{2}
+\contentsline {section}{\numberline {2.2}Die marker-basierte Detektion mit Aruco}{3}
+\contentsline {subsubsection}{Greyscaling und Tresholding}{4}
 \contentsline {subsubsection}{Filterung und Verbesserung}{5}
 \contentsline {subsubsection}{Markerdekodierung und Identifikation}{5}
-\contentsline {section}{\numberline {2.4}Der Koordinatenabgleich}{7}
-\contentsline {section}{\numberline {2.5}Chromaticity-Bild}{9}
-\contentsline {chapter}{\numberline {3}Setup}{10}
-\contentsline {section}{\numberline {3.1}Verwendete Software und Frameworks}{10}
-\contentsline {subsection}{\numberline {3.1.1}OpenCV und Aruco}{10}
-\contentsline {subsection}{\numberline {3.1.2}OpenGL}{10}
-\contentsline {subsection}{\numberline {3.1.3}Android Studio}{10}
-\contentsline {subsection}{\numberline {3.1.4}Integration von OpenCV und OpenGL in Android Studio}{10}
-\contentsline {chapter}{\numberline {4}Implementierung}{11}
+\contentsline {section}{\numberline {2.3}Der Koordinatenabgleich}{6}
+\contentsline {section}{\numberline {2.4}Chromaticity-Bild}{8}
+\contentsline {chapter}{\numberline {3}Setup}{9}
+\contentsline {section}{\numberline {3.1}Verwendete Frameworks und Software}{9}
+\contentsline {chapter}{\numberline {4}Implementierung}{10}
 \contentsline {subsection}{\numberline {4.0.1}Bilderfassung}{11}
-\contentsline {subsection}{\numberline {4.0.2}Preprocessing}{12}
-\contentsline {subsection}{\numberline {4.0.3}Markeranalyse}{12}
+\contentsline {subsection}{\numberline {4.0.2}Preprocessing}{11}
+\contentsline {subsection}{\numberline {4.0.3}Markeranalyse}{11}
 \contentsline {subsection}{\numberline {4.0.4}Rendering}{12}
-\contentsline {chapter}{\numberline {5}Zusammenfassung}{13}
-\contentsline {chapter}{\numberline {6}Ausblick}{14}
+\contentsline {subsection}{\numberline {4.0.5}Die Matrizen}{12}
+\contentsline {subsection}{\numberline {4.0.6}Generierung von 3D Objekten}{12}
+\contentsline {subsection}{\numberline {4.0.7}Aufbau der Applikation}{14}
+\contentsline {subsection}{\numberline {4.0.8}Performance}{15}
+\contentsline {chapter}{\numberline {5}Zusammenfassung}{16}
+\contentsline {chapter}{\numberline {6}Ausblick}{17}
