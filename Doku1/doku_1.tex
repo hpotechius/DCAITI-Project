@@ -230,14 +230,14 @@ final								% Status des Dokuments (final/draft)
 	 
 		\item \textbf{Sensorbasierte Erkennungsmethoden}
 		Hier werden verschiedene, dem System verfügbare Sensordaten wie beispielsweise, Tiefendaten oder Lokalisierungsdaten bei der Positionsbestimmung verwendet. Dafür werden spezielle Geräte verwendet, welche diese zusätzlichen Informationen bereitstellen können, beispielsweise Gyroskope, GPS oder Tiefenkameras. Sensordaten können entweder die Position oder Orientierung des Nutzers wiedergeben. Die Kombination aus Position und Orientierung wird auch \textbf{Pose} genannt. 
-		\item \textbf{hybride Ansätze} Hybride Ansätze vereinen oben genannte Methoden um eine optimierte/genauere Schätzung zu erreichen
-		 Ein Ansatz beispielsweise die Kombination zwischen
+		\item \textbf{hybride Ansätze} Hybride Ansätze vereinen oben genannte Methoden um eine optimierte/genauere Schätzung zu erreichen.
+		 Ein Ansatz beispielsweise ist die Kombination zwischen
 		einem GPS Signal, welches die Position der Kamera vermitteln kann und visuellen Informationen, welche dann die Orientierung der Kamera festlegen. 
 
 
 	\end{itemize}
 	
-	In der Praxis hat sich unter den oben vorgestellen Methoden der Markerbasierte Ansätz als Kompromiss zwischen Genauigkeit und Einfachheit in der Implementierung als weit verbreitet herausgestellt. Durch die vordefinierten Markerinformationen wird erheblich Zeit und Rechenleistung bei der Erkennung eingespart. Viele der führenden AR Frameworks nutzen die Markerbasierte Erkennung (ARToolkit, ARTag, Aruco). Die vordefinierten Informationen beispielsweise eine MarkerID zu welchem bestimmte Objekte eingeblendet werden sollen sind weitere Vorteile des Ansatzes. Nachteile sind, dass Marker für einige Anwendungsfälle nicht geeignet sind, beispielsweise bei Anwendungen in gefährlichen Gebieten in welchem dann auf die Sensorbasierten bzw der Kombination aus visuellen Informationen mit zusätzlichen Senrdaten gesetzt wird.
+	In der Praxis hat sich unter den oben vorgestellen Methoden der Markerbasierte Ansätz als Kompromiss zwischen Genauigkeit und Einfachheit in der Implementierung als weit verbreitet herausgestellt. Durch die vordefinierten Markerinformationen wird erheblich Zeit und Rechenleistung bei der Erkennung eingespart. Viele der führenden AR Frameworks nutzen die Markerbasierte Erkennung (ARToolkit, ARTag, Aruco). Die vordefinierten Informationen, beispielsweise eine MarkerID, zu welchem bestimmte Objekte eingeblendet werden sollen, sind weitere Vorteile des Ansatzes. Nachteile sind, dass Marker für einige Anwendungsfälle nicht geeignet sind, beispielsweise bei Anwendungen in gefährlichen Gebieten in welchem dann auf die Sensorbasierten bzw der Kombination aus visuellen Informationen mit zusätzlichen Sensordaten gesetzt wird.
 	
 	Im Rahmen des Projektes wurde aufgrund obiger Erkenntnisse und der Empfehlung durch den Betreuer, der Markerbasierte Abgleich mittels Aruco genutzt, welche Teil der OpenCV Bibliothek ist. Auf diesen wird im folgenden detailliert eingegangen.
 	
@@ -245,8 +245,8 @@ final								% Status des Dokuments (final/draft)
 		
 
 	\section{Die marker-basierte Detektion mit Aruco}
-	Trotz der erwähnten Vorteile der Marker gibt es einige Aspekte zu beachten. Beispielsweise können ungünstige Lichtverhältnisse oder schlechter Kontrast dazu führen dass der Marker nicht erkannt wird. Aufgrund von Farbveränderungen, welche durch ungünstiges Licht auftreten können werden grundsätzlich nur schwarz-weiß Marker benutzt. Optimalerweise reichen 4 bekannte Punkte aus um die Pose des Markers zu erkennen. Daher eignen sich Quadratische Formen als Marker am besten. Es gibt zahlreiche bekannte Bibliotheken, welche diese Art von Markern verwendet. Eine davon ist die Aruco Bibliothek, welche teil des OpenCV Frameworks ist und in diesem Projekt verwendet wird. Aruco benutzt Schachbrettmuster um individuelle Marker zu erzeugen. Diese sind durch Ihre individuellen Muster mit einer ID versehen, was bspw. nützlich ist um bestimmte Objekte mit einem bestimmten Marker zu versehen. 
-Für die Markererkennung und Identifikation nutzt Aruco spezielle Muster, welche dekodiert werden. Der Marker besteht aus einem schwarzen Rand sowie einem Muster im inneren, welches einer binären Matrix gleichkommt. Dabei bestimmt die Größe des Markers auch die Bitzahl der Innenmatrix. Entsprechend hat ein 4cm x 4 cm großer Marker eine 16 Bit Matrix. Auf diese Matrix wird im späteren Verlauf noch eingegangen. In Abbildung \ref{aruco} sind Beispiele dieser Marker zu sehen.
+	Trotz der erwähnten Vorteile der Marker gibt es einige Aspekte zu beachten. Beispielsweise können ungünstige Lichtverhältnisse oder schlechter Kontrast dazu führen dass der Marker nicht erkannt wird. Aufgrund von Farbveränderungen, welche durch ungünstiges Licht auftreten können, werden grundsätzlich nur schwarz-weiß Marker benutzt. Optimalerweise reichen 4 bekannte Punkte aus um die Pose des Markers zu erkennen. Daher eignen sich quadratische Formen als Marker am besten. Es gibt zahlreiche bekannte Bibliotheken, welche diese Art von Markern verwendet. Eine davon ist die Aruco Bibliothek, welche Teil des OpenCV Frameworks ist und in diesem Projekt verwendet wird. Aruco benutzt Schachbrettmuster um individuelle Marker zu erzeugen. Diese sind durch Ihre individuellen Muster mit einer ID versehen, was bspw. nützlich ist um bestimmte Objekte mit einem bestimmten Marker zu versehen. 
+Für die Markererkennung und Identifikation nutzt Aruco spezielle Muster, welche dekodiert werden. Der Marker besteht aus einem schwarzen Rand sowie einem Muster im inneren, welches einer binären Matrix gleichkommt. Dabei bestimmt die Größe des Markers auch die Bitzahl der Innenmatrix. Entsprechend hat ein 4 x 4 großer Marker eine 16 Bit Matrix. Auf diese Matrix wird im späteren Verlauf noch eingegangen. In Abbildung \ref{aruco} sind Beispiele dieser Marker zu sehen.
 \begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.7\textwidth]{aruco}
@@ -274,8 +274,8 @@ Im folgenden werden die einzelnen Schritte bei der Markererkennung besprochen \c
 	
 	
 	\subsubsection{Greyscaling und Tresholding}
-	Aus dem aktuellen Bild der Kamera muss als erstes ein Grayscale Bild, also ein Bild aus Intensitätswerten bestimmt werden, da weitere Operationen auf diese Werte aufbauen. Um aus diesem Bild die Konturen zu erkennen, wird es 'getresholdet'.
-	Ein für einen Beispielmarker generiertes Treshold Bild ist in Abb. zu sehen.
+	Aus dem aktuellen Bild der Kamera muss als erstes ein Grayscale Bild, also ein Bild aus Intensitätswerten bestimmt werden, da weitere Operationen auf diese Werte aufbauen. Um aus diesem Bild die Konturen zu erkennen, wird es anhand eines Thresholds binarisiert.
+	Ein für einen Beispielmarker generiertes Treshold Bild ist in Abb. 2.2 zu sehen.
 	
 	\begin{figure}[H]
 		\centering
@@ -284,16 +284,16 @@ Im folgenden werden die einzelnen Schritte bei der Markererkennung besprochen \c
 		\label{treshold}
 	\end{figure}
 	
-	Der Treshold Ansatz erweisst sich als stabil gegen mögliche Helligkeitsschwankungen. Nachdem 'getresholdet' wurde liegt ein binäres Bild, bestehend aus Hintergrund und Objekten vor, aus denen dann die Konturen erkannt werden können. Dafür werden die Kanten aller potentiellen Marker im Bild markiert und geprüft ob genau 4 gerade Linien erkannt wurden \cite{theory}.
+	Der Treshold Ansatz erweist sich als stabil gegen mögliche Helligkeitsschwankungen. Nachdem 'getresholdet' wurde liegt ein binäres Bild, bestehend aus Hintergrund und Objekten vor, aus denen dann die Konturen erkannt werden können. Dafür werden die Kanten aller potentiellen Marker im Bild markiert und geprüft ob genau 4 gerade Linien erkannt wurden \cite{theory}.
 	Sind diese Voraussetzungen erfüllt, werden die Ecken des potentiellen Markers analysiert. 
 	
 	\subsubsection{Filterung und Verbesserung}
-Nachdem Tresholding wurden Konturen, welche auf einen potentiellen Marker hindeuten erkannt. Jedoch sind nicht alle erkannten Konturen tatsächlich Marker. Daher ist der Filterungschritt ein essentieller Schritt um nur tatsächliche Marker zu berücksichtigen. Dabei werden alle jene Konturen herausgefiltert, welche offensichtlich keine Marker sind oder zu nah beieinander liegen. Dafür existieren in Aruco diverse Funktionen und Parameter um die Filterung individuell strikt zu gestalten. Wichtig ist es dabei die Markerparameter, wie Markergröße oder Maximale Distanz, welche zwei Marker zueinander besitzen dürfen vorher zu definieren um die Filterung effizient zu gestalten. 
+Nach dem Tresholding wurden Konturen, welche auf einen potentiellen Marker hindeuten erkannt. Jedoch sind nicht alle erkannten Konturen tatsächlich Marker. Daher ist der Filterungschritt essentiell um nur tatsächliche Marker zu berücksichtigen. Dabei werden alle jene Konturen herausgefiltert, welche offensichtlich keine Marker sind oder zu nah beieinander liegen. Dafür existieren in Aruco diverse Funktionen und Parameter um die Filterung individuell strikt zu gestalten. Wichtig ist es dabei die Markerparameter, wie Markergröße oder Maximale Distanz, welche zwei Marker zueinander besitzen dürfen vorher zu definieren um die Filterung effizient zu gestalten. 
 
 	
 	\subsubsection{Markerdekodierung und Identifikation}
-	Nachdem die Markerkandidaten detektiert wurden kann die Detektierung des Markers beginnen um zu prüfen ob es sich tatsächlich um einen Aruco basierten Marker handelt.
-	Dazu wird das Bitmuster im Inneren des Markers mittels dem sogenannten Otsu Algorithmus extrahiert um schwarze und weiße Bildpunkte zu differenzieren. Anschließend wird das Bild mittels eines Gitters aufgeteilt, welches erlaubt jene einzelnen schwarz-weiß Punkte exakt auszumachen. 
+	Nachdem die Markerkandidaten detektiert wurden, kann die Detektierung des Markers beginnen um zu prüfen, ob es sich tatsächlich um einen Aruco basierten Marker handelt.
+	Dazu wird das Bitmuster im Inneren des Markers mittels dem sogenannten Otsu Algorithmus extrahiert um schwarze und weiße Bildpunkte zu differenzieren. Anschließend wird das Bild mittels eines Gitters aufgeteilt, welches erlaubt, jene einzelnen schwarz-weiß Punkte exakt auszumachen. 
 	Anschließend werden weiße und schwarze Bits gezählt. Dabei wird für jede Zelle nur die Mitte beachtet, um somit Störungen zu vermeiden, da es auch Zellen gibt in denen beide Farben existieren und somit nicht eindeutig ist um was für eine Zelle es sich handelt.
 	Dies wird in Abbildung \ref{aruco3} deutlich.
 	\begin{figure}[H]
@@ -310,7 +310,7 @@ Nachdem Tresholding wurden Konturen, welche auf einen potentiellen Marker hindeu
 
 \section{Der Koordinatenabgleich}
 Ist der Marker erkannt, kann der eigentliche Koordinatenabgleich zwischen der Kamera, welche den Marker detektiert hat und dem Marker selbst stattfinden. Dies wird ist im Fachjargon auch unter dem Perspective-n-Point Problem bekannt.
-Zuvor muss jedoch erst eine Kamerakalibrierung stattfinden, in welchem die Kameramatrix, bestehend aus intrinsischen Parametern der Kamera, wie Brennweite und Verzerrungselemente gefunden werden, welche in einer Kameramatrix resultiert. OpenCV und Aruco bieten dazu einige Funktionen an mit denen die Kamera kalibriert werden kann.
+Zuvor muss jedoch erst eine Kamerakalibrierung stattfinden, in welchem die Kameramatrix, bestehend aus intrinsischen Parametern der Kamera, wie Brennweite und Verzerrungselemente gefunden werden, welche in einer Kameramatrix resultiert. OpenCV und Aruco bieten dazu einige Funktionen an, mit denen die Kamera kalibriert werden kann.
 Hauptziel des Koordinatenabgleiches ist die Bestimmung der Position der Kamera im Raum basierend auf der Markerposition. 
 In Abbildung \ref{koord1} ist eine Übersicht der beiden Koordinatensysteme veranschaulicht. 
 	\begin{figure}[H]
@@ -321,7 +321,7 @@ In Abbildung \ref{koord1} ist eine Übersicht der beiden Koordinatensysteme veran
 	\end{figure}
 	
 
-	Position und Orientierung der Kamera erzeugen somit 6 Freiheitsgrade. Die Koordinaten (x,y,z) beschreiben dabei die Translation und die Winkel ($\alpha , \beta , \gamma$) die Rotation. Um diese 6 Freiheitsgrade zu finden, werden die zuvor detektierten Punkte des Markers verwendet. Durch die Kenntnis über die Entfernung des Markers zur Kamera (durch die vorherige Markerdetektierung), wird eine Transformationsmatrix $T_{cam}$ zur, die einen Koordinatenabgleich zwischen Kamera und Marker ermöglicht. Diese ist definiert als 
+	Position und Orientierung der Kamera erzeugen somit 6 Freiheitsgrade. Die Koordinaten (x,y,z) beschreiben dabei die Translation und die Winkel ($\alpha , \beta , \gamma$) die Rotation. Um diese 6 Freiheitsgrade zu finden, werden die zuvor detektierten Punkte des Markers verwendet. Durch die Kenntnis über die Entfernung des Markers zur Kamera (durch die vorherige Markerdetektierung), wird eine Transformationsmatrix $T_{cam}$ bestimmt, die einen Koordinatenabgleich zwischen Kamera und Marker ermöglicht. Diese ist definiert als 
 	
 	
 	\begin{align*}
@@ -409,7 +409,7 @@ Damit dieses Verfahren zur Markererkennung verwendet werden kann, müssen die Mar
  OpenCV ist eine Bibliothek welche sich mit einer Vielzahl an Aspekten rund um die Bilderkennung und der maschinellen Verarbeitung beschäftigt. Anwendungen reichen von der Gesichtserkennung über Tracking bis hin zu neuronalen Netzen \cite{wikicv}. In dem Projekt wird OpenCV zur Markererkennung genutzt.\\ 
 \textbf{OpenGL} OpenGL ist ebenfalls eine frei verfügbare Bibliothek, welche Funktionen zur Verwendung mit 3D Objekten bereitstellt. Funktionen umfassen beispielsweise die Darstellung der Objekte in Echtzeit \cite{wikigl}, dem Einsatz von Spezialeffekten und vielen weiteren Funktionen zur grafischen Bearbeitung. Für das Projekt von Bedeutung ist das Darstellen der 3D Objekte. Dazu werden Funktionen für das Rendern dieser Objekte genutzt. OpenCV und OpenGL lassen sich durch Schnittstellen problemlos miteinander verwenden. \\
 \textbf{Android Studio}
-Zur Entwicklung der Applikation wurde Android Studio benutzt. Somit kommen als Zielgruppe ausschließlich Android Geräte in Frage. Dies hat den Grund einer offeneren Plattform und der leichteren Einbindung von externen Bibliotheken wie OpenCV oder OpenGl. Android Studio ist eine Entwicklungsumgebung für die Entwicklung von Applikationen für das Android Betriebssystem. Es beinhaltet diverse Möglichkeiten zur Einbindung von externen Bibliotheken und Paketen. Um obige Bibliotheken innerhalb der Entwicklungsumgebung nutzen zu können müssen diese zuvor in das Projekt geladen werden. Dazu wurden die Schritte aus \cite{int} und \cite{int2} befolgt. Für eine detaillierte Beschreibung der Einbindung sei auf diese Quellen verwiesen.
+Zur Entwicklung der Applikation wurde Android Studio benutzt. Somit kommen als Zielgruppe ausschließlich Android Geräte in Frage. Dies hat den Grund einer offeneren Plattform und der leichteren Einbindung von externen Bibliotheken wie OpenCV oder OpenGl. Android Studio ist eine Entwicklungsumgebung für die Entwicklung von Applikationen für das Android Betriebssystem. Es beinhaltet diverse Möglichkeiten zur Einbindung von externen Bibliotheken und Paketen. Um obige Bibliotheken innerhalb der Entwicklungsumgebung nutzen zu können, müssen diese zuvor in das Projekt geladen werden. Dazu wurden die Schritte aus \cite{int} und \cite{int2} befolgt. Für eine detaillierte Beschreibung der Einbindung sei auf diese Quellen verwiesen.
 
 	
 
@@ -418,7 +418,7 @@ Zur Entwicklung der Applikation wurde Android Studio benutzt. Somit kommen als Z
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------	
 	\chapter{Implementierung}
-	Im folgenden Kapitel wird die Implementierung der Applikation erklärt. Dies soll dazu dienen, den Aufbau der App sowie die Funktionsweise der einzelnen Funktionen nachzuvollziehen. Die Implementierung richtet sich hauptsächlich an der vorher besprochenen Theorie der Bildverarbeitung, Markererkennung und Objektpositionierung. Geschrieben wurde die Applikation in anfangs in Java. Aus performancetechnischen Gründen wurden später wichtige Funktionen in C++ umgeschrieben. 
+	Im folgenden Kapitel wird die Implementierung der Applikation erklärt. Dies soll dazu dienen, den Aufbau der App sowie die Funktionsweise der einzelnen Funktionen nachzuvollziehen. Die Implementierung richtet sich hauptsächlich an der vorher besprochenen Theorie der Bildverarbeitung, Markererkennung und Objektpositionierung. Geschrieben wurde die Applikation anfangs in Java. Aus performancetechnischen Gründen wurden später wichtige Funktionen in C++ umgeschrieben. 
 Der komplette Quellcode mit Erläuterungen kann auf Anfrage gestellt werden. In Abbildung \ref{flow1} ist das Flussdiagramm verbildlicht. 
 	
 			\begin{figure}[H]
@@ -428,7 +428,7 @@ Der komplette Quellcode mit Erläuterungen kann auf Anfrage gestellt werden. In A
 		\label{flow1}
 	\end{figure}
 	
-	Beim Start der Applikation wird nach der Bilderfassung ein Preprocessing durchgeführt, da, wie bereits in der Theorie erwähnt bei ungünstigen Lichtverhältnissen oder Farben, eine fehlerfreie Detektion verhindern. Wurde der Marker dann erkannt, wird die in ihm definierte ID extrahiert und die Markerposition berechnet um entsprechend das 3D Modell auf den Marker zu rendern. Außerdem wurden auch Objekte in Relation zum Marker dargestellt, wobei hier die eine zusätzliche Transformationsmatrix $T_{object}$ angewandt wurde. Die Matrix muss, abhängig der gewünschten Position des Objektes zum Marker, mit entsprechenden Werten für Translation und Rotation versehen werden. Die genaue Anwendung wird im Kapitel Ergebnisse und Performance beschrieben.
+	Beim Start der Applikation wird nach der Bilderfassung ein Preprocessing durchgeführt, da, wie bereits in der Theorie erwähnt, bei ungünstigen Lichtverhältnissen oder Farben, der Marker nicht erkannt werden kann. Wurde der Marker dann erkannt, wird die in ihm definierte ID extrahiert und die Markerposition berechnet um entsprechend das 3D Modell auf den Marker zu rendern. Außerdem wurden auch Objekte in Relation zum Marker dargestellt, wobei hier die eine zusätzliche Transformationsmatrix $T_{object}$ angewandt wurde. Die Matrix muss, abhängig der gewünschten Position des Objektes zum Marker, mit entsprechenden Werten für Translation und Rotation versehen werden. Die genaue Anwendung wird im Kapitel Ergebnisse und Performance beschrieben.
 	Im folgenden sollen die wichtigsten Funktionen der einzelnen Teilblöcke erläutert werden.
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
@@ -454,7 +454,7 @@ Durch Instanziierung der von Android bereitgestellten Klasse \textit{JavaCameraV
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
 \section{Preprocessing}
-Das als \textit{CvCameraViewFrame} vorliegende Bild wird zur weiteren Bearbeitung in eine Matrix gespeichert. Aus performancetechnischen Gründen wird das Preprocessing in C++ ausgeführt. Dieser Schritt sorgt dafür, dass der Marker unter verschiedensten Lichtverhältnissen erkannt wird. Für das Preprocessing wurden verschiedene Ansätze ausprobiert. Einer der Ansätze beinhaltete die Idee den Kontrast und die Helligkeit iterativ zu erhöhen bis der Marker gefunden wird. Aufgrund der Anzahl der Werte, die pro Frame ausprobiert werden müssen, sinkt jedoch performance stark, was allerdings mit einem leistungsfähigem Smartphone ausgeglichen werden kann. Als alternativer Ansatz wurde ebenfalls die Iteration über das gesamte Bild realisiert. Dabei wird adaptives thresholding auf das Bild angewandt. Das bedeutet, dass das Bild regional mit verschiedenen thresholds binarisiert wird. Die Anzahl der weißen Pixel liefert dann einen ungefähres Maß für die Helligkeit des Bildes, anhand dessen dann Helligkeit und Kontrast erhöht werden.
+Das als \textit{CvCameraViewFrame} vorliegende Bild wird zur weiteren Bearbeitung in eine Matrix gespeichert. Aus performancetechnischen Gründen wird das Preprocessing in C++ ausgeführt. Dieser Schritt sorgt dafür, dass der Marker unter verschiedensten Lichtverhältnissen erkannt wird. Für das Preprocessing wurden verschiedene Ansätze ausprobiert. Einer der Ansätze beinhaltete die Idee den Kontrast und die Helligkeit iterativ zu erhöhen bis der Marker gefunden wird. Aufgrund der Anzahl der Werte, die pro Frame ausprobiert werden müssen, sinkt jedoch die Performance stark, was allerdings mit einem leistungsfähigem Smartphone ausgeglichen werden kann. Als alternativer Ansatz wird adaptives Thresholding auf das Bild angewandt. Das bedeutet, dass das Bild regional mit verschiedenen Thresholds binarisiert wird. Die Anzahl der weißen Pixel liefert dann ein ungefähres Maß für die Helligkeit des Bildes, anhand dessen dann Helligkeit und Kontrast angepasst werden.
 Ein dritter Ansatz bringt die Frames in ein Lichtveränderunginvariantes Format(Chromaticity-Bild), wobei hier die theoretischen Aspekte aus Kapitel 2.4 genutzt wurden. Auch dies resultiert in einem nicht immer optimalem Ergebnis. 
 
 \begin{table}[H]
@@ -463,9 +463,9 @@ Ein dritter Ansatz bringt die Frames in ein Lichtveränderunginvariantes Format(C
 		\hline
 			Funktion & Beschreibung \\ 
 			\hline
-			\textbf{analyzeMarker}(...) & Ruft die C++-Funktion auf, die die eigentliche Preprocessing-Funktionalität beinhaltet\\
+			\textbf{analyzeMarker}(...) & Ruft die C++-Funktion auf, die die eigentliche Preprocessing-Funktionalität und die Markeranalyse beinhaltet\\
 			\hline
-			\textbf{preprocessing}(Mat mRgb, Mat mChrom) & Die Matrix \textit{mRgb} wird in ein Chromaticity-Bild transformiert und in \textit{mChrom} gespeichert. \\
+			\textbf{preprocessing}(Mat mRgb, Mat mOut) & Die Matrix \textit{mRgb} wird in ein Binärbild transformiert und in \textit{mOut} gespeichert. \\
 			\hline
 \end{tabularx}
 \caption{Funktionen zum Preprocessing}
@@ -504,14 +504,14 @@ Durch die Initialisierung des Renderers wird pro Frame die Orientierung des Mark
 			\hline
 			\textbf{initOpenGL}()& Initialisiert den Renderer und sorgt dafür, dass die onDrawFrame-Methode pro Frame ausgeführt wird.\\
 			\hline
-			\textbf{onDrawFrame(GL10 gl)} & Wendet die Transformationsmatrizen des Markers auf das 3D-Modell an und projiziert dieses auf die Bildebene.\\
+			\textbf{onDrawFrame}(GL10 gl) & Wendet die Transformationsmatrizen des Markers auf das 3D-Modell an und projiziert dieses auf die Bildebene.\\
 			\hline
 \end{tabularx}
 \caption{Funktionen zum Rendern des 3D-Modells}
 \end{table} 
 
 \section{Generierung von 3D Objekten}
-Für die virtuelle Erweiterung von Baustellen ung Ruinen, müssen entsprechende Modelle entweder schon vorhanden sein oder generiert werden. Im Projekt wurde ein Teil der verwendeten 3D Objekte selbst generiert. Der Prozess zur Erstellung dieser Objekte wird im folgenden näher erläutert um auch in Zukunft selbst beliebige Objekte erzeugen zu können. 
+Für die virtuelle Erweiterung von Baustellen und Ruinen, müssen entsprechende Modelle entweder schon vorhanden sein oder generiert werden. Im Projekt wurde ein Teil der verwendeten 3D Objekte selbst generiert. Der Prozess zur Erstellung dieser Objekte wird im folgenden näher erläutert um auch in Zukunft selbst beliebige Objekte erzeugen zu können. 
 
 
 \begin{figure}[H]
@@ -535,7 +535,7 @@ Für die virtuelle Erweiterung von Baustellen ung Ruinen, müssen entsprechende Mo
 	\newpage
 	
 \section{Aufbau der Applikation}
-Das Design der Applikation wurde, im Sinne einer einfachen Bedienung, so übersichtlich wie möglich gehalten. Um die Applikation auf Funktionalitäten zu testen und das Debugging einfacher zu gestalten wird eine Version der Applikation benutzt wie sie in Abbildung \ref{app2} zu erkennen ist. Beim Starten der Applikation werden die Schritte aus dem Flussdiagramm in Abbildung \ref{flow1} gestartet. Wird der Marker erkannt werden entsprechend seiner ID dann die Objekte in der Welt angezeigt. Sowohl zu Testzwecken als auch für eine verbesserte Nutzerinteraktion, wurden diverse Buttons integriert. Die Buttons Greyscale (GREY), Threshhold (THR) dienen dazu dem Entwickler die einzelnen Bildstufen aufzuzeigen um Verbesserungen beispielsweise im Preprocessing vorzunehmen. Der Button ORIG zeigt das Original Bild, das von der Kamera aufgenommen wird, ohne jegliche Bearbeitung. Mit EDG, AXIS werden die Kanten des Markers und ein Koordinatensystem des Markers angezeigt. Dies kann zur Verifizierung einer erfolgreichen Detektion genutzt werden. Weiter ist es dem Nutzer möglich das Objekt durch den Button OBJ auszublenden um die Originalszene zu bekommen. 
+Das Design der Applikation wurde, im Sinne einer einfachen Bedienung, so übersichtlich wie möglich gehalten. Um die Applikation auf Funktionalitäten zu testen und das Debugging einfacher zu gestalten wird eine Version der Applikation benutzt, wie sie in Abbildung 4.4 zu erkennen ist. Beim Starten der Applikation werden die Schritte aus dem Flussdiagramm in Abbildung \ref{flow1} gestartet. Wird der Marker erkannt, werden entsprechend seiner ID dann die Objekte in der Welt angezeigt. Sowohl zu Testzwecken als auch für eine verbesserte Nutzerinteraktion, wurden diverse Buttons integriert. Die Buttons Greyscale (GREY), Threshhold (THR) dienen dazu dem Entwickler die einzelnen Bildstufen aufzuzeigen um Verbesserungen beispielsweise im Preprocessing vorzunehmen. Der Button ORIG zeigt das Original Bild, das von der Kamera aufgenommen wird, ohne jegliche Bearbeitung. Mit EDG, AXIS werden die Kanten des Markers und ein Koordinatensystem des Markers angezeigt. Dies kann zur Verifizierung einer erfolgreichen Detektion genutzt werden. Weiter ist es dem Nutzer möglich das Objekt durch den Button OBJ auszublenden um die Originalszene zu bekommen. 
 Mit den Balken Contrast und Brightness auf der rechen Seiten der Applikation können Kontrast und Helligkeit des Bildes manuell eingestellt werden. Diese Schritte übernimmt in der endgültigen Applikation das Preprocessing. 
 \begin{figure}[H]
 		\centering
@@ -543,7 +543,7 @@ Mit den Balken Contrast und Brightness auf der rechen Seiten der Applikation kön
 		\caption{Applikation ohne Debugging Buttons}
 		\label{app2}
 	\end{figure}
-Als zusätzliche Option ein Button zum Einblenden von objektspezifischen Informationen implementiert. Dieser blendet einen selbst definierten Text in die Szene ein. Dies kann beispielsweise bei zukünftigen Bauprojekten oder Ruinen von Bedeutung sein um Informationen zum Objekt wie Baujahr, Kosten oder Bedeutung wiederzugeben. Um die Applikation übersichtlicher zu gestalten werden die Testbuttons entfernt, was in der Applikation in Abbildung \ref{app2} resultiert. 
+Als zusätzliche Option ist ein Button zum Einblenden von objektspezifischen Informationen implementiert. Dieser blendet einen selbst definierten Text in die Szene ein. Dies kann beispielsweise bei zukünftigen Bauprojekten oder Ruinen von Bedeutung sein um Informationen zum Objekt wie Baujahr, Kosten oder Bedeutung wiederzugeben. Um die Applikation übersichtlicher zu gestalten werden die Testbuttons entfernt, was in der Applikation in Abbildung \ref{app2} resultiert. 
 \begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.6\textwidth]{app_reduced}
@@ -558,7 +558,7 @@ Im Folgenden sind die Ergebnisse der resultierenden Applikation aufgezeigt. Die 
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width= \textwidth]{test1}
-		\caption{links: Erweiterung einer Ruine/Baustelle, rechts: Einblendung einer Statuet }
+		\caption{links: Erweiterung einer Ruine/Baustelle, rechts: Einblendung einer Statue }
 		\label{objects}
 	\end{figure}
 Zu erkennen ist die Erweiterung der Umgebung mit den 3D Objekten mit realen Abmessungen. Abbildung \ref{objects} links zeigt die relative Positionierung des Objektes. Dafür muss, wie bereits in der Theorie besprochen, eine entsprechende Transformationsmatrix erstellt werden, welche Werte für Translation und Rotation vom Marker beinhaltet. Somit können die Objekte in beliebiger Relation zum Marker platziert werden. Wird keine zusätzliche Transformationsmatrix angegeben, wird das Objekt direkt auf den Marker platziert, wie in Abbildung \ref{objects} rechts zu erkennen ist.\\
@@ -598,7 +598,7 @@ Durch die Auflösung von 320x240 px kann eine angemessene Darstellung des Objekte
 \end{table} 
 
 
-Der größte Teil der verbrauchten Rechenleistung wird der Markererkennung und dem Objekt rendering zugeschrieben. Beides wurde anfangs mittels Java implementiert. Nach der Umstellung auf C++ konnte eine verbesserte Performance erreicht werden. Auch das Preprocessing in C++ trägt zu einer verbesserten Performance bei. Eine gezielte Verbesserung der Performance lässt sich in der Optimierung der genannten Aspekte bewerkstelligen.
+Der größte Teil der verbrauchten Rechenleistung wird der Markererkennung und dem Objekt rendering zugeschrieben. Ersteres wurde anfangs mittels Java implementiert. Nach der Umstellung auf C++ konnte eine verbesserte Performance erreicht werden. Auch das Preprocessing in C++ trägt zu einer verbesserten Performance bei. Eine gezielte Verbesserung der Performance lässt sich in der Optimierung der genannten Aspekte bewerkstelligen.
 Zusammenfassend lässt sich sagen, dass die Platzierung von beliebigen 3D Objekten im Raum jedoch weitestgehend ohne größere Störungen funktioniert und das noch vorhandene, leichte Ruckeln mit einem leistungsfähigerem Smartphone ausgeglichen werden kann. 
 
 \newpage
@@ -610,9 +610,9 @@ Basierend auf den Informationen der Markerdetektion, gelang weiterhin die Kombin
 Ferner wurde auch ein Ansatz zur Erstellung von 3D Objekten mittels Pointclouds vorgestellt. Damit ist es möglich aus Bildern bekannter realer Objekte, 3D Objekte zu erzeugen, welche dann beispielsweise in  einer anderen Umgebung visualisiert werden können. 
 
 \subsection{Ausblick}
-Die existierende App bietet viel Freiraum für zukünftige Erweiterungen. Eine wichtige Erweiterung ist das Füllen der internen Datenbank mit neuen 3D Modellen. Dazu können verschiedene MarkerIds verschiedenen Objekten zugeordnet und der vorgestellte Prozess zur Erstellung von 3D Objekten genutzt werden.
-Ein weiterer Punkt ist eine erweiterte Benutzerinteraktion durch Buttons. Eine Möglichkeit ist die Einblendung von Informationen über verfügbare Marker in der Stadt. Dafür kann die Integration einer Map, beispielsweise mittels der Google Maps API für Android, in die App integrieren. 
-Ein weiterer wichtiger Aspekt ist die Optimierung der Preprocessing Algorithmen. Diese liefern teilweise nicht immer optimale Ergebnisse. Auch weitere Algorithmen können probiert werden ,welche eine noch robustere Markererkennung bei schlechten Verhältnissen bieten. 
+Die existierende App bietet viel Freiraum für zukünftige Erweiterungen. Eine wichtige Erweiterung ist das Füllen der internen Datenbank mit neuen 3D Modellen. Dazu können verschiedene Marker-IDs verschiedenen Objekten zugeordnet und der vorgestellte Prozess zur Erstellung von 3D Objekten genutzt werden.
+Ein weiterer Punkt ist eine erweiterte Benutzerinteraktion durch Buttons. Eine Möglichkeit ist die Einblendung von Informationen über verfügbare Marker in der Stadt. Dafür kann eine Map, beispielsweise mittels der Google Maps API für Android, in die App integriert werden. 
+Ein weiterer wichtiger Aspekt ist die Optimierung der Preprocessing Algorithmen. Diese liefern teilweise nicht immer optimale Ergebnisse. Auch weitere Algorithmen können probiert werden, welche eine noch robustere Markererkennung bei schlechten Verhältnissen bieten. 
 
 
 %-----------------------------------------------------------------
