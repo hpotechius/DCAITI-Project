@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.15)  17 AUG 2018 12:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.15)  17 AUG 2018 13:15
 entering extended mode
 **./doku_1.tex
 (doku_1.tex
@@ -931,7 +931,7 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 <aruco.png, id=29, 504.6855pt x 219.82124pt>
 File: aruco.png Graphic file (type png)
  <use aruco.png>
-Package pdftex.def Info: aruco.png used on input line 253.
+Package pdftex.def Info: aruco.png used on input line 252.
 (pdftex.def)             Requested size: 318.66948pt x 138.80675pt.
 
 
@@ -949,55 +949,55 @@ Package Fancyhdr Warning: \footskip is too small (7.23772pt):
 [3] <treshold.png, id=34, 577.55775pt x 222.8325pt>
 File: treshold.png Graphic file (type png)
  <use treshold.png>
-Package pdftex.def Info: treshold.png used on input line 283.
+Package pdftex.def Info: treshold.png used on input line 282.
 (pdftex.def)             Requested size: 409.71692pt x 158.08298pt.
  [4 <./aruco.png> <./treshold.png>] <aruco3.png, id=41, 529.37775pt x 252.945pt
 >
 File: aruco3.png Graphic file (type png)
 
 <use aruco3.png>
-Package pdftex.def Info: aruco3.png used on input line 302.
+Package pdftex.def Info: aruco3.png used on input line 301.
 (pdftex.def)             Requested size: 318.66948pt x 152.26219pt.
  [5 <./aruco3.png>] <koord.png, id=46, 457.71pt x 160.1985pt>
 File: koord.png Graphic file (type png)
 
 <use koord.png>
-Package pdftex.def Info: koord.png used on input line 319.
+Package pdftex.def Info: koord.png used on input line 318.
 (pdftex.def)             Requested size: 364.19667pt x 127.47452pt.
  <eq.png, id=47, 343.2825pt x 172.2435pt>
 File: eq.png Graphic file (type png)
  <use eq.png>
-Package pdftex.def Info: eq.png used on input line 334.
+Package pdftex.def Info: eq.png used on input line 333.
 (pdftex.def)             Requested size: 136.57462pt x 68.52559pt.
 
 <koord3.png, id=48, 451.6875pt x 249.93375pt>
 File: koord3.png Graphic file (type png)
  <use koord3.png>
-Package pdftex.def Info: koord3.png used on input line 347.
+Package pdftex.def Info: koord3.png used on input line 346.
 (pdftex.def)             Requested size: 295.90588pt x 163.74403pt.
  [6 <./koord.png> <./eq.png>] <koord4.png, id=58, 453.49425pt x 214.401pt>
 File: koord4.png Graphic file (type png)
  <use koord4.png>
-Package pdftex.def Info: koord4.png used on input line 354.
+Package pdftex.def Info: koord4.png used on input line 353.
 (pdftex.def)             Requested size: 295.90588pt x 139.90205pt.
 
 <aruco2.png, id=59, 486.618pt x 363.759pt>
 File: aruco2.png Graphic file (type png)
  <use aruco2.png>
-Package pdftex.def Info: aruco2.png used on input line 364.
+Package pdftex.def Info: aruco2.png used on input line 363.
 (pdftex.def)             Requested size: 182.09486pt x 136.12067pt.
  [7 <./koord3.png> <./koord4.png> <./aruco2.png>] <chroma1.png, id=66, 639.5895
 pt x 401.0985pt>
 File: chroma1.png Graphic file (type png)
 
 <use chroma1.png>
-Package pdftex.def Info: chroma1.png used on input line 382.
+Package pdftex.def Info: chroma1.png used on input line 381.
 (pdftex.def)             Requested size: 341.43307pt x 214.12349pt.
  <chroma2.png, id=67, 525.162pt x 239.6955pt>
 File: chroma2.png Graphic file (type png)
 
 <use chroma2.png>
-Package pdftex.def Info: chroma2.png used on input line 393.
+Package pdftex.def Info: chroma2.png used on input line 392.
 (pdftex.def)             Requested size: 295.90588pt x 135.05879pt.
  [8 <./chroma1.png> <./chroma2.png>]
 Kapitel 3.
@@ -1008,75 +1008,75 @@ Kapitel 4.
 <flow_chart.png, id=76, 728.7225pt x 216.81pt>
 File: flow_chart.png Graphic file (type png)
  <use flow_chart.png>
-Package pdftex.def Info: flow_chart.png used on input line 427.
+Package pdftex.def Info: flow_chart.png used on input line 426.
 (pdftex.def)             Requested size: 455.24411pt x 135.44305pt.
  [10
 
  <./flow_chart.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 450--450
+Underfull \hbox (badness 10000) in paragraph at lines 449--449
 []|\T1/lmr/bx/n/12 onCameraFrame\T1/lmr/m/n/12 (CvCameraViewFrame
  []
 
 
-Underfull \hbox (badness 2503) in paragraph at lines 470--470
+Underfull \hbox (badness 2503) in paragraph at lines 469--469
 \T1/lmr/m/n/12 li-che Preprocessing-Funktionalität bein-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--470
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
 []|\T1/lmr/bx/n/12 preprocessing\T1/lmr/m/n/12 (Mat mRgb, Mat
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--470
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
 []|\T1/lmr/m/n/12 Die Ma-trix \T1/lmr/m/it/12 mRgb \T1/lmr/m/n/12 wird in ein
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--470
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
 \T1/lmr/m/n/12 Chromaticity-Bild trans-for-miert und
  []
 
 [11] <3d.png, id=85, 1001.54175pt x 436.63126pt>
 File: 3d.png Graphic file (type png)
  <use 3d.png>
-Package pdftex.def Info: 3d.png used on input line 520.
+Package pdftex.def Info: 3d.png used on input line 519.
 (pdftex.def)             Requested size: 455.24411pt x 198.46765pt.
 
 <Objekts.png, id=86, 592.01175pt x 185.493pt>
 File: Objekts.png Graphic file (type png)
  <use Objekts.png>
-Package pdftex.def Info: Objekts.png used on input line 531.
+Package pdftex.def Info: Objekts.png used on input line 530.
 (pdftex.def)             Requested size: 455.24411pt x 142.6404pt.
  [12 <./3d.png>] [13 <./Objekts.png>] <app2.png, id=95, 347.49825pt x 193.9245p
 t>
 File: app2.png Graphic file (type png)
 
 <use app2.png>
-Package pdftex.def Info: app2.png used on input line 543.
+Package pdftex.def Info: app2.png used on input line 542.
 (pdftex.def)             Requested size: 273.14923pt x 152.4441pt.
 File: app2.png Graphic file (type png)
  <use app2.png>
-Package pdftex.def Info: app2.png used on input line 550.
+Package pdftex.def Info: app2.png used on input line 549.
 (pdftex.def)             Requested size: 273.14923pt x 152.4441pt.
  [14 <./app2.png>]
 <test1.png, id=100, 445.665pt x 210.7875pt>
 File: test1.png Graphic file (type png)
  <use test1.png>
-Package pdftex.def Info: test1.png used on input line 563.
+Package pdftex.def Info: test1.png used on input line 562.
 (pdftex.def)             Requested size: 455.24411pt x 215.31882pt.
 
-Underfull \hbox (badness 2503) in paragraph at lines 581--581
+Underfull \hbox (badness 2503) in paragraph at lines 580--580
 \T1/lmr/m/n/12 li-che Preprocessing-Funktionalität bein-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 581--581
+Underfull \hbox (badness 10000) in paragraph at lines 580--580
 []|\T1/lmr/m/n/12 Die Ma-trix \T1/lmr/m/it/12 mRgb \T1/lmr/m/n/12 wird in ein
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 581--581
+Underfull \hbox (badness 10000) in paragraph at lines 580--580
 \T1/lmr/m/n/12 Chromaticity-Bild trans-for-miert und
  []
 
@@ -1084,7 +1084,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 581--581
 Kapitel 5.
 [16
 
-] [17
+]
+Underfull \hbox (badness 10000) in paragraph at lines 621--622
+[]\T1/lmr/m/n/12 https://blog.codeonion.com/2015/11/25/creating-a-new-opencv-pr
+oject-in-android-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 624--625
+[]\T1/lmr/m/n/12 https://medium.com/@sukritipaul005/a-beginners-guide-to-instal
+ling-opencv-
+ []
+
+[17
 
 ] (doku_1.aux)
 
@@ -1095,10 +1107,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16926 strings out of 493328
- 320402 string characters out of 3139127
+ 16923 strings out of 493328
+ 320385 string characters out of 3139127
  364614 words of memory out of 3000000
- 20205 multiletter control sequences out of 15000+200000
+ 20202 multiletter control sequences out of 15000+200000
  66746 words of font info for 54 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,12n,43p,10492b,537s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1113,7 +1125,7 @@ ic/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C
 KTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy1
 0.pfb>
-Output written on doku_1.pdf (20 pages, 4437989 bytes).
+Output written on doku_1.pdf (20 pages, 4437460 bytes).
 PDF statistics:
  146 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -219,7 +219,7 @@ final								% Status des Dokuments (final/draft)
 	
 
 	\section{Paradigmen zur Detektion der Kamerapose im Raum}
-	Ein Kernaspekt zur Ermöglichung eines angemessenen AR Erlebnisses ist der sogenannte Koordinatenabgleich der Weltkoordinaten mit denen der Kamera. Grundsätzlich geht es darum die Position des Nutzers und dessen Sichtfeld und Blickrichtung innerhalb der Weltkoordinaten zu lokalisieren. Praktisch entspricht dies der Orientierung und Position der Kamera des AR Geräts (Smartphone, HMD, o.ä.). Forschungen, welche z.T noch hochaktuell sind haben zahlreiche Algorithmen und Lösungsansätze hervorgebracht, wobei die wichtigsten Paradigmen im folgenden aufgelistet sind: 
+	Ein Kernaspekt zur Ermöglichung eines angemessenen AR Erlebnisses ist der sogenannte Koordinatenabgleich der Weltkoordinaten mit denen der Kamera. Grundsätzlich geht es darum die Position des Nutzers und dessen Sichtfeld und Blickrichtung innerhalb der Weltkoordinaten zu lokalisieren. Praktisch entspricht dies der Orientierung und Position der Kamera des AR Geräts (Smartphone, HMD, o.ä.). Forschungen, welche z.T noch hochaktuell sind haben zahlreiche Algorithmen und Lösungsansätze hervorgebracht, wobei die wichtigsten Paradigmen im folgenden aufgelistet sind \cite{theory} 
 	
 	\begin{itemize}
 		
@@ -246,18 +246,17 @@ final								% Status des Dokuments (final/draft)
 
 	\section{Die marker-basierte Detektion mit Aruco}
 	Trotz der erwähnten Vorteile der Marker gibt es einige Aspekte zu beachten. Beispielsweise können ungünstige Lichtverhältnisse oder schlechter Kontrast dazu führen dass der Marker nicht erkannt wird. Aufgrund von Farbveränderungen, welche durch ungünstiges Licht auftreten können werden grundsätzlich nur schwarz-weiss Marker benutzt. Optimalerweise reichen 4 bekannte Punkte aus um die Pose des Markers zu erkennen. Daher eignen sich Quadratische Formen als Marker am besten. Es gibt zahlreiche bekannte Bibliotheken, welche diese Art von Markern verwendet. Eine davon ist die Aruco Bibliothek, welche teil des OpenCV Frameworks ist und in diesem Projekt verwendet wird. Aruco benutzt Schachbrettmuster um individuelle Marker zu erzeugen. Diese sind durch Ihre individuelen Muster mit einer ID versehen, was bspw. nützlich ist um bestimmte Objekte mit einem bestimmten Marker zu versehen. 
-
-Das Aruco Modul ist Teil der Aruco Bibliothek und wurde von Rafael Munoz und Sergio Garrido entwickelt. Für die Markererkennung und idendifikation nutzt es spezielle Muster, welche dekodiert werden. Der Marker besteht aus einem schwarzen Rand sowie einem Muster im inneren, welches einer binären Matrix gleichkommt. Dabei bestimmt die Größe des Markers auch die Bitzahl der Innenmatrix. Entsprechend hat ein 4cm x 4 cm großer Marker eine 16 Bit Matrix. Auf diese Matrix wird im späteren Verlauf noch eingegangen. In Abbildung \ref{aruco} sind Beispiele dieser Marker zu sehen.
+Für die Markererkennung und Identifikation nutzt Aruco spezielle Muster, welche dekodiert werden. Der Marker besteht aus einem schwarzen Rand sowie einem Muster im inneren, welches einer binären Matrix gleichkommt. Dabei bestimmt die Größe des Markers auch die Bitzahl der Innenmatrix. Entsprechend hat ein 4cm x 4 cm großer Marker eine 16 Bit Matrix. Auf diese Matrix wird im späteren Verlauf noch eingegangen. In Abbildung \ref{aruco} sind Beispiele dieser Marker zu sehen.
 \begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.7\textwidth]{aruco}
-		\caption{Koordinatensysteme mit Freiheitsgraden \cite{schale1} (aus opencv.com)}
+		\caption{Koordinatensysteme mit Freiheitsgraden \cite{opencv}}
 		\label{aruco}
 	\end{figure}
 	
 	
 		
-Im folgenden werden die einzelnen Schritte bei der Markererkennung besprochen.
+Im folgenden werden die einzelnen Schritte bei der Markererkennung besprochen \cite{opencv}.
 
 
 \begin{itemize}
@@ -281,12 +280,12 @@ Im folgenden werden die einzelnen Schritte bei der Markererkennung besprochen.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.9\textwidth]{treshold}
-		\caption{links: Originalbild, rechts: Treshold Bild \cite{schale1} (aus grundquelle)}
+		\caption{links: Originalbild, rechts: Treshold Bild \cite{theory}}
 		\label{treshold}
 	\end{figure}
 	
-	Der Treshold Ansatz erweisst sich als stabil gegen mögliche Helligkeitsschwankungen. Nachdem 'getresholdet' wurde liegt ein binäres Bild, bestehend aus Hintergrund und Objekten vor, aus denen dann die Konturen erkannt werden können. Dafür werden die Kanten aller potentiellen Marker im Bild markiert und geprüft ob genau 4 gerade Linien erkannt wurden.
-	Sind diese Vorraussetzungen erfüllt, werden die Ecken des potentiellen Markers analysiert. Wichtig ist, dass davor die Verzerrung durch die inverse Verzerrungsfunktion, welche beim Kalibrieren der Kamera gewonnen wird, vorgenommen wird. 
+	Der Treshold Ansatz erweisst sich als stabil gegen mögliche Helligkeitsschwankungen. Nachdem 'getresholdet' wurde liegt ein binäres Bild, bestehend aus Hintergrund und Objekten vor, aus denen dann die Konturen erkannt werden können. Dafür werden die Kanten aller potentiellen Marker im Bild markiert und geprüft ob genau 4 gerade Linien erkannt wurden \cite{theory}.
+	Sind diese Vorraussetzungen erfüllt, werden die Ecken des potentiellen Markers analysiert. 
 	
 	\subsubsection{Filterung und Verbesserung}
 Nachdem Tresholding wurden Konturen, welche auf einen potentiellen Marker hindeuten erkannt. Jedoch sind nicht alle erkannten Konturen tatsächlich Marker. Daher ist der Filterungschritt ein essentieller Schritt um nur tatsächliche Marker zu berücksichtigen. Dabei werden alle jene Konturen herausgefiltert, welche offentsichtlich keine Marker sind oder zu nah beieinander liegen. Dafür existieren in Aruco diverse Funktionen und Parameter um die Filterung individuell strikt zu gestalten. Wichtig ist es dabei die Markerparameter, wie Markergröße oder Maximale Distanz, welche zwei Marker zueinander besitzen dürfen vorher zu definieren um die Filterung effizient zu gestalten. 
@@ -300,7 +299,7 @@ Nachdem Tresholding wurden Konturen, welche auf einen potentiellen Marker hindeu
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.7\textwidth]{aruco3}
-		\caption{verbessertes Bitmuster im Gitter \cite{schale1} (OpenCV.org)}
+		\caption{verbessertes Bitmuster im Gitter \cite{opencv}}
 		\label{aruco3}
 	\end{figure}
 	
@@ -317,7 +316,7 @@ In Abbildung \ref{koord1} ist eine Übersicht der beiden Koordinatensysteme veran
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.8\textwidth]{koord}
-		\caption{Koordinatensysteme mit Freiheitsgraden \cite{schale1} (aus grundquelle)}
+		\caption{Koordinatensysteme mit Freiheitsgraden \cite{theory}}
 		\label{koord1}
 	\end{figure}
 	
@@ -345,14 +344,14 @@ Durch Anwenden dieser Transformation geschieht der Abgleich zwischen Welt und Ka
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.65\textwidth]{koord3}
-		\caption{Koordinatensysteme mit Freiheitsgraden \cite{schale1} (aus grundquelle)}
+		\caption{Koordinatensysteme mit Freiheitsgraden \cite{theory}}
 		\label{koord3}
 	\end{figure}
 	Soll das Objekt in Relation zum Marker platziert werden, muss eine weitere Transformationsmatrix $T_{object}$ angegeben werden in welcher Translation und Rotation definiert sind (Abbildung \ref{koord4}) .
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.65\textwidth]{koord4}
-		\caption{Koordinatensysteme mit Freiheitsgraden \cite{schale1} (aus grundquelle)}
+		\caption{Koordinatensysteme mit Freiheitsgraden \cite{theory}}
 		\label{koord4}
 	\end{figure}
 	
@@ -362,7 +361,7 @@ Durch Anwenden dieser Transformation geschieht der Abgleich zwischen Welt und Ka
 		\begin{figure}[H]
 		\centering
 		\includegraphics[width= 0.4\textwidth]{aruco2}
-		\caption{Erfolgreiche Markererkennung und Objektplatzierung mit Aruco \cite{schale1} (aus aus opencv.com)}
+		\caption{Erfolgreiche Markererkennung und Objektplatzierung mit Aruco \cite{opencv} }
 		\label{aruco2}
 	\end{figure}
 %-----------------------------------------------------------------------------
@@ -407,10 +406,10 @@ Damit dieses Verfahren zur Markererkennung verwendet werden kann, müssen die Mar
 	
 	\section{Verwendete Frameworks und Software}
 	\textbf{OpenCV}
- OpenCV ist eine Bibliothek welche sich mit einer Vielzahl an Aspekten rund um die Bilderkennung und der maschinellen Verarbeitung beschäftigt. Anwendungen reichen von der Gesichtserkennung über Tracking bis hin zu neuronalen Netzen. In dem Projekt wird OpenCV zur Markererkennung genutzt.\\ 
-\textbf{OpenGL} OpenGL ist ebenfalls eine frei verfügbare Bibliothek, welche Funktionen zur Verwendung mit 3D Objekten bereitstellt. Funktionen umfassen beispielsweise die Darstellung der Objekte in Echtzeit [wiki], dem Einsatz von Spezialeffekten und vielen weiteren Funktionen zur grafischen Bearbeitung. Für das Projekt von Bedeutung ist das Darstellen der 3D Objekte. Dazu werden Funktionen für das Rendern dieser Objekte genutzt. OpenCV und OpenGL lassen sich durch Schnittstellen problemlos miteinander verwenden. \\
+ OpenCV ist eine Bibliothek welche sich mit einer Vielzahl an Aspekten rund um die Bilderkennung und der maschinellen Verarbeitung beschäftigt. Anwendungen reichen von der Gesichtserkennung über Tracking bis hin zu neuronalen Netzen \cite{wikicv}. In dem Projekt wird OpenCV zur Markererkennung genutzt.\\ 
+\textbf{OpenGL} OpenGL ist ebenfalls eine frei verfügbare Bibliothek, welche Funktionen zur Verwendung mit 3D Objekten bereitstellt. Funktionen umfassen beispielsweise die Darstellung der Objekte in Echtzeit \cite{wikigl}, dem Einsatz von Spezialeffekten und vielen weiteren Funktionen zur grafischen Bearbeitung. Für das Projekt von Bedeutung ist das Darstellen der 3D Objekte. Dazu werden Funktionen für das Rendern dieser Objekte genutzt. OpenCV und OpenGL lassen sich durch Schnittstellen problemlos miteinander verwenden. \\
 \textbf{Android Studio}
-Zur Entwicklung der Applikation wurde Android Studio benutzt. Somit kommen als Zielgruppe ausschließlich Android Geräte in Frage. Dies hat den Grund einer offeneren Plattform und der leichteren Einbindung von externen Bibliotheken wie OpenCV oder OpenGl. Android Studio ist eine Entwicklungsumgebung für die Entwicklung von Applikationen für das Android Betriebssystem. Es beinhaltet diverse Möglichkeiten zur Einbindung von externen Bibliotheken und Paketen. Um obige Bibliotheken innerhalb der Entwicklungsumgebung nutzen zu können müssen diese zuvor in das Projekt geladen werden. Dazu wurden die Schritte aus [] und [] befolgt. Für eine detaillierte Beschreibung der Einbindung sei auf diese Quellen verwiesen.
+Zur Entwicklung der Applikation wurde Android Studio benutzt. Somit kommen als Zielgruppe ausschließlich Android Geräte in Frage. Dies hat den Grund einer offeneren Plattform und der leichteren Einbindung von externen Bibliotheken wie OpenCV oder OpenGl. Android Studio ist eine Entwicklungsumgebung für die Entwicklung von Applikationen für das Android Betriebssystem. Es beinhaltet diverse Möglichkeiten zur Einbindung von externen Bibliotheken und Paketen. Um obige Bibliotheken innerhalb der Entwicklungsumgebung nutzen zu können müssen diese zuvor in das Projekt geladen werden. Dazu wurden die Schritte aus \cite{int} und \cite{int2} befolgt. Für eine detaillierte Beschreibung der Einbindung sei auf diese Quellen verwiesen.
 
 	
 
@@ -420,7 +419,7 @@ Zur Entwicklung der Applikation wurde Android Studio benutzt. Somit kommen als Z
 %-----------------------------------------------------------------------------	
 	\chapter{Implementierung}
 	Im folgenden Kapitel wird die Implementierung der Applikation erklärt. Dies soll dazu dienen, den Aufbau der App sowie die Funktionsweise der einzelnen Funktionen nachzuvollziehen. Die Implementierung richtet sich hauptsächlich an der vorher besprochenen Theorie der Bildverarbeitung, Markererkennung und Objektpositionierung. Geschrieben wurde die Applikation in anfangs in Java. Aus performancetechnischen Gründen wurden später wichtige Funktionen in C++ umgeschrieben. 
-Der komplette Quellcode mit Erläuterungen ist Open Source und auf Github [x] zu finden. In Abbildung \ref{flow1} ist das Flussdiagramm verbildlicht. 
+Der komplette Quellcode mit Erläuterungen kann auf Anfrage gestellt werden. In Abbildung \ref{flow1} ist das Flussdiagramm verbildlicht. 
 	
 			\begin{figure}[H]
 		\centering
@@ -529,7 +528,7 @@ Für die virtuelle Erweiterung von Baustellen ung Ruinen, müssen entsprechende Mo
 \begin{figure}[H]
 		\centering
 		\includegraphics[width= \textwidth]{Objekts}
-		\caption{Verwendete Objekte}
+		\caption{Verwendete Objekte \cite{3d}}
 		\label{objects}
 	\end{figure}
 	
@@ -604,54 +603,29 @@ Ein weiterer Punkt ist eine erweiterte Benutzerinteraktion durch Buttons. Eine M
 \bibliographystyle{plain}
 \begin{thebibliography}{}   
 	
-		\bibitem{schale1} 
-	ZVEI SG Modelle und Standards
+		\bibitem{opencv} 
+	opencv.org
 	
-	\bibitem{omtc} 
-	openmtc.org
+	\bibitem{theory} 
+	Theory and applications
+of marker-based
+augmented reality, Sanni Siltanen
 	
-	\bibitem{graph1}
-	w3.org/TR/jsonld
+	\bibitem{wikicv}
+	https://de.wikipedia.org/wiki/OpenCV
 	
-	\bibitem{socket}
-	devcentral.f5.com
+		\bibitem{wikigl}
+	https://de.wikipedia.org/wiki/OpenGL
 	
-	\bibitem{setup}
-	Bildquellen Setup und Konzeption
-	\newblock{the-mtc.org}
-	\newblock{iot.do}
-	\newblock{fotolia.com}
+	\bibitem{int}
+	https://blog.codeonion.com/2015/11/25/creating-a-new-opencv-project-in-android-studio/
 	
-	\bibitem{pp}          % Hier beginnt das Literaturverzeichnis
-	Microsoft Office 365\\
-	\newblock{https://www.microsoft.com/de-de/store/d/office-365-home}
+	\bibitem{int2}
+	https://medium.com/@sukritipaul005/a-beginners-guide-to-installing-opencv-android-in-android-studio-ea46a7b4f2d3
 	
 	
-	\bibitem{bsp}          
-	Flat Chat Widget UI\\
-	\newblock{https://designshack.net/design/flat-chat-widget-ui/}
-	
-	\bibitem{dock}          
-	Dock\\
-	\newblock{https://zurb.com/playground/osx-dock}
-	
-	\bibitem{wallp}          
-	Wallpaper$/$Icons\\
-	\newblock{Wood:}
-	\newblock{http://www.kinyu-z.net/data/wallpapers/147/1219741.jpg}\\
-	\newblock{Wood2:}
-	\newblock{http://getwallpapers.com/wallpaper/full/0/9/9/404732.jpg}\\
-	\newblock{Up:}
-	\newblock{https://images2.alphacoders.com/437/thumb-350-437561.jpg}\\
-	\newblock{Farbverläufe: }
-	\newblock{https://uigradients.com}\\
-	\newblock{Icons:}
-	\newblock{https://www.shareicon.net/}
-	
-	
-	\bibitem{jq}          
-	jQuery\\
-	\newblock{http://jquery.com/}
+	\bibitem{3d}
+	https://free3d.com/
 	
 	\bibitem{io}          
 	Ablaufpläne\\
