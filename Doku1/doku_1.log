@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.15)  17 AUG 2018 14:00
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.4)  17 AUG 2018 14:24
->>>>>>> b5bc3ef092daf405c6fa864d35e45898f728fc93
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.4)  17 AUG 2018 14:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1054,93 +1050,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 469--469
 [11] <3d.png, id=86, 1001.54175pt x 436.63126pt>
 File: 3d.png Graphic file (type png)
  <use 3d.png>
-<<<<<<< HEAD
-Package pdftex.def Info: 3d.png used on input line 526.
-=======
-Package pdftex.def Info: 3d.png used on input line 518.
->>>>>>> b5bc3ef092daf405c6fa864d35e45898f728fc93
+Package pdftex.def Info: 3d.png used on input line 522.
 (pdftex.def)             Requested size: 455.24411pt x 198.46765pt.
  [12]
 <Objekts.png, id=90, 592.01175pt x 185.493pt>
 File: Objekts.png Graphic file (type png)
  <use Objekts.png>
-<<<<<<< HEAD
-Package pdftex.def Info: Objekts.png used on input line 537.
-(pdftex.def)             Requested size: 455.24411pt x 142.6404pt.
- [13 <./3d.png> <./Objekts.png>] <app2.png, id=98, 347.49825pt x 193.9245pt>
-File: app2.png Graphic file (type png)
- <use app2.png>
-Package pdftex.def Info: app2.png used on input line 549.
-(pdftex.def)             Requested size: 273.14923pt x 152.4441pt.
-File: app2.png Graphic file (type png)
-
-<use app2.png>
-Package pdftex.def Info: app2.png used on input line 556.
-(pdftex.def)             Requested size: 273.14923pt x 152.4441pt.
- [14 <./app2.png>] <test1.png, id=103, 445.665pt x 210.7875pt>
-File: test1.png Graphic file (type png)
-
-<use test1.png>
-Package pdftex.def Info: test1.png used on input line 569.
-(pdftex.def)             Requested size: 455.24411pt x 215.31882pt.
-
-Underfull \hbox (badness 2503) in paragraph at lines 587--587
-\T1/lmr/m/n/12 li-che Preprocessing-Funktionalität bein-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 587--587
-[]|\T1/lmr/m/n/12 Die Ma-trix \T1/lmr/m/it/12 mRgb \T1/lmr/m/n/12 wird in ein
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 587--587
-\T1/lmr/m/n/12 Chromaticity-Bild trans-for-miert und
- []
-
-[15 <./test1.png>]
-=======
-Package pdftex.def Info: Objekts.png used on input line 529.
+Package pdftex.def Info: Objekts.png used on input line 533.
 (pdftex.def)             Requested size: 455.24411pt x 142.6404pt.
  [13 <./3d.png> <./Objekts.png>] <app_debug.png, id=96, 1284.8pt x 722.7pt>
 File: app_debug.png Graphic file (type png)
 
 <use app_debug.png>
-Package pdftex.def Info: app_debug.png used on input line 541.
+Package pdftex.def Info: app_debug.png used on input line 545.
 (pdftex.def)             Requested size: 273.14923pt x 153.64615pt.
  <app_reduced.png, id=97, 1284.8pt x 722.7pt>
 File: app_reduced.png Graphic file (type png)
 
 <use app_reduced.png>
-Package pdftex.def Info: app_reduced.png used on input line 548.
+Package pdftex.def Info: app_reduced.png used on input line 552.
 (pdftex.def)             Requested size: 273.14923pt x 153.64615pt.
  [14 <./app_debug.png (PNG copy)> <./app_reduced.png (PNG copy)>] <test1.png, i
 d=101, 445.665pt x 210.7875pt>
 File: test1.png Graphic file (type png)
  <use test1.png>
-Package pdftex.def Info: test1.png used on input line 561.
+Package pdftex.def Info: test1.png used on input line 565.
 (pdftex.def)             Requested size: 455.24411pt x 215.31882pt.
  [15 <./test1.png>]
->>>>>>> b5bc3ef092daf405c6fa864d35e45898f728fc93
 Kapitel 5.
 [16
 
 ]
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 628--629
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 640--641
->>>>>>> b5bc3ef092daf405c6fa864d35e45898f728fc93
+Underfull \hbox (badness 10000) in paragraph at lines 644--645
 []\T1/lmr/m/n/12 https://blog.codeonion.com/2015/11/25/creating-a-new-opencv-pr
 oject-in-android-
  []
 
 
-<<<<<<< HEAD
-Underfull \hbox (badness 10000) in paragraph at lines 631--632
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 643--644
->>>>>>> b5bc3ef092daf405c6fa864d35e45898f728fc93
+Underfull \hbox (badness 10000) in paragraph at lines 647--648
 []\T1/lmr/m/n/12 https://medium.com/@sukritipaul005/a-beginners-guide-to-instal
 ling-opencv-
  []
@@ -1162,21 +1109,6 @@ Here is how much of TeX's memory you used:
  19976 multiletter control sequences out of 15000+600000
  66746 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
-<<<<<<< HEAD
- 39i,12n,43p,10492b,537s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/M
-iKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
-nc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec
-.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy1
-0.pfb>
-Output written on doku_1.pdf (21 pages, 4439371 bytes).
-=======
  38i,12n,43p,10490b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
 texlive/2016/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
@@ -1190,8 +1122,7 @@ e/2016/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2016/texm
 f-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts
 /type1/public/lm/lmri12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pub
 lic/lm/lmsy10.pfb>
-Output written on doku_1.pdf (20 pages, 5325274 bytes).
->>>>>>> b5bc3ef092daf405c6fa864d35e45898f728fc93
+Output written on doku_1.pdf (20 pages, 5325769 bytes).
 PDF statistics:
  148 PDF objects out of 1000 (max. 8388607)
  83 compressed objects within 1 object stream
