@@ -13,13 +13,12 @@
 \contentsline {chapter}{\numberline {3}Setup}{9}
 \contentsline {section}{\numberline {3.1}Verwendete Frameworks und Software}{9}
 \contentsline {chapter}{\numberline {4}Implementierung}{10}
-\contentsline {section}{\numberline {4.1}Bilderfassung}{11}
-\contentsline {section}{\numberline {4.2}Preprocessing}{11}
-\contentsline {section}{\numberline {4.3}Markeranalyse}{11}
-\contentsline {section}{\numberline {4.4}Rendering}{12}
-\contentsline {section}{\numberline {4.5}Die Matrizen}{12}
-\contentsline {section}{\numberline {4.6}Generierung von 3D Objekten}{12}
-\contentsline {section}{\numberline {4.7}Aufbau der Applikation}{14}
-\contentsline {section}{\numberline {4.8}Performance}{15}
+\contentsline {subsection}{\numberline {4.0.1}Bilderfassung}{11}
+\contentsline {subsection}{\numberline {4.0.2}Preprocessing}{11}
+\contentsline {subsection}{\numberline {4.0.3}Markeranalyse}{11}
+\contentsline {subsection}{\numberline {4.0.4}Rendering}{12}
+\contentsline {subsection}{\numberline {4.0.5}Generierung von 3D Objekten}{12}
+\contentsline {subsection}{\numberline {4.0.6}Aufbau der Applikation}{14}
+\contentsline {subsection}{\numberline {4.0.7}Performance}{15}
 \contentsline {chapter}{\numberline {5}Zusammenfassung und Ausblick}{16}
 \contentsline {subsection}{\numberline {5.0.1}Ausblick}{16}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.4)  17 AUG 2018 13:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.4)  17 AUG 2018 13:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -725,19 +725,19 @@ LaTeX Warning: Label `objects' multiply defined.
 )
 \openout1 = `doku_1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 120.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 121.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -849,43 +849,43 @@ Dictionary: translator-basic-dictionary, Language: English
 File: siunitx-abbreviations.cfg 2016/03/01 v2.6q siunitx: Abbreviated units
 )
 \c__siunitx_mathsf_int=\count199
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 120.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 121.
 
  (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 120.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 121.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 120
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 121
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6> on input line 120.
-LaTeX Font Info:    Try loading font information for U+msa on input line 120.
+(Font)              <6> on input line 121.
+LaTeX Font Info:    Try loading font information for U+msa on input line 121.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 120.
+LaTeX Font Info:    Try loading font information for U+msb on input line 121.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OT1+lmss on input line 120
+LaTeX Font Info:    Try loading font information for OT1+lmss on input line 121
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 \c__siunitx_mathtt_int=\count266
-LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 120
+LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 121
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/ot1lmtt.fd
@@ -894,18 +894,18 @@ File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 <tu-logo_rot.pdf, id=1, 1389.99304pt x 1030.00813pt>
 File: tu-logo_rot.pdf Graphic file (type pdf)
  <use tu-logo_rot.pdf>
-Package pdftex.def Info: tu-logo_rot.pdf used on input line 128.
+Package pdftex.def Info: tu-logo_rot.pdf used on input line 129.
 (pdftex.def)             Requested size: 109.26108pt x 80.9564pt.
 
 <fokus_Logo_930.jpg, id=2, 933.4875pt x 264.99pt>
 File: fokus_Logo_930.jpg Graphic file (type jpg)
  <use fokus_Logo_930.jpg>
-Package pdftex.def Info: fokus_Logo_930.jpg used on input line 129.
+Package pdftex.def Info: fokus_Logo_930.jpg used on input line 130.
 (pdftex.def)             Requested size: 227.62206pt x 64.61378pt.
 
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
-(Font)              using `T1/lmr/bx/n' instead on input line 137.
+(Font)              using `T1/lmr/bx/n' instead on input line 138.
 
 [1
 
@@ -914,7 +914,7 @@ LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
 go_rot.pdf> <./fokus_Logo_930.jpg>] [1]
 
 Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
-less on input line 182.
+less on input line 183.
 
 (./doku_1.toc)
 \tf@toc=\write3
@@ -922,36 +922,26 @@ less on input line 182.
 
  [2
 
-] (./doku_1.lof)
-\tf@lof=\write4
-\openout4 = `doku_1.lof'.
-
- (./doku_1.lot)
-\tf@lot=\write5
-\openout5 = `doku_1.lot'.
-
- [3
-
 ]
 Kapitel 1.
 [1
 
 ]
 Kapitel 2.
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 233.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 227.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 233.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 227.
  [2
 
 ]
-<aruco.png, id=33, 504.6855pt x 219.82124pt>
+<aruco.png, id=30, 504.6855pt x 219.82124pt>
 File: aruco.png Graphic file (type png)
  <use aruco.png>
-Package pdftex.def Info: aruco.png used on input line 258.
+Package pdftex.def Info: aruco.png used on input line 252.
 (pdftex.def)             Requested size: 318.66948pt x 138.80675pt.
 
 
@@ -966,58 +956,58 @@ Package Fancyhdr Warning: \footskip is too small (7.23772pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3] <treshold.png, id=39, 577.55775pt x 222.8325pt>
+[3] <treshold.png, id=35, 577.55775pt x 222.8325pt>
 File: treshold.png Graphic file (type png)
  <use treshold.png>
-Package pdftex.def Info: treshold.png used on input line 288.
+Package pdftex.def Info: treshold.png used on input line 282.
 (pdftex.def)             Requested size: 409.71692pt x 158.08298pt.
- [4 <./aruco.png> <./treshold.png>] <aruco3.png, id=45, 529.37775pt x 252.945pt
+ [4 <./aruco.png> <./treshold.png>] <aruco3.png, id=42, 529.37775pt x 252.945pt
 >
 File: aruco3.png Graphic file (type png)
 
 <use aruco3.png>
-Package pdftex.def Info: aruco3.png used on input line 307.
+Package pdftex.def Info: aruco3.png used on input line 301.
 (pdftex.def)             Requested size: 318.66948pt x 152.26219pt.
- [5 <./aruco3.png>] <koord.png, id=50, 457.71pt x 160.1985pt>
+ [5 <./aruco3.png>] <koord.png, id=47, 457.71pt x 160.1985pt>
 File: koord.png Graphic file (type png)
 
 <use koord.png>
-Package pdftex.def Info: koord.png used on input line 324.
+Package pdftex.def Info: koord.png used on input line 318.
 (pdftex.def)             Requested size: 364.19667pt x 127.47452pt.
- <eq.png, id=51, 343.2825pt x 172.2435pt>
+ <eq.png, id=48, 343.2825pt x 172.2435pt>
 File: eq.png Graphic file (type png)
  <use eq.png>
-Package pdftex.def Info: eq.png used on input line 339.
+Package pdftex.def Info: eq.png used on input line 333.
 (pdftex.def)             Requested size: 136.57462pt x 68.52559pt.
 
-<koord3.png, id=52, 451.6875pt x 249.93375pt>
+<koord3.png, id=49, 451.6875pt x 249.93375pt>
 File: koord3.png Graphic file (type png)
  <use koord3.png>
-Package pdftex.def Info: koord3.png used on input line 352.
+Package pdftex.def Info: koord3.png used on input line 346.
 (pdftex.def)             Requested size: 295.90588pt x 163.74403pt.
- [6 <./koord.png> <./eq.png>] <koord4.png, id=62, 453.49425pt x 214.401pt>
+ [6 <./koord.png> <./eq.png>] <koord4.png, id=59, 453.49425pt x 214.401pt>
 File: koord4.png Graphic file (type png)
  <use koord4.png>
-Package pdftex.def Info: koord4.png used on input line 359.
+Package pdftex.def Info: koord4.png used on input line 353.
 (pdftex.def)             Requested size: 295.90588pt x 139.90205pt.
 
-<aruco2.png, id=63, 486.618pt x 363.759pt>
+<aruco2.png, id=60, 486.618pt x 363.759pt>
 File: aruco2.png Graphic file (type png)
  <use aruco2.png>
-Package pdftex.def Info: aruco2.png used on input line 369.
+Package pdftex.def Info: aruco2.png used on input line 363.
 (pdftex.def)             Requested size: 182.09486pt x 136.12067pt.
- [7 <./koord3.png> <./koord4.png> <./aruco2.png>] <chroma1.png, id=70, 639.5895
+ [7 <./koord3.png> <./koord4.png> <./aruco2.png>] <chroma1.png, id=67, 639.5895
 pt x 401.0985pt>
 File: chroma1.png Graphic file (type png)
 
 <use chroma1.png>
-Package pdftex.def Info: chroma1.png used on input line 387.
+Package pdftex.def Info: chroma1.png used on input line 381.
 (pdftex.def)             Requested size: 341.43307pt x 214.12349pt.
- <chroma2.png, id=71, 525.162pt x 239.6955pt>
+ <chroma2.png, id=68, 525.162pt x 239.6955pt>
 File: chroma2.png Graphic file (type png)
 
 <use chroma2.png>
-Package pdftex.def Info: chroma2.png used on input line 398.
+Package pdftex.def Info: chroma2.png used on input line 392.
 (pdftex.def)             Requested size: 295.90588pt x 135.05879pt.
  [8 <./chroma1.png> <./chroma2.png>]
 Kapitel 3.
@@ -1025,92 +1015,77 @@ Kapitel 3.
 
 ]
 Kapitel 4.
-<flow_chart.png, id=81, 728.7225pt x 216.81pt>
+<flow_chart.png, id=77, 728.7225pt x 216.81pt>
 File: flow_chart.png Graphic file (type png)
  <use flow_chart.png>
-Package pdftex.def Info: flow_chart.png used on input line 432.
+Package pdftex.def Info: flow_chart.png used on input line 426.
 (pdftex.def)             Requested size: 455.24411pt x 135.44305pt.
  [10
 
  <./flow_chart.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 455--455
+Underfull \hbox (badness 10000) in paragraph at lines 449--449
 []|\T1/lmr/bx/n/12 onCameraFrame\T1/lmr/m/n/12 (CvCameraViewFrame
  []
 
 
-Underfull \hbox (badness 2503) in paragraph at lines 475--475
+Underfull \hbox (badness 2503) in paragraph at lines 469--469
 \T1/lmr/m/n/12 li-che Preprocessing-Funktionalität bein-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
 []|\T1/lmr/bx/n/12 preprocessing\T1/lmr/m/n/12 (Mat mRgb, Mat
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
 []|\T1/lmr/m/n/12 Die Ma-trix \T1/lmr/m/it/12 mRgb \T1/lmr/m/n/12 wird in ein
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 475--475
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
 \T1/lmr/m/n/12 Chromaticity-Bild trans-for-miert und
  []
 
-[11] <3d.png, id=89, 1001.54175pt x 436.63126pt>
+[11] <3d.png, id=86, 1001.54175pt x 436.63126pt>
 File: 3d.png Graphic file (type png)
  <use 3d.png>
-Package pdftex.def Info: 3d.png used on input line 525.
+Package pdftex.def Info: 3d.png used on input line 516.
 (pdftex.def)             Requested size: 455.24411pt x 198.46765pt.
- [12]
-<Objekts.png, id=93, 592.01175pt x 185.493pt>
+ [12 <./3d.png>]
+<Objekts.png, id=91, 592.01175pt x 185.493pt>
 File: Objekts.png Graphic file (type png)
  <use Objekts.png>
-Package pdftex.def Info: Objekts.png used on input line 536.
+Package pdftex.def Info: Objekts.png used on input line 527.
 (pdftex.def)             Requested size: 455.24411pt x 142.6404pt.
- [13 <./3d.png> <./Objekts.png>] <app2.png, id=99, 347.49825pt x 193.9245pt>
+ [13 <./Objekts.png>] <app2.png, id=96, 347.49825pt x 193.9245pt>
 File: app2.png Graphic file (type png)
  <use app2.png>
-Package pdftex.def Info: app2.png used on input line 548.
+Package pdftex.def Info: app2.png used on input line 539.
 (pdftex.def)             Requested size: 273.14923pt x 152.4441pt.
 File: app2.png Graphic file (type png)
 
 <use app2.png>
-Package pdftex.def Info: app2.png used on input line 555.
+Package pdftex.def Info: app2.png used on input line 546.
 (pdftex.def)             Requested size: 273.14923pt x 152.4441pt.
- [14 <./app2.png>] <test1.png, id=104, 445.665pt x 210.7875pt>
+ [14 <./app2.png>] <test1.png, id=101, 445.665pt x 210.7875pt>
 File: test1.png Graphic file (type png)
 
 <use test1.png>
-Package pdftex.def Info: test1.png used on input line 568.
+Package pdftex.def Info: test1.png used on input line 559.
 (pdftex.def)             Requested size: 455.24411pt x 215.31882pt.
-
-Underfull \hbox (badness 2503) in paragraph at lines 586--586
-\T1/lmr/m/n/12 li-che Preprocessing-Funktionalität bein-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 586--586
-[]|\T1/lmr/m/n/12 Die Ma-trix \T1/lmr/m/it/12 mRgb \T1/lmr/m/n/12 wird in ein
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 586--586
-\T1/lmr/m/n/12 Chromaticity-Bild trans-for-miert und
- []
-
-[15 <./test1.png>]
+ [15 <./test1.png>]
 Kapitel 5.
 [16
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 627--628
+Underfull \hbox (badness 10000) in paragraph at lines 638--639
 []\T1/lmr/m/n/12 https://blog.codeonion.com/2015/11/25/creating-a-new-opencv-pr
 oject-in-android-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 630--631
+Underfull \hbox (badness 10000) in paragraph at lines 641--642
 []\T1/lmr/m/n/12 https://medium.com/@sukritipaul005/a-beginners-guide-to-instal
 ling-opencv-
  []
@@ -1126,9 +1101,9 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16687 strings out of 493014
- 318634 string characters out of 6133352
- 351215 words of memory out of 5000000
+ 16681 strings out of 493014
+ 318582 string characters out of 6133352
+ 352215 words of memory out of 5000000
  19972 multiletter control sequences out of 15000+600000
  66746 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1145,10 +1120,10 @@ e/2016/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2016/texm
 f-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts
 /type1/public/lm/lmri12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pub
 lic/lm/lmsy10.pfb>
-Output written on doku_1.pdf (21 pages, 4429356 bytes).
+Output written on doku_1.pdf (20 pages, 4428757 bytes).
 PDF statistics:
- 151 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
+ 148 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
