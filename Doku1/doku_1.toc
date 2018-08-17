@@ -10,16 +10,17 @@
 \contentsline {subsubsection}{Filterung und Verbesserung}{5}
 \contentsline {subsubsection}{Markerdekodierung und Identifikation}{5}
 \contentsline {section}{\numberline {2.4}Der Koordinatenabgleich}{7}
-\contentsline {chapter}{\numberline {3}Setup}{9}
-\contentsline {section}{\numberline {3.1}Verwendete Software und Frameworks}{9}
-\contentsline {subsection}{\numberline {3.1.1}OpenCV und Aruco}{9}
-\contentsline {subsection}{\numberline {3.1.2}OpenGL}{9}
-\contentsline {subsection}{\numberline {3.1.3}Android Studio}{9}
-\contentsline {subsection}{\numberline {3.1.4}Integration von OpenCV und OpenGL in Android Studio}{9}
-\contentsline {chapter}{\numberline {4}Implementierung}{10}
-\contentsline {subsection}{\numberline {4.0.1}Markererkennung}{10}
-\contentsline {subsubsection}{Preprocessing}{12}
-\contentsline {subsubsection}{Erkennungsalgorithmus}{12}
-\contentsline {subsection}{\numberline {4.0.2}Rendern der Objekte}{14}
-\contentsline {chapter}{\numberline {5}Zusammenfassung}{15}
-\contentsline {chapter}{\numberline {6}Ausblick}{16}
+\contentsline {section}{\numberline {2.5}Chromaticity-Bild}{9}
+\contentsline {chapter}{\numberline {3}Setup}{10}
+\contentsline {section}{\numberline {3.1}Verwendete Software und Frameworks}{10}
+\contentsline {subsection}{\numberline {3.1.1}OpenCV und Aruco}{10}
+\contentsline {subsection}{\numberline {3.1.2}OpenGL}{10}
+\contentsline {subsection}{\numberline {3.1.3}Android Studio}{10}
+\contentsline {subsection}{\numberline {3.1.4}Integration von OpenCV und OpenGL in Android Studio}{10}
+\contentsline {chapter}{\numberline {4}Implementierung}{11}
+\contentsline {subsection}{\numberline {4.0.1}Bilderfassung}{11}
+\contentsline {subsection}{\numberline {4.0.2}Preprocessing}{12}
+\contentsline {subsection}{\numberline {4.0.3}Markeranalyse}{12}
+\contentsline {subsection}{\numberline {4.0.4}Rendering}{12}
+\contentsline {chapter}{\numberline {5}Zusammenfassung}{13}
+\contentsline {chapter}{\numberline {6}Ausblick}{14}

@@ -44,7 +44,7 @@ final								% Status des Dokuments (final/draft)
 \usepackage{color}
 \usepackage{graphicx}
 \graphicspath{{./Bilder/}}
-\usepackage{subfigure}
+\usepackage{subcaption}
 \usepackage{cite}
 \usepackage{float}
 \usepackage{amsmath,amsfonts}
@@ -58,7 +58,6 @@ final								% Status des Dokuments (final/draft)
 %für code
 \usepackage{listings}
 \usepackage{color}
-\usepackage{pythonhighlight}
 
 \usepackage[a4paper,lmargin={25mm},rmargin={25mm},tmargin={25mm},bmargin= {25mm}]{geometry}
 \addtolength{\footskip}{-0.8cm}		%Fussbereich 0.8cm höher, sodass die Seitennummierung höher ist
@@ -382,7 +381,39 @@ Durch Anwenden dieser Transformation geschieht der Abgleich zwischen Welt und Ka
 		\caption{Erfolgreiche Markererkennung und Objektplatzierung mit Aruco \cite{schale1} (aus aus opencv.com)}
 		\label{aruco2}
 	\end{figure}
-	
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+\section{Chromaticity-Bild}
+Sind Bilder invariant gegenüber Helligkeitsveränderungen, kann ein und das selbe Objekt bei unterschiedlichen Helligkeiten besser identifiziert werden. Um diese Invarianz zu erreichen, wird das RGB-Bild in den rgb-Farbraum überführt. Die Transformation erfolgt nach folgenden Gleichungen:
+\begin{align*}
+	r=\dfrac{R}{R+G+B}~~~~~~~~~g=\dfrac{G}{R+G+B}~~~~~~~~~b=\dfrac{B}{R+G+B}
+\end{align*}
+Die Farbe des Pixels definiert sich nicht mehr durch die Intensität der einzelnen Farbkanäle, sondern durch das Verhältnis der Farbkanäle untereinander. Somit bilden z.B. die beiden Farbwerte (255,0,0) und (150,0,0) aus dem RGB-Farbraum auf den selben Farbwert (1,0,0) im rgb-Farbraum ab.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.9\textwidth]{img_orig}
+  \caption{RGB-Farbraum}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.9\textwidth]{img_chrom}
+  \caption{rgb-Farbraum}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{Vergleich: Originalaufnahme mit Chromaticity-Bild}
+\label{fig:test}
+\end{figure}
+
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
 	\chapter{Setup}
 	\section{Verwendete Software und Frameworks}
 
@@ -409,81 +440,93 @@ Zur Entwicklung der Applikation wurde Android Studio benutzt und somit als Zielg
 	
 	
 
-	
-	
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------	
 	\chapter{Implementierung}
 	
-	\subsection{Markererkennung}
-	Hier tabelle mit wichtigsten Funktionen und kurzer grober beschreibung
+			\begin{figure}[H]
+		\centering
+		\includegraphics[width= 1.0\textwidth]{flow_chart}
+		\caption{Grobe Darstellung der Arbeitsschritte}
+	\end{figure}
 	
-	\begin{table}[H]
-\centering
-\label{omtctab}
-\begin{tabular}{|l|l|}
-\hline
-Funktion                                                                                                                     & Beschreibung                                                                                                                                                                                                                                                                                                                                                \\ \hline
-\textbf{create\_application}(application, path)                                                                                       & \begin{tabular}[c]{@{}l@{}}Erstellt eine Applikation innerhalb der \\ OpenMTC Umgebung. Unter application \\ muss der Name der App angegeben wer-\\ den. Die Angabe des gewünschten Pfades\\ ist optional.\end{tabular}                                                                                                                                     \\ \hline
-\textbf{discover}(path, filter\_criteria)                                                                                             & \begin{tabular}[c]{@{}l@{}}Erkennt zu einem angegeben Elternpfad\\ (path) die zugehörigen Unterpfade und\\ gibt diese innerhalb einer Liste von Adres-\\ sen zurück. Unter filter\_criteria kann zu-\\ dem das Filterkriterium angegeben werden, \\ um spezifische Containeradressen zu \\ erhalten (bspw. alle Container mit \\ Typ 14, etc.)\end{tabular} \\ \hline
-\begin{tabular}[c]{@{}l@{}}\textbf{create\_container}(target, container,\\ labels)\end{tabular}                                       & \begin{tabular}[c]{@{}l@{}}Erzeugt einen Container innerhalb der \\ Ressourcen Struktur. Nach Wunsch können\\ diese mit Label versehen werden und ange-\\ geben werden wieviele Container maximal\\ angezeigt werden sollen.\end{tabular}                                                                                                                   \\ \hline
-\textbf{push\_content}(container, content)                                                                                            & \begin{tabular}[c]{@{}l@{}}Sendet Daten (content) an einen Container\\ (container). Dabei können als Daten Python \\ Strings, Listen oder Dictionaries gesendet\\ werden.\end{tabular}                                                                                                                                                                      \\ \hline
-\textbf{get\_content}(container)                                                                                                      & Ruft Daten aus einem Container ab.                                                                                                                                                                                                                                                                                                                          \\ \hline
-\begin{tabular}[c]{@{}l@{}}\textbf{add\_container\_subscription}(container, \\ handler, data\_handler, filter\_criteria)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Subskription auf einen container, um auto-\\ matisch die aktuellsten Daten dieses Con-\\ tainers zu erhalten. Mit filter\_criteria kann \\ auf spezifische Container innerhalb der\\ Containerstruktur subskribiert werden.\end{tabular}                                                                                         \\ \hline
-\textbf{emit}(message, event)                                                                                                         & \begin{tabular}[c]{@{}l@{}}Sendet Daten(message) via Websockets an\\ das Frontend. Event ist dabei der "Kanal" \\ auf welchem gesendet wird. Von Frontend \\ Seite kann durch Angabe diesen Kanals, \\ darauf gelauscht werden, um Daten\\ automatisch zu bekommen\end{tabular}                                                                             \\ \hline
-\end{tabular}
-\caption{wichtige OpenMTC Funktionen}
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+\subsection{Bilderfassung}
+Durch Instanziierung der von Android bereitgestellten Klasse \textit{JavaCameraView} kann auf die Aufnahmen der Kameras zugegriffen werden. Diese werden für eine spätere Analyse gespeichert.
+	
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|p{0.47\textwidth}|p{0.475\textwidth}|}
+		\hline
+			Funktion & Beschreibung \\ 
+			\hline
+			\textbf{init\_camera}() & Initialisiert die Rück-Kamera des Smartphones mit einer vordefinierten Auflösung. \\
+			\hline
+			\textbf{onCameraFrame}(CvCameraViewFrame  inputFrame) & Wird pro Frame aufgerufen und liefert das Kamerabild als \textit{CvCameraViewFrame}\\
+			\hline
+\end{tabularx}
+\caption{Funktionen zur Bilderfassung}
 \end{table} 
-Obige Funktionen wurden im Projekt verwendet, um Daten in Container zu lagern 
-\begin{itemize}
-\item \textbf{push\_data()}
-\end{itemize} 
-und aus Containern zu erhalten
-\begin{itemize}
-\item \textbf{get\_content(), add\_container\_subscription()}
-\end{itemize} 
-Weiterhin sind Funktionen von Relevanz, welche die Adressen spezifischer Container zurückgeben
-\begin{itemize}
-\item \textbf{discover()}.
-\end{itemize} 
-	\subsubsection{Preprocessing}
-	Auf Frontend Seite wird eine Webapplikation implementiert, welche die Daten in angemessener Art und Weise darstellt. Dazu müssen die schon formatierten Maschinennachrichten mittels Javascript ausgelesen und auf in den jeweiligen Bereichen dargestellt werden. Dies wird im Detail im Kapitel 'Implementierung - Frontend' erläutert. Die Webapplikation wird dabei so implementiert, dass sie skalierbar ist und somit auch auf kleineren Geräten wie Handys oder Tablets benutzt werden kann.
-	Damit wird, wie üblich, HTML für das Grundgerüst, Javascript für die Funktionalität und CSS zur ansprechenden Gestaltung der Website benutzt. 
 
-\subsubsection{Erkennungsalgorithmus}
-	Hier tabelle mit wichtigsten Funktionen und kurzer grober beschreibung
-	
-	\begin{table}[H]
-\centering
-\label{omtctab}
-\begin{tabular}{|l|l|}
-\hline
-Funktion                                                                                                                     & Beschreibung                                                                                                                                                                                                                                                                                                                                                \\ \hline
-\textbf{create\_application}(application, path)                                                                                       & \begin{tabular}[c]{@{}l@{}}Erstellt eine Applikation innerhalb der \\ OpenMTC Umgebung. Unter application \\ muss der Name der App angegeben wer-\\ den. Die Angabe des gewünschten Pfades\\ ist optional.\end{tabular}                                                                                                                                     \\ \hline
-\textbf{discover}(path, filter\_criteria)                                                                                             & \begin{tabular}[c]{@{}l@{}}Erkennt zu einem angegeben Elternpfad\\ (path) die zugehörigen Unterpfade und\\ gibt diese innerhalb einer Liste von Adres-\\ sen zurück. Unter filter\_criteria kann zu-\\ dem das Filterkriterium angegeben werden, \\ um spezifische Containeradressen zu \\ erhalten (bspw. alle Container mit \\ Typ 14, etc.)\end{tabular} \\ \hline
-\begin{tabular}[c]{@{}l@{}}\textbf{create\_container}(target, container,\\ labels)\end{tabular}                                       & \begin{tabular}[c]{@{}l@{}}Erzeugt einen Container innerhalb der \\ Ressourcen Struktur. Nach Wunsch können\\ diese mit Label versehen werden und ange-\\ geben werden wieviele Container maximal\\ angezeigt werden sollen.\end{tabular}                                                                                                                   \\ \hline
-\textbf{push\_content}(container, content)                                                                                            & \begin{tabular}[c]{@{}l@{}}Sendet Daten (content) an einen Container\\ (container). Dabei können als Daten Python \\ Strings, Listen oder Dictionaries gesendet\\ werden.\end{tabular}                                                                                                                                                                      \\ \hline
-\textbf{get\_content}(container)                                                                                                      & Ruft Daten aus einem Container ab.                                                                                                                                                                                                                                                                                                                          \\ \hline
-\begin{tabular}[c]{@{}l@{}}\textbf{add\_container\_subscription}(container, \\ handler, data\_handler, filter\_criteria)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Subskription auf einen container, um auto-\\ matisch die aktuellsten Daten dieses Con-\\ tainers zu erhalten. Mit filter\_criteria kann \\ auf spezifische Container innerhalb der\\ Containerstruktur subskribiert werden.\end{tabular}                                                                                         \\ \hline
-\textbf{emit}(message, event)                                                                                                         & \begin{tabular}[c]{@{}l@{}}Sendet Daten(message) via Websockets an\\ das Frontend. Event ist dabei der "Kanal" \\ auf welchem gesendet wird. Von Frontend \\ Seite kann durch Angabe diesen Kanals, \\ darauf gelauscht werden, um Daten\\ automatisch zu bekommen\end{tabular}                                                                             \\ \hline
-\end{tabular}
-\caption{wichtige OpenMTC Funktionen}
+\newpage
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+\subsection{Preprocessing}
+Das als \textit{CvCameraViewFrame} vorliegende Bild wird zur weiteren Bearbeitung in eine Matrix gespeichert. Aus performancetechnischen Gründen wird das Preprocessing in C++ ausgeführt. Dieser Schritt sorgt dafür, dass der Marker unter verschiedensten Lichtverhältnissen erkannt wird. 
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|p{0.47\textwidth}|p{0.475\textwidth}|}
+		\hline
+			Funktion & Beschreibung \\ 
+			\hline
+			\textbf{analyzeMarker}(...) & Ruft die C++-Funktion auf, die die eigentliche Preprocessing-Funktionalität beinhaltet\\
+			\hline
+			\textbf{preprocessing}(Mat mRgb, Mat mChrom) & Die Matrix \textit{mRgb} wird in ein Chromaticity-Bild transformiert und in \textit{mChrom} gespeichert. \\
+			\hline
+\end{tabularx}
+\caption{Funktionen zum Preprocessing}
 \end{table} 
-Obige Funktionen wurden im Projekt verwendet, um Daten in Container zu lagern 
-\begin{itemize}
-\item \textbf{push\_data()}
-\end{itemize} 
-und aus Containern zu erhalten
-\begin{itemize}
-\item \textbf{get\_content(), add\_container\_subscription()}
-\end{itemize} 
-Weiterhin sind Funktionen von Relevanz, welche die Adressen spezifischer Container zurückgeben
-\begin{itemize}
-\item \textbf{discover()}.
-\end{itemize} 
-	\subsection{Rendern der Objekte}
-	evtl die schritte aufzeigen mit screenshots, erst quadtat dann kanten dann dummy objekt, translation rotation angewendet und beliebig in relation dazu objekt platziert.
-	\subsubsection*{Rendern eines Quadrates oder Rändern}
-	\subsubsection*{Einfügen von Dummy Objekten}
-	\subsubsection*{Einfügen der Relevanten Objekte}
+
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+\subsection{Markeranalyse}
+Die Markeranalyse enthält die Schritte \textit{Markererkennung}, \textit{Marker\_ID extrahieren} und \textit{Markerposition berechnen}. Diese werden auch aus performancetechnischen Gründen in C++ ausgeführt. Alle drei Schritte werden von der Funktion \textit{detect}(...) aus der Aruco-Library durchgeführt.
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|p{0.47\textwidth}|p{0.475\textwidth}|}
+		\hline
+			Funktion & Beschreibung \\ 
+			\hline
+			\textbf{detect}(Mat input, vector<Marker> detectedMarkers, CameraParameters camParams,
+                    float markerSize) & Sucht innerhalb des Bildes \textit{input} nach Markern und speichert diese in \textit{detectedMarkers}. Anhand der Kameraparameter \textit{camParams} und der Markergröße \textit{markerSize} kann die Orientierung des Markers bezüglich der Kamera berechnet werden. Wie in der Theorie beschrieben wird hier die Marker-ID bestimmt.\\
+			\hline
+\end{tabularx}
+\caption{Funktionen zur Markeranalyse}
+\end{table} 
+
+%-----------------------------------------------------------------------------
+%-----------------------------------------------------------------------------
+\subsection{Rendering}
+Durch die Initialisierung des Renderers wird pro Frame die Orientierung des Markers verwendet um das 3D-Modell zu positionieren.
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|p{0.47\textwidth}|p{0.475\textwidth}|}
+		\hline
+			Funktion & Beschreibung \\ 
+			\hline
+			\textbf{initOpenGL}()& Initialisiert den Renderer und sorgt dafür, dass die onDrawFrame-Methode pro Frame ausgeführt wird.\\
+			\hline
+			\textbf{onDrawFrame(GL10 gl)} & Wendet die Transformationsmatrizen des Markers auf das 3D-Modell an und projiziert dieses auf die Bildebene.\\
+			\hline
+\end{tabularx}
+\caption{Funktionen zum Rendern des 3D-Modells}
+\end{table} 
 
 \newpage
 \chapter{Zusammenfassung}
