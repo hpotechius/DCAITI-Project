@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.15)  17 AUG 2018 12:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.15)  17 AUG 2018 12:55
 entering extended mode
 **./doku_1.tex
 (doku_1.tex
@@ -1084,11 +1084,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 581--581
 Kapitel 5.
 [16
 
-]
-Kapitel 6.
-[17
-
-] [18
+] [17
 
 ] (doku_1.aux)
 
@@ -1117,9 +1113,9 @@ ic/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C
 KTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy1
 0.pfb>
-Output written on doku_1.pdf (21 pages, 4437974 bytes).
+Output written on doku_1.pdf (20 pages, 4437989 bytes).
 PDF statistics:
- 149 PDF objects out of 1000 (max. 8388607)
+ 146 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

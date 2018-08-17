@@ -583,16 +583,17 @@ Im Folgenden sind die Ergebnisse der resultierenden Applikation aufgezeigt.
 \end{table} 
 
 \newpage
-\chapter{Zusammenfassung}
+\chapter{Zusammenfassung und Ausblick}
 Insgesamt wurden die Konzepte der Theorie verstanden und im Projekt erfolgreich angewandt.
-Damit konnten die anfangs definierten Ziele für das Projekt alle erreicht werden. Es konnte eine Web basierte Applikation zur Visualisierung der Kommunikation des betrachteten Prozesses implementiert werden, welche auch die Möglichkeit bietet, alle Netzwerkkomponenten zu sehen. Zusätzlich dazu wurde eine Filter-Funktion implementiert, um die Kommunikation aus Sicht einer Komponente anzuzeigen. Entsprechend wurde für diesen Fall auch das Design des Chat Raums angepasst. Die Funktionalität der Applikation konnte im Labor erfolgreich getestet werden. Weiterhin konnte für Testzwecke eine emulierte Maschinenumgebung mithilfe der verfügbaren Demo Applikationen geschaffen werden, welche es erlaubt auch außerhalb des Labors, die Funktionalität zu überprüfen, womit gleichzeitig die Grundlage für weitere Projekte und Implementierungen geschaffen wurde. 
-\newpage
-\chapter{Ausblick}
-Die existierende App bietet viel Freiraum für zukünfitge Erweiterungen. Eine wichtige Erweiterung ist das Füllen der internen Datenbank mit neuen 3D Modellen. Dazu können verschiedene MarkerIds verschiedenen Objekten zugeordnet werden. 
-Ein weiterer Punkt ist eine erweiterte Benutzerinteraktion durch Buttons. Beispielsweise lass sich eine Map in die App integrieren mit der alle in der Stadt verfügbaren Marker sichtbar sind. Dafür ist die Google Maps API zu empfehlen welche sichproblemlos in Android Studio einbetten lässt. Von seiten des Preprocessings der Bilder könnten weitere Algorithmen probiert werden ,welche eine noch robustere Markererkennung bei schlechten Verhältnissen bietet. Hier wären beispielsweise der ... oder  .. auszuprobieren. 
+Damit konnten die anfangs definierten Ziele für das Projekt alle erreicht werden.
+Dies umfasst die erfolgreiche Implementierung einer Markerbasierten Schätzung der Pose der Kamera innerhalb der Weltkoordinaten durch die Markerdetektion. Damit verbunden wurden verschiedene Ansätze des Preprocessings ausprobiert um den Marker auch bei schlechten Lichtverhältnissen zu erkennen. 
+Basierend auf den Informationen der Markerdetektion, gelang weiterhin die Kombination mit OpenGL zur positionsgenauen Platzierung von 3D Objekten innerhalb der Welt. Somit konnte das Grundgerüst für eine AR basierte Applikation zur virtuellen Erweiterungen von vorher bekannten Szenerien wie Gebäuden, Baustellen oder Ruinen implementiert werden. Die verwendeten 3D Modelle sind dabei mit lebensechten Abmessungen versehen und bieten so dem Nutzer eine erhebliche Verbesserung der Vorstellung über die Gesamtszene, was vor allem in der Konstruktion oder Planung von neuen Gebäuden essentiell ist. Weiterhin wurden zusätzliche Funktionen wie das Einblenden von Objektspezifischen Informationen oder Bildstufen in Form von Buttons integriert, um dem Nutzer eine Interaktionsmöglichkeit mit der Applikation zu schaffen und dem Entwickler bei der Entwicklung von neuen Funktionen oder der Optimierung beispielsweise des Preprocessings zu unterstützen.
+Ferner wurde auch ein Ansatz zur Erstellung von 3D Objekten mittels Pointclouds vorgestellt. Damit ist es möglich aus Bildern bekannter realer Objekte, 3D Objekte zu erzeugen, welche dann beispielsweise in  einer anderen Umgebung visualisiert werden können. 
 
+\subsection{Ausblick}
+Die existierende App bietet viel Freiraum für zukünfitge Erweiterungen. Eine wichtige Erweiterung ist das Füllen der internen Datenbank mit neuen 3D Modellen. Dazu können verschiedene MarkerIds verschiedenen Objekten zugeordnet und der vorgestellte Prozess zur Erstellung von 3D Objekten genutzt werden.
+Ein weiterer Punkt ist eine erweiterte Benutzerinteraktion durch Buttons. Eine Möglichkeit ist die Einblendung von Informationen über verfügbare Marker in der Stadt. Dafür kann die Integration einer Map, beispielsweise mittels der Google Maps API für Android, in die App integrieren. Von seiten des Preprocessings der Bilder können weitere Algorithmen probiert werden ,welche eine noch robustere Markererkennung bei schlechten Verhältnissen bietet. 
 
-....
 
 %-----------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%literatur
