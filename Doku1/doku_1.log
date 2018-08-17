@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.15)  17 AUG 2018 14:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.15)  17 AUG 2018 16:08
 entering extended mode
 **./doku_1.tex
 (doku_1.tex
@@ -1018,66 +1018,66 @@ Underfull \hbox (badness 10000) in paragraph at lines 449--449
  []
 
 
-Underfull \hbox (badness 2503) in paragraph at lines 469--469
+Underfull \hbox (badness 2503) in paragraph at lines 470--470
 \T1/lmr/m/n/12 li-che Preprocessing-Funktionalität bein-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 470--470
 []|\T1/lmr/bx/n/12 preprocessing\T1/lmr/m/n/12 (Mat mRgb, Mat
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 470--470
 []|\T1/lmr/m/n/12 Die Ma-trix \T1/lmr/m/it/12 mRgb \T1/lmr/m/n/12 wird in ein
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 469--469
+Underfull \hbox (badness 10000) in paragraph at lines 470--470
 \T1/lmr/m/n/12 Chromaticity-Bild trans-for-miert und
  []
 
 [11] <3d.png, id=85, 1001.54175pt x 436.63126pt>
 File: 3d.png Graphic file (type png)
  <use 3d.png>
-Package pdftex.def Info: 3d.png used on input line 522.
+Package pdftex.def Info: 3d.png used on input line 519.
 (pdftex.def)             Requested size: 455.24411pt x 198.46765pt.
  [12]
 <Objekts.png, id=89, 592.01175pt x 185.493pt>
 File: Objekts.png Graphic file (type png)
  <use Objekts.png>
-Package pdftex.def Info: Objekts.png used on input line 533.
+Package pdftex.def Info: Objekts.png used on input line 530.
 (pdftex.def)             Requested size: 455.24411pt x 142.6404pt.
  [13 <./3d.png> <./Objekts.png>] <app_debug.png, id=95, 1284.8pt x 722.7pt>
 File: app_debug.png Graphic file (type png)
 
 <use app_debug.png>
-Package pdftex.def Info: app_debug.png used on input line 545.
+Package pdftex.def Info: app_debug.png used on input line 542.
 (pdftex.def)             Requested size: 273.14923pt x 153.64615pt.
  <app_reduced.png, id=96, 1284.8pt x 722.7pt>
 File: app_reduced.png Graphic file (type png)
 
 <use app_reduced.png>
-Package pdftex.def Info: app_reduced.png used on input line 552.
+Package pdftex.def Info: app_reduced.png used on input line 549.
 (pdftex.def)             Requested size: 273.14923pt x 153.64615pt.
  [14 <./app_debug.png (PNG copy)>]
 <test1.png, id=100, 445.665pt x 210.7875pt>
 File: test1.png Graphic file (type png)
  <use test1.png>
-Package pdftex.def Info: test1.png used on input line 565.
+Package pdftex.def Info: test1.png used on input line 560.
 (pdftex.def)             Requested size: 455.24411pt x 215.31882pt.
  [15 <./app_reduced.png (PNG copy)> <./test1.png>] [16]
 Kapitel 5.
 [17
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 643--644
+Underfull \hbox (badness 10000) in paragraph at lines 640--641
 []\T1/lmr/m/n/12 https://blog.codeonion.com/2015/11/25/creating-a-new-opencv-pr
 oject-in-android-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 646--647
+Underfull \hbox (badness 10000) in paragraph at lines 643--644
 []\T1/lmr/m/n/12 https://medium.com/@sukritipaul005/a-beginners-guide-to-instal
 ling-opencv-
  []
@@ -1111,7 +1111,7 @@ ic/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C
 KTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy1
 0.pfb>
-Output written on doku_1.pdf (21 pages, 5337376 bytes).
+Output written on doku_1.pdf (21 pages, 5338259 bytes).
 PDF statistics:
  149 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
