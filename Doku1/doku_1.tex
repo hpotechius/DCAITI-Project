@@ -76,7 +76,6 @@ final								% Status des Dokuments (final/draft)
 
 
 
-
 \usepackage{listings}
 \usepackage{color}
 
@@ -189,8 +188,15 @@ final								% Status des Dokuments (final/draft)
 	\renewcommand{\lstlistingname}{Code-Ausschnitt}% Listing -> Algorithm
 	
 	\tableofcontents % Inhaltsverzeichnis
+	\listoffigures
+	\begingroup
+	\let\clearpage\relax
+	\listoftables
+	\endgroup
 	\newpage
 	\pagenumbering{arabic}
+	
+	
 	
 	%---------------------------------------------------------------------
 	% Ab hier fängt der eigenständige Teil an!
@@ -433,7 +439,7 @@ Der komplette Quellcode mit Erläuterungen kann auf Anfrage gestellt werden. In A
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
 \newpage
-\subsection{Bilderfassung}
+\section{Bilderfassung}
 Durch Instanziierung der von Android bereitgestellten Klasse \textit{JavaCameraView} kann auf die Aufnahmen der Kameras zugegriffen werden. Diese werden für eine spätere Analyse gespeichert.
 	
 \begin{table}[H]
@@ -453,7 +459,7 @@ Durch Instanziierung der von Android bereitgestellten Klasse \textit{JavaCameraV
 
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
-\subsection{Preprocessing}
+\section{Preprocessing}
 Das als \textit{CvCameraViewFrame} vorliegende Bild wird zur weiteren Bearbeitung in eine Matrix gespeichert. Aus performancetechnischen Gründen wird das Preprocessing in C++ ausgeführt. Dieser Schritt sorgt dafür, dass der Marker unter verschiedensten Lichtverhältnissen erkannt wird. 
 
 \begin{table}[H]
@@ -472,7 +478,7 @@ Das als \textit{CvCameraViewFrame} vorliegende Bild wird zur weiteren Bearbeitun
 
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
-\subsection{Markeranalyse}
+\section{Markeranalyse}
 Die Markeranalyse enthält die Schritte \textit{Markererkennung}, \textit{Marker\_ID extrahieren} und \textit{Markerposition berechnen}. Diese werden auch aus performancetechnischen Gründen in C++ ausgeführt. Alle drei Schritte werden von der Funktion \textit{detect}(...) aus der Aruco-Library durchgeführt.
 
 \begin{table}[H]
@@ -490,7 +496,7 @@ Die Markeranalyse enthält die Schritte \textit{Markererkennung}, \textit{Marker\
 
 %-----------------------------------------------------------------------------
 %-----------------------------------------------------------------------------
-\subsection{Rendering}
+\section{Rendering}
 Durch die Initialisierung des Renderers wird pro Frame die Orientierung des Markers verwendet um das 3D-Modell zu positionieren.
 
 \begin{table}[H]
@@ -507,10 +513,10 @@ Durch die Initialisierung des Renderers wird pro Frame die Orientierung des Mark
 \caption{Funktionen zum Rendern des 3D-Modells}
 \end{table} 
 
-\subsection{Die Matrizen}
+\section{Die Matrizen}
 Hier evtl. matrizen aufführen die verwendet wurden 
 
-\subsection{Generierung von 3D Objekten}
+\section{Generierung von 3D Objekten}
 Für die virtuelle Erweiterung von Baustellen ung Ruinen, müssen entsprechende Modelle entweder schon vorhanden sein oder generiert werden. Im Projekt wurde ein Teil der verwendeten 3D Objekte selbst generiert. Der Prozess zur Erstellung dieser Objekte wird im folgenden näher erläutert um auch in Zukunft selbst beliebige Objekte erzeugen zu können. 
 
 
@@ -534,7 +540,7 @@ Für die virtuelle Erweiterung von Baustellen ung Ruinen, müssen entsprechende Mo
 	
 	\newpage
 	
-\subsection{Aufbau der Applikation}
+\section{Aufbau der Applikation}
 Das Design der Applikation wurde, im Sinne einer einfachen Bedienung, so übersichtlich wie möglich gehalten. Beim Starten der Applikation werden die Schritte aus dem Flussdiagramm in Abbildung \ref{flow1} gestartet. Wird der Marker erkannt werden entsprechend seiner ID dann die Objekte in der Welt angezeigt. Sowohl zu Testzwecken als auch für eine verbesserte Nutzerinteraktion, wurden diverse Buttons integriert. Die Buttons Greyscale, Threshhold, .. dienen dazu dem Entwickler die einzelnen Bildstufen aufzuzeigen um Verbesserungen beispielsweise im Preprocessing vorzunehmen. Weiter ist es dem Nutzer möglich das Objekt durch einen Button auszublenden um die Originalszene zu bekommen. 
 Mit den Balken Contrast und Brightness können Kontrast und Helligkeit des Bildes manuell eingestellt werden. Diese Schritte übernimmt in der endgültigen Applikation das Preprocessing. 
 \begin{figure}[H]
@@ -552,7 +558,7 @@ Als zusätzliche Option ein Button zum Einblenden von Objektspezifischen Informat
 	\end{figure}
 \newpage
 
-\subsection{Performance} 
+\section{Performance} 
 Im Folgenden sind die Ergebnisse der resultierenden Applikation aufgezeigt. 
 	
 	Die App zeigt beim Scannen des Markers die Objekte entweder genau auf dem Marker platziert oder in einer bestimmten Relation zu ihm. Entsprechend werden somit unterschiedliche Anwendungsfälle berücksichtigt.

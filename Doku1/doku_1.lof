@@ -1,0 +1,21 @@
+\select@language {ngerman}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Koordinatensysteme mit Freiheitsgraden \cite {opencv}\relax }}{4}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces links: Originalbild, rechts: Treshold Bild \cite {theory}\relax }}{4}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces verbessertes Bitmuster im Gitter \cite {opencv}\relax }}{5}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Koordinatensysteme mit Freiheitsgraden \cite {theory}\relax }}{6}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Koordinatensysteme mit Freiheitsgraden \cite {theory}\relax }}{7}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Koordinatensysteme mit Freiheitsgraden \cite {theory}\relax }}{7}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Erfolgreiche Markererkennung und Objektplatzierung mit Aruco \cite {opencv} \relax }}{7}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Vergleich: Originalaufnahme mit Chromaticity-Bild\relax }}{8}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Anpassung der Markerfarben\relax }}{8}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Flussdiagramm der Arbeitsschritte\relax }}{10}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Schritte zur Generierung des 3D Objektes\relax }}{13}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Verwendete Objekte \cite {3d}\relax }}{13}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Applikation ohne Debugging Buttons\relax }}{14}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Applikation ohne Debugging Buttons\relax }}{14}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Verwendete Objekte\relax }}{15}
+\addvspace {10\p@ }
